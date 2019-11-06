@@ -69,7 +69,20 @@
                      BorderBrush="Gray"/>
             <StackPanel x:Name="channelButtons"
                         Orientation="Horizontal">
-                
+                <Button x:Name="channelAdd"
+                        Margin="10,10"
+                        Width="50"
+                        Height="50"
+                        FontSize="24"
+                        Content="+"
+                        Tapped="channelAdd_Tapped"/>
+                <Button x:Name="channelSubtract"
+                        Margin="10,10"
+                        Width="50"
+                        Height="50"
+                        FontSize="24"
+                        Content="-"
+                        Tapped="channelSubtract_Tapped"/>
             </StackPanel>
         </StackPanel>
 
