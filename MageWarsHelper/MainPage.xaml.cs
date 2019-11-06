@@ -25,7 +25,8 @@ namespace MageWarsHelper
     {
         private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
         {
-            ("home", typeof(Views.PlayerPage)),
+            ("homePage", typeof(Views.PlayerPage)),
+            ("playerPage", typeof(Views.PlayerPage))
         };
 
         public MainPage()
@@ -39,16 +40,27 @@ namespace MageWarsHelper
         {
             navView.SelectedItem = navView.MenuItems[0];
 
-            NavView_Navigate("home", new EntranceNavigationTransitionInfo());
+            NavView_Navigate("playerPage", new EntranceNavigationTransitionInfo());
+        }
+
+        private void navView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+            if (args.InvokedItemContainer != null)
+            {
+                var navItemTag = args.InvokedItemContainer.Tag.ToString();
+                NavView_Navigate(navItemTag, args.RecommendedNavigationTransitionInfo);
+            }
         }
 
         private void NavView_Navigate(string navItemTag, NavigationTransitionInfo transitionInfo)
         {
             Type _page = null;
-            _page = typeof(Views.PlayerPage);
+            var item = _pages.FirstOrDefault(p => p.Tag.Equals(navItemTag));
+            _page = item.Page;
+
             // Get the page type before navigation so you can prevent duplicate
             // entries in the backstack.
-            var preNavPageType = Frame.CurrentSourcePageType;
+            var preNavPageType = contentFrame.CurrentSourcePageType;
 
             // Only navigate if the selected page isn't currently loaded.
             if (!(_page is null) && !Type.Equals(preNavPageType, _page))
