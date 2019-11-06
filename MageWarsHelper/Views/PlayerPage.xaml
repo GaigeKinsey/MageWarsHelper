@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="MageWarsHelper.Views.PlayerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MageWarsHelper.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <StackPanel x:Name="mainStackPannel" 
+                Orientation="Horizontal">
+        <StackPanel x:Name="playerInfo"
+                    Orientation="Vertical">
+            <TextBlock x:Name="PlayerName"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="a name"/>
+            <TextBlock x:Name="class"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="a class"/>
+            <TextBlock x:Name="subClass"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="a subclass"/>
+
+        </StackPanel>
+        <StackPanel x:Name="turn"
+                    Orientation="Vertical">
+            <StackPanel x:Name="initiativeStack"
+                        Orientation="Horizontal">
+                <TextBlock x:Name="initiative"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="initiative"/>
+                <CheckBox/>
+            </StackPanel>
+            <StackPanel x:Name="actionStack"
+                        Orientation="Horizontal">
+                <TextBlock x:Name="action"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="Action"/>
+                <CheckBox/>
+            </StackPanel>
+            <StackPanel x:Name="quickCastStack"
+                        Orientation="Horizontal">
+                <TextBlock x:Name="quickCast"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="QuickCast"/>
+                <CheckBox/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="mainChanelStack"
+                    Orientation="Vertical">
+            <TextBlock x:Name="channeling"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="channeling"/>
+            <TextBlock x:Name="currentChanneling"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="10"/>
+            <TextBox x:Name="adjustChanel"
+                     Margin="10,10"
+                     FontSize="24"
+                     BorderBrush="Gray"/>
+            <StackPanel x:Name="channelButtons"
+                        Orientation="Horizontal">
+
+            </StackPanel>
+        </StackPanel>
+
+    </StackPanel>
+</Page>

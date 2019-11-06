@@ -25,7 +25,7 @@ namespace MageWarsHelper
     {
         private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
         {
-            ("home", typeof(PlayerPage)),
+            ("home", typeof(Views.PlayerPage)),
         };
 
         public MainPage()
@@ -45,7 +45,7 @@ namespace MageWarsHelper
         private void NavView_Navigate(string navItemTag, NavigationTransitionInfo transitionInfo)
         {
             Type _page = null;
-            _page = typeof(PlayerPage);
+            _page = typeof(Views.PlayerPage);
             // Get the page type before navigation so you can prevent duplicate
             // entries in the backstack.
             var preNavPageType = Frame.CurrentSourcePageType;
