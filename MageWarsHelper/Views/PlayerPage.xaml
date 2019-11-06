@@ -16,7 +16,7 @@
                        Margin="10,10"
                        FontSize="24"
                        Text="a name"/>
-            <TextBlock x:Name="class"
+            <TextBlock x:Name="playerClass"
                        Margin="10,10"
                        FontSize="24"
                        Text="a class"/>
