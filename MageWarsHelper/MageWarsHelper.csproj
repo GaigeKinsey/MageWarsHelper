@@ -122,6 +122,11 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MW Elements\MWCard.cs" />
+    <Compile Include="MW Elements\MWCreature.cs" />
+    <Compile Include="MW Elements\MWMage.cs" />
+    <Compile Include="MW Elements\MWPlayer.cs" />
+    <Compile Include="MW Elements\MWUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
