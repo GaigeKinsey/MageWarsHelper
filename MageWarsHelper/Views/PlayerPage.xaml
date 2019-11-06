@@ -1,8 +1,8 @@
-﻿<Page x:Name="mainPage"
-    x:Class="MageWarsHelper.PlayerPage"
+﻿<Page
+    x:Class="MageWarsHelper.Views.PlayerPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:MageWarsHelper"
+    xmlns:local="using:MageWarsHelper.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
@@ -24,7 +24,7 @@
                        Margin="10,10"
                        FontSize="24"
                        Text="a subclass"/>
-            
+
         </StackPanel>
         <StackPanel x:Name="turn"
                     Orientation="Vertical">
@@ -83,6 +83,7 @@
                         FontSize="24"
                         Content="-"
                         Tapped="channelSubtract_Tapped"/>
+
             </StackPanel>
         </StackPanel>
 
