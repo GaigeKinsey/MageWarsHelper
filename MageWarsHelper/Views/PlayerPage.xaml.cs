@@ -26,5 +26,15 @@ namespace MageWarsHelper.Views
         {
             this.InitializeComponent();
         }
+
+        private void channelAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void channelSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
     }
 }
