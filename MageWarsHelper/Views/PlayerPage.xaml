@@ -86,6 +86,72 @@
 
             </StackPanel>
         </StackPanel>
+        <StackPanel x:Name="mainManaStack"
+                    Orientation="Vertical">
+            <TextBlock x:Name="mana"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="Mana"/>
+            <TextBlock x:Name="currentMana"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="10"/>
+            <TextBox x:Name="adjustMana"
+                     Margin="10,10"
+                     FontSize="24"
+                     BorderBrush="Gray"/>
+            <StackPanel x:Name="manaButtons"
+                        Orientation="Horizontal">
+                <Button x:Name="manaAdd"
+                        Margin="10,10"
+                        Width="50"
+                        Height="50"
+                        FontSize="24"
+                        Content="+"
+                        Tapped="manaAdd_Tapped"/>
+                <Button x:Name="manaSubtract"
+                        Margin="10,10"
+                        Width="50"
+                        Height="50"
+                        FontSize="24"
+                        Content="-"
+                        Tapped="manaSubtract_Tapped"/>
+
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="mainHealthStack"
+                    Orientation="Vertical">
+            <TextBlock x:Name="Health"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="Health"/>
+            <TextBlock x:Name="currentHealth"
+                       Margin="10,10"
+                       FontSize="24"
+                       Text="10"/>
+            <TextBox x:Name="adjustHealth"
+                     Margin="10,10"
+                     FontSize="24"
+                     BorderBrush="Gray"/>
+            <StackPanel x:Name="healthButtons"
+                        Orientation="Horizontal">
+                <Button x:Name="healthAdd"
+                        Margin="10,10"
+                        Width="50"
+                        Height="50"
+                        FontSize="24"
+                        Content="+"
+                        Tapped="healthAdd_Tapped"/>
+                <Button x:Name="healthSubtract"
+                        Margin="10,10"
+                        Width="50"
+                        Height="50"
+                        FontSize="24"
+                        Content="-"
+                        Tapped="healthSubtract_Tapped"/>
+
+            </StackPanel>
+        </StackPanel>
 
     </StackPanel>
 </Page>

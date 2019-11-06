@@ -36,5 +36,25 @@ namespace MageWarsHelper.Views
         {
 
         }
+
+        private void healthSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void healthAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void manaAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
+
+        private void manaSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+
+        }
     }
 }
