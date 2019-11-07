@@ -17,6 +17,7 @@ namespace MageWarsHelper
             {
                 if (value < 1) life = 1;
                 else life = value;
+                FieldChanged();
             }
         }
         public int Damage
@@ -26,6 +27,7 @@ namespace MageWarsHelper
             {
                 if (value < 0) damage = 0;
                 else damage = value;
+                FieldChanged();
             }
         }
         public int Mana
@@ -35,6 +37,7 @@ namespace MageWarsHelper
             {
                 if (value < 0) mana = 0;
                 else mana = value;
+                FieldChanged();
             }
         }
         public int Channeling
@@ -44,6 +47,7 @@ namespace MageWarsHelper
             {
                 if (value < 0) channeling = 0;
                 else channeling = value;
+                FieldChanged();
             }
         }
         public int Armor
@@ -53,6 +57,7 @@ namespace MageWarsHelper
             {
                 if (Incorporeal || value < 0) armor = 0;
                 else armor = value;
+                FieldChanged();
             }
         }
         public bool Alive
@@ -62,6 +67,7 @@ namespace MageWarsHelper
             {
                 if (!value && life > damage) damage = life;
                 else if (value && damage >= life) damage = 0;
+                FieldChanged();
             }
         }
     }
