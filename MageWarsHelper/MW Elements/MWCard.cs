@@ -19,11 +19,6 @@ namespace MageWarsHelper
         EARTH,
         WIND
     }
-    public struct SchoolLevel
-    {
-        public SpellSchool School { get; set; }
-        public int Level { get; set; }
-    }
     public class MWCard
     {
         public string SerialNumber { get; set; }
@@ -87,8 +82,16 @@ namespace MageWarsHelper
 
         }
 
-        public void ApplySchoolLevel(SchoolLevel level)
+        public void ApplySchoolLevel(SpellSchool school, int level)
         {
+            if (levels.ContainsKey(school))
+            {
+                levels[school] += level;
+                if (levels[school] <= 0) levels.Remove(school);
+            } else if (level > 0)
+            {
+                levels.Add(school, level);
+            }
         }
     }
 }
