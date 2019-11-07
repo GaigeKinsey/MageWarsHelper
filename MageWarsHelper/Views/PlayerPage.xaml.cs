@@ -46,14 +46,14 @@ namespace MageWarsHelper.Views
             p.Mage.Channeling -= value;
         }
 
-        private void healthSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        private void healthAdd_Tapped(object sender, TappedRoutedEventArgs e)
         {
             int value = 0;
             int.TryParse(adjustHealth.Text, out value);
             p.Mage.Life += value;
         }
 
-        private void healthAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        private void healthSubtract_Tapped(object sender, TappedRoutedEventArgs e)
         {
             int value = 0;
             int.TryParse(adjustHealth.Text, out value);
