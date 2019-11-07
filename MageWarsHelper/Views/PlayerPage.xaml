@@ -13,16 +13,20 @@
 
         <StackPanel x:Name="subStackPannel" 
                     Orientation="Horizontal">
+            
             <StackPanel x:Name="playerInfo"
                         Orientation="Vertical">
+                
                 <TextBlock x:Name="PlayerName"
                            Margin="10,10"
                            FontSize="24"
                            Text="a name"/>
+                
                 <TextBlock x:Name="playerClass"
                            Margin="10,10"
                            FontSize="24"
                            Text="a class"/>
+                
                 <TextBlock x:Name="subClass"
                            Margin="10,10"
                            FontSize="24"
@@ -31,47 +35,61 @@
             </StackPanel>
             <StackPanel x:Name="turn"
                         Orientation="Vertical">
+                
                 <StackPanel x:Name="initiativeStack"
                             Orientation="Horizontal">
+                    
                     <TextBlock x:Name="initiative"
                            Margin="10,10"
                            FontSize="24"
                            Text="initiative"/>
+                    
                     <CheckBox/>
                 </StackPanel>
                 <StackPanel x:Name="actionStack"
                             Orientation="Horizontal">
+                    
                     <TextBlock x:Name="action"
                            Margin="10,10"
                            FontSize="24"
                            Text="Action"/>
+                    
                     <CheckBox/>
                 </StackPanel>
                 <StackPanel x:Name="quickCastStack"
                             Orientation="Horizontal">
+                    
                     <TextBlock x:Name="quickCast"
                            Margin="10,10"
                            FontSize="24"
                            Text="QuickCast"/>
+                    
                     <CheckBox/>
                 </StackPanel>
             </StackPanel>
             <StackPanel x:Name="mainChanelStack"
                         Orientation="Vertical">
+                
                 <TextBlock x:Name="channeling"
                            Margin="10,10"
                            FontSize="24"
                            Text="channeling"/>
+                
                 <TextBlock x:Name="currentChanneling"
                            Margin="10,10"
                            FontSize="24"
                            Text="{Binding Path=Mage.Channeling, Mode=OneWay}"/>
+                
                 <TextBox x:Name="adjustChanel"
                          Margin="10,10"
                          FontSize="24"
-                         BorderBrush="Gray"/>
+                         BorderBrush="Gray"
+                         PlaceholderText="0"
+                         BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
+                
                 <StackPanel x:Name="channelButtons"
                             Orientation="Horizontal">
+                    
                     <Button x:Name="channelAdd"
                             Margin="10,10"
                             Width="50"
@@ -79,6 +97,7 @@
                             FontSize="24"
                             Content="+"
                             Tapped="channelAdd_Tapped"/>
+                    
                     <Button x:Name="channelSubtract"
                             Margin="10,10"
                             Width="50"
@@ -91,20 +110,27 @@
             </StackPanel>
             <StackPanel x:Name="mainManaStack"
                         Orientation="Vertical">
+                
                 <TextBlock x:Name="mana"
                            Margin="10,10"
                            FontSize="24"
                            Text="Mana"/>
+                
                 <TextBlock x:Name="currentMana"
                            Margin="10,10"
                            FontSize="24"
-                           Text="10"/>
+                           Text="{Binding Path=Mage.Mana, Mode=OneWay}"/>
+                
                 <TextBox x:Name="adjustMana"
                          Margin="10,10"
                          FontSize="24"
-                         BorderBrush="Gray"/>
+                         BorderBrush="Gray"
+                         PlaceholderText="0"
+                         BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
+                
                 <StackPanel x:Name="manaButtons"
                             Orientation="Horizontal">
+                    
                     <Button x:Name="manaAdd"
                             Margin="10,10"
                             Width="50"
@@ -112,6 +138,7 @@
                             FontSize="24"
                             Content="+"
                             Tapped="manaAdd_Tapped"/>
+                    
                     <Button x:Name="manaSubtract"
                             Margin="10,10"
                             Width="50"
@@ -124,20 +151,28 @@
             </StackPanel>
             <StackPanel x:Name="mainHealthStack"
                         Orientation="Vertical">
+                
                 <TextBlock x:Name="Health"
                            Margin="10,10"
                            FontSize="24"
                            Text="Health"/>
+                
                 <TextBlock x:Name="currentHealth"
                            Margin="10,10"
                            FontSize="24"
-                           Text="10"/>
+                           Text="{Binding Path=Mage.Life, Mode=OneWay}"/>
+                
                 <TextBox x:Name="adjustHealth"
                          Margin="10,10"
                          FontSize="24"
-                         BorderBrush="Gray"/>
+                         BorderBrush="Gray"
+                         InputScope="Number"
+                         PlaceholderText="0"
+                         BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
+                
                 <StackPanel x:Name="healthButtons"
                             Orientation="Horizontal">
+                    
                     <Button x:Name="healthAdd"
                             Margin="10,10"
                             Width="50"
@@ -145,6 +180,7 @@
                             FontSize="24"
                             Content="+"
                             Tapped="healthAdd_Tapped"/>
+                    
                     <Button x:Name="healthSubtract"
                             Margin="10,10"
                             Width="50"
