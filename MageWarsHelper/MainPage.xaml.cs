@@ -25,34 +25,33 @@ namespace MageWarsHelper
     {
         private readonly List<(string Tag, Type Page)> _pages = new List<(string Tag, Type Page)>
         {
-            ("homePage", typeof(Views.PlayerPage)),
-            ("playerPage", typeof(Views.PlayerPage))
+            ("homePage", typeof(Views.HomePage)),
+            ("playerPage", typeof(Views.PlayerPage)),
+            ("cardsPage", typeof(Views.CardsPage))
         };
 
         public MainPage()
         {
             this.InitializeComponent();
-
-
         }
 
         private void navView_Loaded(object sender, RoutedEventArgs e)
         {
             navView.SelectedItem = navView.MenuItems[0];
 
-            NavView_Navigate("playerPage", new EntranceNavigationTransitionInfo());
+            NavView_Navigate("homePage", new EntranceNavigationTransitionInfo());
         }
 
-        private void navView_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        private void navView_SelectionChanged(NavigationView sender, NavigationViewSelectionChangedEventArgs args)
         {
-            if (args.InvokedItemContainer != null)
+            if (args.SelectedItemContainer != null)
             {
-                var navItemTag = args.InvokedItemContainer.Tag.ToString();
+                var navItemTag = args.SelectedItemContainer.Tag.ToString();
                 NavView_Navigate(navItemTag, args.RecommendedNavigationTransitionInfo);
             }
         }
 
-        private void NavView_Navigate(string navItemTag, NavigationTransitionInfo transitionInfo)
+        public void NavView_Navigate(string navItemTag, NavigationTransitionInfo transitionInfo)
         {
             Type _page = null;
             var item = _pages.FirstOrDefault(p => p.Tag.Equals(navItemTag));
