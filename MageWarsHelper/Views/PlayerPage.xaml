@@ -65,7 +65,7 @@
                 <TextBlock x:Name="currentChanneling"
                            Margin="10,10"
                            FontSize="24"
-                           Text="10"/>
+                           Text="{Binding Path=Mage.Channeling, Mode=OneWay}"/>
                 <TextBox x:Name="adjustChanel"
                          Margin="10,10"
                          FontSize="24"
