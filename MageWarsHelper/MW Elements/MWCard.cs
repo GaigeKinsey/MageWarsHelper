@@ -6,10 +6,31 @@ using System.Threading.Tasks;
 
 namespace MageWarsHelper
 {
+    public enum SpellSchool
+    {
+        ARCANE,
+        NATURE,
+        MIND,
+        WAR,
+        LIGHT,
+        DARK,
+        FIRE,
+        WATER,
+        EARTH,
+        WIND
+    }
+    public struct SchoolLevel
+    {
+        public SpellSchool School { get; set; }
+        public int Level { get; set; }
+    }
     public class MWCard
     {
+        public string SerialNumber { get; set; }
+        public string Name { get; set; }
         public int ManaCost { get; set; }
-        private int minrange = 0, maxrange = 0, level = 1;
+        private int minrange = 0, maxrange = 0;
+        private Dictionary<SpellSchool, int> levels = new Dictionary<SpellSchool, int>();
         public int MinRange
         {
             get { return minrange; }
@@ -49,19 +70,25 @@ namespace MageWarsHelper
         {
             get
             {
+                int level = 0;
+                foreach (var bySchool in levels)
+                {
+                    level += bySchool.Value;
+                }
                 return level;
             }
-            set
-            {
-                if (value < 1) level = 1;
-                else level = value;
-            }
         }
-        public bool Quick { get; set; }
+        public bool Quick { get; set; } = true;
+
+        public bool Novice { get; set; } = false;
 
         public MWCard()
         {
 
+        }
+
+        public void ApplySchoolLevel(SchoolLevel level)
+        {
         }
     }
 }
