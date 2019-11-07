@@ -22,9 +22,14 @@ namespace MageWarsHelper.Views
     /// </summary>
     public sealed partial class PlayerPage : Page
     {
+
+        private MWPlayer p = new MWPlayer();
+
         public PlayerPage()
         {
             this.InitializeComponent();
+            mainStackPannel.DataContext = p;
+           
         }
 
         private void channelAdd_Tapped(object sender, TappedRoutedEventArgs e)
