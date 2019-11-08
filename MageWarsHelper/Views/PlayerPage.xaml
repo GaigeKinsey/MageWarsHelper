@@ -6,7 +6,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="AliceBlue">
+    Background="AliceBlue"
+    Foreground="Black">
 
     <StackPanel x:Name="mainStackPannel"
                 Orientation="Vertical">
@@ -82,17 +83,20 @@
                         BorderBrush="Black"
                         BorderThickness="2"
                         CornerRadius="10"
-                        Margin="10">
+                        Margin="10"
+                        Padding="15,5">
                 
                 <TextBlock x:Name="channeling"
                            Margin="10,10"
                            FontSize="24"
-                           Text="Channeling"/>
+                           Text="Channeling"
+                           HorizontalAlignment="Center"/>
                 
                 <TextBlock x:Name="currentChanneling"
                            Margin="10,10"
                            FontSize="24"
-                           Text="{Binding Path=Mage.Channeling, Mode=OneWay}"/>
+                           Text="{Binding Path=Mage.Channeling, Mode=OneWay}"
+                           HorizontalAlignment="Center"/>
                 
                 <TextBox x:Name="adjustChanel"
                          Margin="10,10"
@@ -102,7 +106,8 @@
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
                 
                 <StackPanel x:Name="channelButtons"
-                            Orientation="Horizontal">
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
                     
                     <Button x:Name="channelAdd"
                             Margin="10,10"
@@ -129,17 +134,20 @@
                         BorderBrush="Black"
                         BorderThickness="2"
                         CornerRadius="10"
-                        Margin="10">
+                        Margin="10"
+                        Padding="15,5">
                 
                 <TextBlock x:Name="mana"
                            Margin="10,10"
                            FontSize="24"
-                           Text="Mana"/>
+                           Text="Mana"
+                           HorizontalAlignment="Center"/>
                 
                 <TextBlock x:Name="currentMana"
                            Margin="10,10"
                            FontSize="24"
-                           Text="{Binding Path=Mage.Mana, Mode=OneWay}"/>
+                           Text="{Binding Path=Mage.Mana, Mode=OneWay}"
+                           HorizontalAlignment="Center"/>
                 
                 <TextBox x:Name="adjustMana"
                          Margin="10,10"
@@ -149,7 +157,8 @@
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
                 
                 <StackPanel x:Name="manaButtons"
-                            Orientation="Horizontal">
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
                     
                     <Button x:Name="manaAdd"
                             Margin="10,10"
@@ -176,17 +185,20 @@
                         BorderBrush="Black"
                         BorderThickness="2"
                         CornerRadius="10"
-                        Margin="10">
+                        Margin="10"
+                        Padding="15,5">
                 
                 <TextBlock x:Name="LifeText"
                            Margin="10,10"
                            FontSize="24"
-                           Text="Life"/>
+                           Text="Life"
+                           HorizontalAlignment="Center"/>
                 
                 <TextBlock x:Name="currentLife"
                            Margin="10,10"
                            FontSize="24"
-                           Text="{Binding Path=Mage.Life, Mode=OneWay}"/>
+                           Text="{Binding Path=Mage.Life, Mode=OneWay}"
+                           HorizontalAlignment="Center"/>
                 
                 <TextBox x:Name="adjustLife"
                          Margin="10,10"
@@ -197,7 +209,8 @@
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
                 
                 <StackPanel x:Name="lifeButtons"
-                            Orientation="Horizontal">
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
                     
                     <Button x:Name="lifeAdd"
                             Margin="10,10"
@@ -224,17 +237,20 @@
                         BorderBrush="Black"
                         BorderThickness="2"
                         CornerRadius="10"
-                        Margin="10">
+                        Margin="10"
+                        Padding="15,5">
                 
                 <TextBlock x:Name="DamageText"
                            Margin="10,10"
                            FontSize="24"
-                           Text="Damage"/>
+                           Text="Damage"
+                           HorizontalAlignment="Center"/>
                 
                 <TextBlock x:Name="currentDamage"
                            Margin="10,10"
                            FontSize="24"
-                           Text="{Binding Path=Mage.Damage, Mode=OneWay}"/>
+                           Text="{Binding Path=Mage.Damage, Mode=OneWay}"
+                           HorizontalAlignment="Center"/>
                 
                 <TextBox x:Name="adjustDamage"
                          Margin="10,10"
@@ -245,7 +261,8 @@
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
                 
                 <StackPanel x:Name="DamageButtons"
-                            Orientation="Horizontal">
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
                     
                     <Button x:Name="DamageAdd"
                             Margin="10,10"
@@ -272,17 +289,20 @@
                         BorderBrush="Black"
                         BorderThickness="2"
                         CornerRadius="10"
-                        Margin="10">
+                        Margin="10"
+                        Padding="15,5">
                 
                 <TextBlock x:Name="ArmorText"
                            Margin="10,10"
                            FontSize="24"
-                           Text="Armor"/>
+                           Text="Armor"
+                           HorizontalAlignment="Center"/>
                 
                 <TextBlock x:Name="currentArmor"
                            Margin="10,10"
                            FontSize="24"
-                           Text="{Binding Path=Mage.Armor, Mode=OneWay}"/>
+                           Text="{Binding Path=Mage.Armor, Mode=OneWay}"
+                           HorizontalAlignment="Center"/>
                 
                 <TextBox x:Name="adjustArmor"
                          Margin="10,10"
@@ -293,7 +313,8 @@
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
                 
                 <StackPanel x:Name="ArmorButtons"
-                            Orientation="Horizontal">
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
                     
                     <Button x:Name="ArmorAdd"
                             Margin="10,10"
