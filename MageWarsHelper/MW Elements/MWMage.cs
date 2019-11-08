@@ -10,6 +10,8 @@ namespace MageWarsHelper
     {
         public MWMage()
         {
+            Name = "Mage";
+            Subtypes.Add(Subtype.HUMAN);
             Life = 36;
             Channeling = 9;
             Mana = 10;

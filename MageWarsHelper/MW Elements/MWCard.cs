@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace MageWarsHelper
 {
+    #region SpellSchool
     /// <summary>
     /// Schools of magic, which determine how much extra a Mage has to pay
     /// to put spells in their spellbooks. A MWCard may have more than one
@@ -26,6 +27,111 @@ namespace MageWarsHelper
         EARTH,
         WIND
     }
+    #endregion
+    #region Subtype
+    /// <summary>
+    /// Subtypes, relevent for searching and some card effects. A MWCard
+    /// won't always have one, but it can have several.
+    /// </summary>
+    public enum Subtype
+    {
+        ACID,
+        AEGIS,
+        ALTAR,
+        ANGEL,
+        ANIMAL,
+        ANTARIAN,
+        APE,
+        ARTIFACT,
+        BARRIER,
+        BAT,
+        BEAR,
+        BIRD,
+        CANINE,
+        CAT,
+        CERVINE,
+        CHARM,
+        CLERIC,
+        CLOUD,
+        COMMAND,
+        CONTROL,
+        CURSE,
+        DARK_ELF,
+        DEFENSE,
+        DEMON,
+        DRAGON,
+        DWARF,
+        ELEMENTAL,
+        FAERIE,
+        FLAME,
+        FLOWER,
+        FORCE,
+        GARGOYLE,
+        GOBLIN,
+        GOLEM,
+        GREMLIN,
+        HARPY,
+        HEALING,
+        HIGH_ELF,
+        HORSE,
+        HUMAN,
+        HYDRO,
+        ILLUSION,
+        INSECT,
+        KNIGHT,
+        LIGHT,
+        LIGHTNING,
+        LIZARD,
+        LYCANTHROPE,
+        MANA,
+        METAMAGIC,
+        MINOTAUR,
+        NECRO,
+        OBELISK,
+        OOZE,
+        ORC,
+        OUTPOST,
+        PLANT,
+        POISON,
+        PORTAL,
+        PROTECTION,
+        PSYCHIC,
+        PSYOCULUS,
+        REPTILE,
+        RUNE,
+        SEISMIC,
+        SEQUOIAN,
+        SERPENT,
+        SHADOW,
+        SKELETON,
+        SOLDIER,
+        SPIDER,
+        SPIRIT,
+        STATUE,
+        STONE,
+        STRUCTURE,
+        TELEPORT,
+        TEMPLE,
+        TOME,
+        TOTEM,
+        TOWER,
+        TRANSFORM,
+        TRAP,
+        TREE,
+        TROLL,
+        UNDEAD,
+        VAMPIRE,
+        VAMPIRIC,
+        VINE,
+        V_TAR,
+        WAR_MACHINE,
+        WEATHER,
+        WIND,
+        WOOD_ELF,
+        WORM,
+        ZOMBIE
+    }
+    #endregion
     /// <summary>
     /// Cards in Mage Wars. Aside from the Mage, they start in the player's spellbook.
     /// </summary>
@@ -67,6 +173,7 @@ namespace MageWarsHelper
         /// </summary>
         private int manacost = 5, minrange = 0, maxrange = 0;
         private Dictionary<SpellSchool, int> levels = new Dictionary<SpellSchool, int>();
+        private List<Subtype> subtypes = new List<Subtype>();
 
         public event PropertyChangedEventHandler PropertyChanged;
         public int ManaCost {
@@ -136,12 +243,34 @@ namespace MageWarsHelper
                 int level = 0;
                 foreach (var bySchool in levels)
                 {
-                    level += bySchool.Value;
+                    if (ChooseSchool)
+                    {
+                        if (level == 0 || bySchool.Value < level) level = bySchool.Value;
+                    } else
+                    {
+                        level += bySchool.Value;
+                    }
                 }
                 return level;
             }
         }
-        private bool quick = true, novice = false, epic = false;
+        private bool chooseschool = false, quick = true, novice = false, epic = false;
+        /// <summary>
+        /// If true, this spell's school/level is chooseable from the options, instead of a combination of them.
+        /// </summary>
+        public bool ChooseSchool
+        {
+            get
+            {
+                return chooseschool;
+            }
+            set
+            {
+                chooseschool = value;
+                FieldChanged();
+                PropertyChanged(this, new PropertyChangedEventArgs("Level"));
+            }
+        }
         /// <summary>
         /// If true, casting this spell is a quick action.
         /// </summary>
@@ -157,7 +286,7 @@ namespace MageWarsHelper
             }
         }
         /// <summary>
-        /// If
+        /// If true, the spell only costs 1 to put in the spellbook.
         /// </summary>
         public bool Novice
         {
@@ -171,6 +300,9 @@ namespace MageWarsHelper
                 FieldChanged();
             }
         }
+        /// <summary>
+        /// If true, you can only have 1 copy of this spell in your spellbook.
+        /// </summary>
         public bool Epic
         {
             get
@@ -180,6 +312,18 @@ namespace MageWarsHelper
             set
             {
                 epic = value;
+                FieldChanged();
+            }
+        }
+        public List<Subtype> Subtypes
+        {
+            get
+            {
+                return subtypes;
+            }
+            set
+            {
+                subtypes = value;
                 FieldChanged();
             }
         }
@@ -203,19 +347,44 @@ namespace MageWarsHelper
 
         public int CostToLearn(ICollection<SpellSchool> trained, ICollection<SpellSchool> restricted)
         {
-            if (Novice) return 1;
-            int cost = 0;
-            foreach (var bySchool in levels)
+            if (Novice || levels.Count > 0) return 1;
+            int cost;
+            if (ChooseSchool)
             {
-                if (trained.Contains(bySchool.Key))
+                cost = 10;
+                foreach (var bySchool in levels)
                 {
-                    cost += bySchool.Value;
-                } else if (restricted.Contains(bySchool.Key))
+                    if (trained.Contains(bySchool.Key))
+                    {
+                        cost = Math.Min(bySchool.Value, cost);
+                    }
+                    else if (restricted.Contains(bySchool.Key))
+                    {
+                        cost = Math.Min(bySchool.Value * 3, cost);
+                    }
+                    else
+                    {
+                        cost = Math.Min(bySchool.Value * 2, cost);
+                    }
+                }
+            }
+            else
+            {
+                cost = 0;
+                foreach (var bySchool in levels)
                 {
-                    cost += bySchool.Value * 3;
-                } else
-                {
-                    cost += bySchool.Value * 2;
+                    if (trained.Contains(bySchool.Key))
+                    {
+                        cost += bySchool.Value;
+                    }
+                    else if (restricted.Contains(bySchool.Key))
+                    {
+                        cost += bySchool.Value * 3;
+                    }
+                    else
+                    {
+                        cost += bySchool.Value * 2;
+                    }
                 }
             }
             return cost;
