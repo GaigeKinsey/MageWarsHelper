@@ -27,6 +27,9 @@
 
             <NavigationViewItem Tag="cardsPage"
                                 Content="Cards"/>
+            
+            <NavigationViewItem Tag="dicePage"
+                                Content="Dice"/>
         </NavigationView.MenuItems>
 
         <Frame x:Name="contentFrame"/>

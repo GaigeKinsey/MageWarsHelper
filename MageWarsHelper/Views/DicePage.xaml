@@ -1,0 +1,93 @@
+﻿<Page
+    x:Class="MageWarsHelper.Views.DicePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:MageWarsHelper.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    RequestedTheme="Light"
+    Background="Azure">
+
+    <StackPanel x:Name="mainStack"
+                Orientation="Vertical">
+        
+        <StackPanel x:Name="controlStack"
+                    VerticalAlignment="Center"
+                    Orientation="Horizontal">
+
+            <StackPanel x:Name="damgeDiceStack"
+                            Orientation="Vertical"
+                            Padding="20">
+
+                <CheckBox x:Name="damageDiceCheck"
+                              Content="Damage Dice"
+                              FontSize="24"/>
+
+                <TextBlock x:Name="damageDiceLabel"
+                               FontSize="24"
+                               Text="Number Of Damge Dice:"/>
+
+                <TextBox x:Name="numOfDamageDice"
+                             Width="100"
+                             HorizontalAlignment="Left"/>
+            </StackPanel>
+            <CheckBox x:Name="effectDieCheck"
+                          Content="Damage Dice"
+                          FontSize="24"
+                          VerticalAlignment="Top"
+                          Margin="20"/>
+            
+            <Button x:Name="rollButton"
+                    Content="ROLL"
+                    FontSize="36"
+                    FontWeight="Bold"
+                    Width="125"
+                    Height="100" Click="rollButton_Click"/>
+
+        </StackPanel>
+
+        <StackPanel x:Name="resultStack"
+                    Orientation="Horizontal">
+            
+            <StackPanel x:Name="critStack"
+                        Orientation="Vertical"
+                        Margin="10">
+            
+                <TextBlock x:Name="CritDamage"
+                           FontSize="36"
+                           Text="Crit Damage:"/>
+                
+                <TextBlock x:Name="CritDamageNum"
+                           FontSize="36"/>
+            </StackPanel>
+            
+            <StackPanel x:Name="normalStack"
+                        Orientation="Vertical"
+                        Margin="10">
+            
+                <TextBlock x:Name="normalDamage"
+                           FontSize="36"
+                           Text="Normal Damage:"/>
+                
+                <TextBlock x:Name="NormalDamageNum"
+                           FontSize="36"/>
+            </StackPanel>
+            
+            <StackPanel x:Name="effectResultStack"
+                        Orientation="Vertical"
+                        Margin="10">
+            
+                <TextBlock x:Name="effectResult"
+                           FontSize="36"
+                           Text="Effect Die Result:"/>
+                
+                <TextBlock x:Name="effectResultNum"
+                           FontSize="36"/>
+            </StackPanel>
+            
+        </StackPanel>
+        
+
+    </StackPanel>
+</Page>

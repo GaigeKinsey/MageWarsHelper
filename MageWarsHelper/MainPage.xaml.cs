@@ -27,7 +27,8 @@ namespace MageWarsHelper
         {
             ("homePage", typeof(Views.HomePage)),
             ("playerPage", typeof(Views.PlayerPage)),
-            ("cardsPage", typeof(Views.CardsPage))
+            ("cardsPage", typeof(Views.CardsPage)),
+            ("dicePage", typeof(Views.DicePage))
         };
 
         public MainPage()

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MageWarsHelper.MW_Elements;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -20,9 +21,9 @@ namespace MageWarsHelper.Views
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class DiceRoller : Page
+    public sealed partial class DicePage : Page
     {
-        public DiceRoller()
+        public DicePage()
         {
             this.InitializeComponent();
         }
@@ -34,21 +35,40 @@ namespace MageWarsHelper.Views
             
         }
 
-        private void rollButton_Tapped(object sender, TappedRoutedEventArgs e)
+        private void rollButton_Click(object sender, RoutedEventArgs e)
         {
-
-            int sides = 0;
-            int.TryParse(numberOfSides.Text, out sides);
-            if(sides > 1)
+            
+            if((bool)effectDieCheck.IsChecked)
             {
-
                 Random rng = new Random();
-                numberRolled.Text = rng.Next(1, sides + 1).ToString();
+                effectResultNum.Text = rng.Next(1, 13).ToString();
             }
-            else
+
+            if((bool)damageDiceCheck.IsChecked)
             {
-                numberRolled.Text = "invalid number of sides";
+                int numOfDie = 0;
+                int crit = 0;
+                int normal = 0;
+                MWDice die = new MWDice();
+                int.TryParse(numOfDamageDice.Text, out numOfDie);
+
+                for(int i = 0; i < numOfDie; i++)
+                {
+                    die.Roll();
+                    if(die.Crit)
+                    {
+                        crit += die.Result;
+                    }
+                    else
+                    {
+                        normal += die.Result;
+                    }
+                }
+                CritDamageNum.Text = crit.ToString();
+                NormalDamageNum.Text = normal.ToString();
+                
             }
+
 
         }
     }

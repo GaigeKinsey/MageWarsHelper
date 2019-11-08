@@ -24,10 +24,12 @@
                         Margin="10"
                         Padding="15,5">
                 
-                <TextBlock x:Name="PlayerName"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="a name"/>
+                <TextBox x:Name="PlayerName"
+                         Margin="10,10"
+                         FontSize="24"
+                         BorderBrush="Transparent"
+                         Background="Transparent"
+                         PlaceholderText="Name"/>
                 
                 <TextBlock x:Name="playerClass"
                            Margin="10,10"
