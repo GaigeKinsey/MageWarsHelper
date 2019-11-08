@@ -35,5 +35,17 @@
                    TextAlignment="Center"
                    Width="auto"
                    Text="Head to the player page to set up your stats."/>
+
+        <TextBlock Foreground="Black"
+                   VerticalAlignment="Bottom"
+                   Grid.Row="3"
+                   FontSize="20"
+                   TextAlignment="Right"
+                   Width="auto"
+                   Padding="0 0 25 0">
+            <Span xml:space="preserve">
+                <Run>Card database thanks to </Run><Hyperlink NavigateUri="http://forum.arcanewonders.com/sbb/database.php">Arcane Wonders</Hyperlink>
+            </Span>
+        </TextBlock>
     </Grid>
 </Page>
