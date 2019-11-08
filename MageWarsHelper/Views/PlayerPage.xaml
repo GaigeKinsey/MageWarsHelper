@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="AliceBlue"
-    Foreground="Black">
+    Foreground="Black"
+    RequestedTheme="Light">
 
     <StackPanel x:Name="mainStackPannel"
                 Orientation="Vertical">
@@ -48,33 +49,24 @@
                         CornerRadius="10"
                         Margin="10,10">
 
-                <StackPanel x:Name="initiativeStack"
-                            Orientation="Horizontal">
-
                     <CheckBox x:Name="initativeCheckBox"
                               FontSize="24"
                               Margin="10,1"
                               VerticalContentAlignment="Center"
                               Content="Initiative"/>
-                </StackPanel>
-                <StackPanel x:Name="actionStack"
-                            Orientation="Horizontal">
+
 
                     <CheckBox x:Name="actionCheckBox"
                               FontSize="24"
                               Margin="10,1"
                               VerticalContentAlignment="Center"
                               Content="Action"/>
-                </StackPanel>
-                <StackPanel x:Name="quickCastStack"
-                            Orientation="Horizontal">
 
-                    <CheckBox x:Name="quickCastCheckBox"
+                <CheckBox x:Name="quickCastCheckBox"
                               FontSize="24"
                               Margin="10,1"
                               VerticalContentAlignment="Center"
                               Content="QuickCast"/>
-                </StackPanel>
             </StackPanel>
             
             <StackPanel x:Name="mainChanelStack"
