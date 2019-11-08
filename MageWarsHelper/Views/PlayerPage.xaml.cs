@@ -46,17 +46,17 @@ namespace MageWarsHelper.Views
             p.Mage.Channeling -= value;
         }
 
-        private void healthAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        private void lifeAdd_Tapped(object sender, TappedRoutedEventArgs e)
         {
             int value = 0;
-            int.TryParse(adjustHealth.Text, out value);
+            int.TryParse(adjustLife.Text, out value);
             p.Mage.Life += value;
         }
 
-        private void healthSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        private void lifeSubtract_Tapped(object sender, TappedRoutedEventArgs e)
         {
             int value = 0;
-            int.TryParse(adjustHealth.Text, out value);
+            int.TryParse(adjustLife.Text, out value);
             p.Mage.Life -= value;
         }
 
@@ -72,6 +72,34 @@ namespace MageWarsHelper.Views
             int value = 0;
             int.TryParse(adjustMana.Text, out value);
             p.Mage.Mana -= value;
+        }
+
+        private void DamageAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            int value = 0;
+            int.TryParse(adjustDamage.Text, out value);
+            p.Mage.Damage += value;
+        }
+
+        private void DamageSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            int value = 0;
+            int.TryParse(adjustDamage.Text, out value);
+            p.Mage.Damage -= value;
+        }
+
+        private void ArmorAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            int value = 0;
+            int.TryParse(adjustArmor.Text, out value);
+            p.Mage.Armor += value;
+        }
+
+        private void ArmorSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            int value = 0;
+            int.TryParse(adjustArmor.Text, out value);
+            p.Mage.Armor -= value;
         }
 
         private void TextBoxNumber_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)

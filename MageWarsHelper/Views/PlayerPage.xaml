@@ -6,7 +6,7 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="BlanchedAlmond">
+    Background="AliceBlue">
 
     <StackPanel x:Name="mainStackPannel"
                 Orientation="Vertical">
@@ -15,7 +15,12 @@
                     Orientation="Horizontal">
             
             <StackPanel x:Name="playerInfo"
-                        Orientation="Vertical">
+                        Orientation="Vertical"
+                        Background="BlanchedAlmond"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Margin="10">
                 
                 <TextBlock x:Name="PlayerName"
                            Margin="10,10"
@@ -28,47 +33,56 @@
                            Text="a class"/>
                 
                 <TextBlock x:Name="subClass"
-                           Margin="10,10"
+                           Margin="10"
                            FontSize="24"
                            Text="a subclass"/>
 
             </StackPanel>
+            
             <StackPanel x:Name="turn"
-                        Orientation="Vertical">
-                
+                        Orientation="Vertical"
+                        Background="BlanchedAlmond"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Margin="10,10">
+
                 <StackPanel x:Name="initiativeStack"
                             Orientation="Horizontal">
-                    
-                    <TextBlock x:Name="initiative"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="initiative"/>
-                    
-                    <CheckBox/>
+
+                    <CheckBox x:Name="initativeCheckBox"
+                              FontSize="24"
+                              Margin="10,1"
+                              VerticalContentAlignment="Center"
+                              Content="Initiative"/>
                 </StackPanel>
                 <StackPanel x:Name="actionStack"
                             Orientation="Horizontal">
-                    
-                    <TextBlock x:Name="action"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="Action"/>
-                    
-                    <CheckBox/>
+
+                    <CheckBox x:Name="actionCheckBox"
+                              FontSize="24"
+                              Margin="10,1"
+                              VerticalContentAlignment="Center"
+                              Content="Action"/>
                 </StackPanel>
                 <StackPanel x:Name="quickCastStack"
                             Orientation="Horizontal">
-                    
-                    <TextBlock x:Name="quickCast"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="QuickCast"/>
-                    
-                    <CheckBox/>
+
+                    <CheckBox x:Name="quickCastCheckBox"
+                              FontSize="24"
+                              Margin="10,1"
+                              VerticalContentAlignment="Center"
+                              Content="QuickCast"/>
                 </StackPanel>
             </StackPanel>
+            
             <StackPanel x:Name="mainChanelStack"
-                        Orientation="Vertical">
+                        Orientation="Vertical"
+                        Background="BlanchedAlmond"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Margin="10">
                 
                 <TextBlock x:Name="channeling"
                            Margin="10,10"
@@ -108,8 +122,14 @@
 
                 </StackPanel>
             </StackPanel>
+            
             <StackPanel x:Name="mainManaStack"
-                        Orientation="Vertical">
+                        Orientation="Vertical"
+                        Background="BlanchedAlmond"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Margin="10">
                 
                 <TextBlock x:Name="mana"
                            Margin="10,10"
@@ -149,20 +169,26 @@
 
                 </StackPanel>
             </StackPanel>
-            <StackPanel x:Name="mainHealthStack"
-                        Orientation="Vertical">
+            
+            <StackPanel x:Name="mainLifeStack"
+                        Orientation="Vertical"
+                        Background="BlanchedAlmond"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Margin="10">
                 
-                <TextBlock x:Name="Health"
+                <TextBlock x:Name="LifeText"
                            Margin="10,10"
                            FontSize="24"
-                           Text="Health"/>
+                           Text="Life"/>
                 
-                <TextBlock x:Name="currentHealth"
+                <TextBlock x:Name="currentLife"
                            Margin="10,10"
                            FontSize="24"
                            Text="{Binding Path=Mage.Life, Mode=OneWay}"/>
                 
-                <TextBox x:Name="adjustHealth"
+                <TextBox x:Name="adjustLife"
                          Margin="10,10"
                          FontSize="24"
                          BorderBrush="Gray"
@@ -170,24 +196,120 @@
                          PlaceholderText="0"
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
                 
-                <StackPanel x:Name="healthButtons"
+                <StackPanel x:Name="lifeButtons"
                             Orientation="Horizontal">
                     
-                    <Button x:Name="healthAdd"
+                    <Button x:Name="lifeAdd"
                             Margin="10,10"
                             Width="50"
                             Height="50"
                             FontSize="24"
                             Content="+"
-                            Tapped="healthAdd_Tapped"/>
+                            Tapped="lifeAdd_Tapped"/>
                     
-                    <Button x:Name="healthSubtract"
+                    <Button x:Name="lifeSubtract"
                             Margin="10,10"
                             Width="50"
                             Height="50"
                             FontSize="24"
                             Content="-"
-                            Tapped="healthSubtract_Tapped"/>
+                            Tapped="lifeSubtract_Tapped"/>
+
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel x:Name="mainDamageStack"
+                        Orientation="Vertical"
+                        Background="BlanchedAlmond"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Margin="10">
+                
+                <TextBlock x:Name="DamageText"
+                           Margin="10,10"
+                           FontSize="24"
+                           Text="Damage"/>
+                
+                <TextBlock x:Name="currentDamage"
+                           Margin="10,10"
+                           FontSize="24"
+                           Text="{Binding Path=Mage.Damage, Mode=OneWay}"/>
+                
+                <TextBox x:Name="adjustDamage"
+                         Margin="10,10"
+                         FontSize="24"
+                         BorderBrush="Gray"
+                         InputScope="Number"
+                         PlaceholderText="0"
+                         BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
+                
+                <StackPanel x:Name="DamageButtons"
+                            Orientation="Horizontal">
+                    
+                    <Button x:Name="DamageAdd"
+                            Margin="10,10"
+                            Width="50"
+                            Height="50"
+                            FontSize="24"
+                            Content="+"
+                            Tapped="DamageAdd_Tapped"/>
+                    
+                    <Button x:Name="DamageSubtract"
+                            Margin="10,10"
+                            Width="50"
+                            Height="50"
+                            FontSize="24"
+                            Content="-"
+                            Tapped="DamageSubtract_Tapped"/>
+
+                </StackPanel>
+            </StackPanel>
+            
+            <StackPanel x:Name="mainArmorStack"
+                        Orientation="Vertical"
+                        Background="BlanchedAlmond"
+                        BorderBrush="Black"
+                        BorderThickness="2"
+                        CornerRadius="10"
+                        Margin="10">
+                
+                <TextBlock x:Name="ArmorText"
+                           Margin="10,10"
+                           FontSize="24"
+                           Text="Armor"/>
+                
+                <TextBlock x:Name="currentArmor"
+                           Margin="10,10"
+                           FontSize="24"
+                           Text="{Binding Path=Mage.Armor, Mode=OneWay}"/>
+                
+                <TextBox x:Name="adjustArmor"
+                         Margin="10,10"
+                         FontSize="24"
+                         BorderBrush="Gray"
+                         InputScope="Number"
+                         PlaceholderText="0"
+                         BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
+                
+                <StackPanel x:Name="ArmorButtons"
+                            Orientation="Horizontal">
+                    
+                    <Button x:Name="ArmorAdd"
+                            Margin="10,10"
+                            Width="50"
+                            Height="50"
+                            FontSize="24"
+                            Content="+"
+                            Tapped="ArmorAdd_Tapped"/>
+                    
+                    <Button x:Name="ArmorSubtract"
+                            Margin="10,10"
+                            Width="50"
+                            Height="50"
+                            FontSize="24"
+                            Content="-"
+                            Tapped="ArmorSubtract_Tapped"/>
 
                 </StackPanel>
             </StackPanel>
