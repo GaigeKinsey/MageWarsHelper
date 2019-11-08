@@ -131,6 +131,9 @@
     <Compile Include="Views\CardsPage.xaml.cs">
       <DependentUpon>CardsPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\DiceRoller.xaml.cs">
+      <DependentUpon>DiceRoller.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -163,6 +166,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\CardsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DiceRoller.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

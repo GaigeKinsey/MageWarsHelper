@@ -7,7 +7,6 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="AliceBlue"
-    Foreground="Black"
     RequestedTheme="Light">
 
     <StackPanel x:Name="mainStackPannel"
@@ -22,7 +21,8 @@
                         BorderBrush="Black"
                         BorderThickness="2"
                         CornerRadius="10"
-                        Margin="10">
+                        Margin="10"
+                        Padding="15,5">
                 
                 <TextBlock x:Name="PlayerName"
                            Margin="10,10"
@@ -47,20 +47,21 @@
                         BorderBrush="Black"
                         BorderThickness="2"
                         CornerRadius="10"
-                        Margin="10,10">
+                        Margin="10,10"
+                        Padding="15,5">
 
-                    <CheckBox x:Name="initativeCheckBox"
-                              FontSize="24"
-                              Margin="10,1"
-                              VerticalContentAlignment="Center"
-                              Content="Initiative"/>
+                <CheckBox x:Name="initativeCheckBox"
+                            FontSize="24"
+                            Margin="10,1"
+                            VerticalContentAlignment="Center"
+                            Content="Initiative"/>
 
 
-                    <CheckBox x:Name="actionCheckBox"
-                              FontSize="24"
-                              Margin="10,1"
-                              VerticalContentAlignment="Center"
-                              Content="Action"/>
+                <CheckBox x:Name="actionCheckBox"
+                            FontSize="24"
+                            Margin="10,1"
+                            VerticalContentAlignment="Center"
+                            Content="Action"/>
 
                 <CheckBox x:Name="quickCastCheckBox"
                               FontSize="24"
