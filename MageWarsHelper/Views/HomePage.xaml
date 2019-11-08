@@ -6,32 +6,34 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <TextBlock HorizontalAlignment="Center"
-                   VerticalAlignment="Center"
+
+        <TextBlock Grid.Row="1"
                    Foreground="Black"
                    FontSize="40"
                    TextAlignment="Center"
+                   VerticalAlignment="Center"
                    Width="auto">
             <Run Text="Mage Wars Helper"/>
             <LineBreak/>
             <Run Text="By the Arbitrary Ninjas"/>
         </TextBlock>
 
-        <StackPanel Grid.Row="1"
-                    VerticalAlignment="Center">
-            <TextBlock Foreground="Black"
-                       FontSize="40"
-                       TextAlignment="Center"
-                       Width="auto"
-                       Text="Head to the player page to set up your stats."/>
-        </StackPanel>
+        <TextBlock Foreground="Black"
+                   VerticalAlignment="Center"
+                   Grid.Row="2"
+                   FontSize="40"
+                   TextAlignment="Center"
+                   Width="auto"
+                   Text="Head to the player page to set up your stats."/>
     </Grid>
 </Page>

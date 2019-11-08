@@ -6,12 +6,13 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
+    RequestedTheme="Light"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <NavigationView x:Name="navView"
                     Loaded="navView_Loaded" 
                     SelectionChanged="navView_SelectionChanged"
-                    Background="BlanchedAlmond"
+                    Background="White"
                     PaneDisplayMode="LeftCompact"
                     IsBackButtonVisible="Collapsed"
                     IsSettingsVisible="False"
