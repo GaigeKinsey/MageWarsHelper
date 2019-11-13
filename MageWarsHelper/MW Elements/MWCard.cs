@@ -8,6 +8,24 @@ using System.Threading.Tasks;
 
 namespace MageWarsHelper
 {
+    #region AttackElement
+    /// <summary>
+    /// Elements of attacks, used for calculating weakness, resistance, and bonuses.
+    /// An attack can only have 1 element.
+    /// </summary>
+    public enum AttackElement
+    {
+        ACID,
+        HYDRO,
+        FLAME,
+        FROST,
+        LIGHT,
+        LIGHTNING,
+        POISON,
+        PSYCHIC,
+        WIND
+    }
+    #endregion
     #region SpellSchool
     /// <summary>
     /// Schools of magic, which determine how much extra a Mage has to pay
@@ -171,7 +189,7 @@ namespace MageWarsHelper
         /// <summary>
         /// The base cost to cast this card.
         /// </summary>
-        private int manacost = 5, minrange = 0, maxrange = 0;
+        private int mana = 0, channeling = 0, manacost = 5, minrange = 0, maxrange = 0;
         private Dictionary<SpellSchool, int> levels = new Dictionary<SpellSchool, int>();
         private List<Subtype> subtypes = new List<Subtype>();
 
@@ -268,7 +286,7 @@ namespace MageWarsHelper
             {
                 chooseschool = value;
                 FieldChanged();
-                PropertyChanged(this, new PropertyChangedEventArgs("Level"));
+                FieldChanged("Level");
             }
         }
         /// <summary>
@@ -315,6 +333,9 @@ namespace MageWarsHelper
                 FieldChanged();
             }
         }
+        /// <summary>
+        /// A list of all the different subtypes this spell has. It can be empty.
+        /// </summary>
         public List<Subtype> Subtypes
         {
             get
@@ -327,24 +348,97 @@ namespace MageWarsHelper
                 FieldChanged();
             }
         }
+        /// <summary>
+        /// All Mages have mana. In general, the only other things with mana are
+        /// spawnpoints and familiars. In certain expansions, non-unit cards can
+        /// be spawnpoints or familiars.
+        /// </summary>
+        public bool HasMana
+        {
+            get
+            {
+                return mana + channeling > 0;
+            }
+            set
+            {
+                if (!value)
+                {
+                    channeling = 0;
+                    FieldChanged("Channeling");
+                    mana = 0;
+                    FieldChanged("Mana");
+                }
+                else if (value && channeling == 0)
+                {
+                    channeling = 1;
+                    FieldChanged("Channeling");
+                }
+            }
+        }
+        /// <summary>
+        /// Current amount of mana, which is never below 0. If you give something
+        /// mana when it didn't have any before, it counts as having mana.
+        /// </summary>
+        public int Mana
+        {
+            get { return mana; }
+            set
+            {
+                if (value < 0) mana = 0;
+                else mana = value;
+                FieldChanged("HasMana");
+                FieldChanged();
+            }
+        }
+        /// <summary>
+        /// How much mana this gains during upkeep. If it's above 0, this will
+        /// always be treated as having mana, even when its curren mana is 0.
+        /// </summary>
+        public int Channeling
+        {
+            get { return channeling; }
+            set
+            {
+                if (value < 0) channeling = 0;
+                else channeling = value;
+                FieldChanged("HasMana");
+                FieldChanged();
+            }
+        }
+        /// <summary>
+        /// Default constructor for a card.
+        /// </summary>
         public MWCard()
         {
 
         }
-
-        public void ApplySchoolLevel(SpellSchool school, int level)
+        /// <summary>
+        /// Sets the level of a particular school for this spell. If ChooseSchool is true,
+        /// the lowest level will be treated as the level count. Otherwise, all levels
+        /// will be added up to get the count. 
+        /// </summary>
+        /// <param name="school">The school for this level</param>
+        /// <param name="level">The level</param>
+        public void SetSchoolLevel(SpellSchool school, int level)
         {
             if (levels.ContainsKey(school))
             {
-                levels[school] += level;
+                levels[school] = level;
                 if (levels[school] <= 0) levels.Remove(school);
             } else if (level > 0)
             {
                 levels.Add(school, level);
             }
-            PropertyChanged(this, new PropertyChangedEventArgs("Level"));
+            FieldChanged("Level");
         }
-
+        /// <summary>
+        /// The cost to add this to your spell book. This is based on the spell's levels and
+        /// which schools your Mage is trained in and are restricted to it. Being untrained
+        /// doubles the cost per level. Having the school restricted triples it instead.
+        /// </summary>
+        /// <param name="trained">Your Mage's trained schools</param>
+        /// <param name="restricted">Your Mage's restricted schools</param>
+        /// <returns>The total cost for your Mage to put this in a spellbook.</returns>
         public int CostToLearn(ICollection<SpellSchool> trained, ICollection<SpellSchool> restricted)
         {
             if (Novice || levels.Count > 0) return 1;
