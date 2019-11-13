@@ -38,13 +38,26 @@ namespace MageWarsHelper.Views
 
             p.Mage.SerialNumber = "BEASTMASTERABILITYOUTLINE";
 
-            Binding b = new Binding();
-            b.Source = p;
-            b.Path = new PropertyPath("Mage.SerialNumber");
-            b.Mode = BindingMode.OneWay;
-            b.Converter = converter;
+            Binding bind = new Binding();
+            bind.Source = p;
+            bind.Path = new PropertyPath("Mage.SerialNumber");
+            bind.Mode = BindingMode.OneWay;
+            bind.Converter = converter;
 
-            test.SetBinding(ContentProperty, b);
+            MageCard.SetBinding(ContentProperty, bind);
+
+            for(int i = 0; i < p.Cards.Count; i++)
+            {
+                Binding bindCard = new Binding();
+                bindCard.Source = p;
+                bindCard.Path = new PropertyPath("Cards.ElementAt(" + i + ")";
+                bindCard.Mode = BindingMode.OneWay;
+                bindCard.Converter = converter;
+                Button b = new Button();
+                b.Height = 510;
+                b.Width = 366;
+
+            }
 
         }
 
@@ -122,6 +135,11 @@ namespace MageWarsHelper.Views
         {
             //code provided from stack overflow: https://stackoverflow.com/questions/52624066/textbox-with-only-numbers
             args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
+        }
+
+        private void AddCardButton_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

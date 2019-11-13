@@ -31,15 +31,9 @@
                          Background="Transparent"
                          PlaceholderText="Name"/>
 
-                <TextBlock x:Name="playerClass"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="a class"/>
-
-                <TextBlock x:Name="subClass"
-                           Margin="10"
-                           FontSize="24"
-                           Text="a subclass"/>
+                <Button x:Name="MageCard"
+                        MaxHeight="510"
+                        MaxWidth="366"/>
 
             </StackPanel>
 
@@ -50,7 +44,9 @@
                         BorderThickness="2"
                         CornerRadius="10"
                         Margin="10,10"
-                        Padding="15,5">
+                        Padding="15,5"
+                        MinHeight="250"
+                        VerticalAlignment="Top">
 
                 <CheckBox x:Name="initativeCheckBox"
                             FontSize="24"
@@ -79,7 +75,9 @@
                         BorderThickness="2"
                         CornerRadius="10"
                         Margin="10"
-                        Padding="15,5">
+                        Padding="15,5"
+                        MinHeight="250"
+                        VerticalAlignment="Top">
 
                 <TextBlock x:Name="channeling"
                            Margin="10,10"
@@ -130,7 +128,9 @@
                         BorderThickness="2"
                         CornerRadius="10"
                         Margin="10"
-                        Padding="15,5">
+                        Padding="15,5"
+                        MinHeight="250"
+                        VerticalAlignment="Top">
 
                 <TextBlock x:Name="mana"
                            Margin="10,10"
@@ -181,7 +181,9 @@
                         BorderThickness="2"
                         CornerRadius="10"
                         Margin="10"
-                        Padding="15,5">
+                        Padding="15,5"
+                        MinHeight="250"
+                        VerticalAlignment="Top">
 
                 <TextBlock x:Name="LifeText"
                            Margin="10,10"
@@ -233,7 +235,9 @@
                         BorderThickness="2"
                         CornerRadius="10"
                         Margin="10"
-                        Padding="15,5">
+                        Padding="15,5"
+                        MinHeight="250"
+                        VerticalAlignment="Top">
 
                 <TextBlock x:Name="DamageText"
                            Margin="10,10"
@@ -285,7 +289,9 @@
                         BorderThickness="2"
                         CornerRadius="10"
                         Margin="10"
-                        Padding="15,5">
+                        Padding="15,5"
+                        MinHeight="250"
+                        VerticalAlignment="Top">
 
                 <TextBlock x:Name="ArmorText"
                            Margin="10,10"
@@ -331,8 +337,25 @@
             </StackPanel>
 
         </StackPanel>
-        <Button x:Name="test"
-                MaxHeight="500"
-                MaxWidth="250"/>
+
+        <TextBox x:Name="CardID"
+                 Width="100"
+                 Height="50"
+                 FontSize="24"
+                 PlaceholderText="Card Id"
+                 HorizontalAlignment="Left"/>
+        <Button x:Name="AddCardButton"
+                Content="Add A Card"
+                Click="AddCardButton_Click"/>
+        <GridView x:Name="CardsGrid">
+            <GridView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <ItemsWrapGrid Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </GridView.ItemsPanel>
+           
+        </GridView>
+
+
     </StackPanel>
 </Page>

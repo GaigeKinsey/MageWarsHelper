@@ -9,6 +9,14 @@ namespace MageWarsHelper
     public class MWPlayer
     {
         private List<MWCard> cards = new List<MWCard>();
+
+        public List<MWCard> Cards
+        {
+            get { return cards; }
+            set { cards = value; }
+        }
+
+
         public MWMage Mage { get; set; }
 
         public MWPlayer()
