@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MageWarsHelper.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +12,7 @@ using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -24,12 +26,26 @@ namespace MageWarsHelper.Views
     {
 
         private MWPlayer p = new MWPlayer();
+        private SerialIDToImageConverter converter = new SerialIDToImageConverter();
 
         public PlayerPage()
         {
             this.InitializeComponent();
             mainStackPannel.DataContext = p;
-           
+            //Image img = new Image();
+            //img.Source = new BitmapImage(new Uri("http://forum.arcanewonders.com/cards/BEASTMASTERABILITYOUTLINE.jpg"));
+            //test.Content = img;
+
+            p.Mage.SerialNumber = "BEASTMASTERABILITYOUTLINE";
+
+            Binding b = new Binding();
+            b.Source = p;
+            b.Path = new PropertyPath("Mage.SerialNumber");
+            b.Mode = BindingMode.OneWay;
+            b.Converter = converter;
+
+            test.SetBinding(ContentProperty, b);
+
         }
 
         private void channelAdd_Tapped(object sender, TappedRoutedEventArgs e)

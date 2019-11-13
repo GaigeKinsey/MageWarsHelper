@@ -14,7 +14,7 @@
 
         <StackPanel x:Name="subStackPannel" 
                     Orientation="Horizontal">
-            
+
             <StackPanel x:Name="playerInfo"
                         Orientation="Vertical"
                         Background="BlanchedAlmond"
@@ -23,26 +23,26 @@
                         CornerRadius="10"
                         Margin="10"
                         Padding="15,5">
-                
+
                 <TextBox x:Name="PlayerName"
                          Margin="10,10"
                          FontSize="24"
                          BorderBrush="Transparent"
                          Background="Transparent"
                          PlaceholderText="Name"/>
-                
+
                 <TextBlock x:Name="playerClass"
                            Margin="10,10"
                            FontSize="24"
                            Text="a class"/>
-                
+
                 <TextBlock x:Name="subClass"
                            Margin="10"
                            FontSize="24"
                            Text="a subclass"/>
 
             </StackPanel>
-            
+
             <StackPanel x:Name="turn"
                         Orientation="Vertical"
                         Background="BlanchedAlmond"
@@ -71,7 +71,7 @@
                               VerticalContentAlignment="Center"
                               Content="QuickCast"/>
             </StackPanel>
-            
+
             <StackPanel x:Name="mainChanelStack"
                         Orientation="Vertical"
                         Background="BlanchedAlmond"
@@ -80,30 +80,30 @@
                         CornerRadius="10"
                         Margin="10"
                         Padding="15,5">
-                
+
                 <TextBlock x:Name="channeling"
                            Margin="10,10"
                            FontSize="24"
                            Text="Channeling"
                            HorizontalAlignment="Center"/>
-                
+
                 <TextBlock x:Name="currentChanneling"
                            Margin="10,10"
                            FontSize="24"
                            Text="{Binding Path=Mage.Channeling, Mode=OneWay}"
                            HorizontalAlignment="Center"/>
-                
+
                 <TextBox x:Name="adjustChanel"
                          Margin="10,10"
                          FontSize="24"
                          BorderBrush="Gray"
                          PlaceholderText="0"
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
-                
+
                 <StackPanel x:Name="channelButtons"
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    
+
                     <Button x:Name="channelAdd"
                             Margin="10,10"
                             Width="50"
@@ -111,7 +111,7 @@
                             FontSize="24"
                             Content="+"
                             Tapped="channelAdd_Tapped"/>
-                    
+
                     <Button x:Name="channelSubtract"
                             Margin="10,10"
                             Width="50"
@@ -122,7 +122,7 @@
 
                 </StackPanel>
             </StackPanel>
-            
+
             <StackPanel x:Name="mainManaStack"
                         Orientation="Vertical"
                         Background="BlanchedAlmond"
@@ -131,30 +131,30 @@
                         CornerRadius="10"
                         Margin="10"
                         Padding="15,5">
-                
+
                 <TextBlock x:Name="mana"
                            Margin="10,10"
                            FontSize="24"
                            Text="Mana"
                            HorizontalAlignment="Center"/>
-                
+
                 <TextBlock x:Name="currentMana"
                            Margin="10,10"
                            FontSize="24"
                            Text="{Binding Path=Mage.Mana, Mode=OneWay}"
                            HorizontalAlignment="Center"/>
-                
+
                 <TextBox x:Name="adjustMana"
                          Margin="10,10"
                          FontSize="24"
                          BorderBrush="Gray"
                          PlaceholderText="0"
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
-                
+
                 <StackPanel x:Name="manaButtons"
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    
+
                     <Button x:Name="manaAdd"
                             Margin="10,10"
                             Width="50"
@@ -162,7 +162,7 @@
                             FontSize="24"
                             Content="+"
                             Tapped="manaAdd_Tapped"/>
-                    
+
                     <Button x:Name="manaSubtract"
                             Margin="10,10"
                             Width="50"
@@ -173,7 +173,7 @@
 
                 </StackPanel>
             </StackPanel>
-            
+
             <StackPanel x:Name="mainLifeStack"
                         Orientation="Vertical"
                         Background="BlanchedAlmond"
@@ -182,19 +182,19 @@
                         CornerRadius="10"
                         Margin="10"
                         Padding="15,5">
-                
+
                 <TextBlock x:Name="LifeText"
                            Margin="10,10"
                            FontSize="24"
                            Text="Life"
                            HorizontalAlignment="Center"/>
-                
+
                 <TextBlock x:Name="currentLife"
                            Margin="10,10"
                            FontSize="24"
                            Text="{Binding Path=Mage.Life, Mode=OneWay}"
                            HorizontalAlignment="Center"/>
-                
+
                 <TextBox x:Name="adjustLife"
                          Margin="10,10"
                          FontSize="24"
@@ -202,11 +202,11 @@
                          InputScope="Number"
                          PlaceholderText="0"
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
-                
+
                 <StackPanel x:Name="lifeButtons"
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    
+
                     <Button x:Name="lifeAdd"
                             Margin="10,10"
                             Width="50"
@@ -214,7 +214,7 @@
                             FontSize="24"
                             Content="+"
                             Tapped="lifeAdd_Tapped"/>
-                    
+
                     <Button x:Name="lifeSubtract"
                             Margin="10,10"
                             Width="50"
@@ -225,7 +225,7 @@
 
                 </StackPanel>
             </StackPanel>
-            
+
             <StackPanel x:Name="mainDamageStack"
                         Orientation="Vertical"
                         Background="BlanchedAlmond"
@@ -234,19 +234,19 @@
                         CornerRadius="10"
                         Margin="10"
                         Padding="15,5">
-                
+
                 <TextBlock x:Name="DamageText"
                            Margin="10,10"
                            FontSize="24"
                            Text="Damage"
                            HorizontalAlignment="Center"/>
-                
+
                 <TextBlock x:Name="currentDamage"
                            Margin="10,10"
                            FontSize="24"
                            Text="{Binding Path=Mage.Damage, Mode=OneWay}"
                            HorizontalAlignment="Center"/>
-                
+
                 <TextBox x:Name="adjustDamage"
                          Margin="10,10"
                          FontSize="24"
@@ -254,11 +254,11 @@
                          InputScope="Number"
                          PlaceholderText="0"
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
-                
+
                 <StackPanel x:Name="DamageButtons"
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    
+
                     <Button x:Name="DamageAdd"
                             Margin="10,10"
                             Width="50"
@@ -266,7 +266,7 @@
                             FontSize="24"
                             Content="+"
                             Tapped="DamageAdd_Tapped"/>
-                    
+
                     <Button x:Name="DamageSubtract"
                             Margin="10,10"
                             Width="50"
@@ -277,7 +277,7 @@
 
                 </StackPanel>
             </StackPanel>
-            
+
             <StackPanel x:Name="mainArmorStack"
                         Orientation="Vertical"
                         Background="BlanchedAlmond"
@@ -286,19 +286,19 @@
                         CornerRadius="10"
                         Margin="10"
                         Padding="15,5">
-                
+
                 <TextBlock x:Name="ArmorText"
                            Margin="10,10"
                            FontSize="24"
                            Text="Armor"
                            HorizontalAlignment="Center"/>
-                
+
                 <TextBlock x:Name="currentArmor"
                            Margin="10,10"
                            FontSize="24"
                            Text="{Binding Path=Mage.Armor, Mode=OneWay}"
                            HorizontalAlignment="Center"/>
-                
+
                 <TextBox x:Name="adjustArmor"
                          Margin="10,10"
                          FontSize="24"
@@ -306,11 +306,11 @@
                          InputScope="Number"
                          PlaceholderText="0"
                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
-                
+
                 <StackPanel x:Name="ArmorButtons"
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    
+
                     <Button x:Name="ArmorAdd"
                             Margin="10,10"
                             Width="50"
@@ -318,7 +318,7 @@
                             FontSize="24"
                             Content="+"
                             Tapped="ArmorAdd_Tapped"/>
-                    
+
                     <Button x:Name="ArmorSubtract"
                             Margin="10,10"
                             Width="50"
@@ -331,5 +331,8 @@
             </StackPanel>
 
         </StackPanel>
+        <Button x:Name="test"
+                MaxHeight="500"
+                MaxWidth="250"/>
     </StackPanel>
 </Page>
