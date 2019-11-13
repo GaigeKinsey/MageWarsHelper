@@ -126,6 +126,7 @@
     <Compile Include="MW Elements\MWCard.cs" />
     <Compile Include="MW Elements\MWCreature.cs" />
     <Compile Include="MW Elements\MWDice.cs" />
+    <Compile Include="MW Elements\MWEnchantment.cs" />
     <Compile Include="MW Elements\MWMage.cs" />
     <Compile Include="MW Elements\MWPlayer.cs" />
     <Compile Include="MW Elements\MWUnit.cs" />
