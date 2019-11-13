@@ -28,14 +28,19 @@ namespace MageWarsHelper
             {
                 if (value)
                 {
+                    nonliving = true;
                     if (regen > 0)
                     {
                         regen = 0;
                         FieldChanged("Regenerate");
                     }
-                    nonliving = true;
+                    SetElementImmune(AttackElement.POISON);
                 }
-                else nonliving = false;
+                else
+                {
+                    nonliving = false;
+                    SetElementImmune(AttackElement.POISON, false);
+                }
                 FieldChanged();
             }
         }
@@ -195,7 +200,7 @@ namespace MageWarsHelper
             if (modifier == null && elementModifiers.ContainsKey(element))
             {
                 elementModifiers.Remove(element);
-            } else if (modifier != null)
+            } else if (modifier != null && (!Nonliving || element != AttackElement.POISON))
             {
                 if (!elementModifiers.ContainsKey(element))
                 {
@@ -220,12 +225,12 @@ namespace MageWarsHelper
         /// </summary>
         /// <param name="element">The element to set</param>
         /// <param name="immune">True to make immune, false to remove immunity</param>
-        public void SetElementImmune(AttackElement element, bool immune)
+        public void SetElementImmune(AttackElement element, bool immune = true)
         {
             if (immune && elementModifiers.ContainsKey(element))
             {
                 elementModifiers.Remove(element);
-            } else if (!immune && !elementModifiers.ContainsKey(element))
+            } else if (!immune && !elementModifiers.ContainsKey(element) && (!Nonliving || element != AttackElement.POISON))
             {
                 elementModifiers.Add(element, 0);
             }
