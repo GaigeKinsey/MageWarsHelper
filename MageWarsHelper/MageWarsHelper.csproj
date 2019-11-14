@@ -124,6 +124,7 @@
     </Compile>
     <Compile Include="Models\SerialIDToImageConverter.cs" />
     <Compile Include="MW Elements\MWCard.cs" />
+    <Compile Include="MW Elements\MWConjuration.cs" />
     <Compile Include="MW Elements\MWCreature.cs" />
     <Compile Include="MW Elements\MWDice.cs" />
     <Compile Include="MW Elements\MWEnchantment.cs" />
