@@ -5,6 +5,7 @@
     xmlns:local="using:MageWarsHelper.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:usercontrols="using:MageWarsHelper.UserControls"
     mc:Ignorable="d"
     Background="AliceBlue"
     RequestedTheme="Light">
@@ -347,6 +348,7 @@
         <Button x:Name="AddCardButton"
                 Content="Add A Card"
                 Click="AddCardButton_Click"/>
+        
         <GridView x:Name="CardsGrid">
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -355,6 +357,7 @@
             </GridView.ItemsPanel>
            
         </GridView>
+        
 
 
     </StackPanel>

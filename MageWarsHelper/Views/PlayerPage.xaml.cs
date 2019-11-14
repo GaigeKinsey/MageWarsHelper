@@ -1,6 +1,7 @@
 ﻿using MageWarsHelper.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -31,7 +32,7 @@ namespace MageWarsHelper.Views
         public PlayerPage()
         {
             this.InitializeComponent();
-            mainStackPannel.DataContext = p;
+            subStackPannel.DataContext = p;
             //Image img = new Image();
             //img.Source = new BitmapImage(new Uri("http://forum.arcanewonders.com/cards/BEASTMASTERABILITYOUTLINE.jpg"));
             //test.Content = img;
@@ -46,18 +47,34 @@ namespace MageWarsHelper.Views
 
             MageCard.SetBinding(ContentProperty, bind);
 
-            for(int i = 0; i < p.Cards.Count; i++)
-            {
-                Binding bindCard = new Binding();
-                bindCard.Source = p;
-                bindCard.Path = new PropertyPath("Cards.ElementAt(" + i + ")";
-                bindCard.Mode = BindingMode.OneWay;
-                bindCard.Converter = converter;
-                Button b = new Button();
-                b.Height = 510;
-                b.Width = 366;
+            //ObservableCollection<MWCard> Cards = new ObservableCollection<MWCard>();
+            //MWCard card = new MWCard();
+            //card.SerialNumber = "DNJ01";
+            //Cards.Add(card);
+            ////Cards.CollectionChanged();
+            //Cards.Add(card);
+            //Cards.Add(card);
+            //Cards.Add(card);
+            //Cards.Add(card);
 
-            }
+
+            //for (int i = 0; i < Cards.Count; i++)
+            //{
+            //    Binding bindCard = new Binding();
+            //    bindCard.Source = Cards.ElementAt(i);
+            //    bindCard.Path = new PropertyPath("SerialNumber");
+            //    bindCard.Mode = BindingMode.OneWay;
+            //    bindCard.Converter = converter;
+
+            //    Button b = new Button();
+            //    b.Name = i.ToString() + "_" + Cards.ElementAt(i).SerialNumber;
+            //    b.Height = 510;
+            //    b.Width = 366;
+            //    //b.SetBinding(Button.ContentProperty, bindCard);//look up observable collections
+
+            //    CardsGrid.Items.Add(b);
+
+            //}
 
         }
 
@@ -140,6 +157,9 @@ namespace MageWarsHelper.Views
         private void AddCardButton_Click(object sender, RoutedEventArgs e)
         {
 
+            MWCard card = new MWCard();
+            card.SerialNumber = CardID.Text;
+            p.Cards.Add(card);
         }
     }
 }
