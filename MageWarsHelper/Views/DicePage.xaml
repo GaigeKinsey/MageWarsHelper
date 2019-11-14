@@ -26,14 +26,14 @@
 
                 <TextBlock x:Name="damageDiceLabel"
                                FontSize="24"
-                               Text="Number Of Damge Dice:"/>
+                               Text="Number Of Damage Dice:"/>
 
                 <TextBox x:Name="numOfDamageDice"
                              Width="100"
                              HorizontalAlignment="Left"/>
             </StackPanel>
             <CheckBox x:Name="effectDieCheck"
-                          Content="Damage Dice"
+                          Content="Effect Dice"
                           FontSize="24"
                           VerticalAlignment="Top"
                           Margin="20"/>
