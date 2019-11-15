@@ -27,7 +27,7 @@ namespace MageWarsHelper.Views
     {
 
         private MWPlayer p = new MWPlayer();
-        private SerialIDToImageConverter converter = new SerialIDToImageConverter();
+        private SerialIDToImageConverter converter = SerialIDToImageConverter.Instance;
 
         public PlayerPage()
         {
@@ -47,35 +47,12 @@ namespace MageWarsHelper.Views
 
             MageCard.SetBinding(ContentProperty, bind);
 
-            //ObservableCollection<MWCard> Cards = new ObservableCollection<MWCard>();
-            //MWCard card = new MWCard();
-            //card.SerialNumber = "DNJ01";
-            //Cards.Add(card);
-            ////Cards.CollectionChanged();
-            //Cards.Add(card);
-            //Cards.Add(card);
-            //Cards.Add(card);
-            //Cards.Add(card);
-
-
-            //for (int i = 0; i < Cards.Count; i++)
-            //{
-            //    Binding bindCard = new Binding();
-            //    bindCard.Source = Cards.ElementAt(i);
-            //    bindCard.Path = new PropertyPath("SerialNumber");
-            //    bindCard.Mode = BindingMode.OneWay;
-            //    bindCard.Converter = converter;
-
-            //    Button b = new Button();
-            //    b.Name = i.ToString() + "_" + Cards.ElementAt(i).SerialNumber;
-            //    b.Height = 510;
-            //    b.Width = 366;
-            //    //b.SetBinding(Button.ContentProperty, bindCard);//look up observable collections
-
-            //    CardsGrid.Items.Add(b);
-
-            //}
-
+            CardsGrid.ItemsSource = p.Cards;
+            MWCard c = new MWCard();
+            c.SerialNumber = "MW1C01";
+            p.Cards.Add(c);
+            p.Cards.Add(c);
+            p.Cards.Add(c);
         }
 
         private void channelAdd_Tapped(object sender, TappedRoutedEventArgs e)

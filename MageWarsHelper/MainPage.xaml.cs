@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MageWarsHelper.Database;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -34,6 +35,9 @@ namespace MageWarsHelper
         public MainPage()
         {
             this.InitializeComponent();
+
+            CardDatabase database = CardDatabase.Instance;
+            database.LoadDataBase();
         }
 
         private void navView_Loaded(object sender, RoutedEventArgs e)
