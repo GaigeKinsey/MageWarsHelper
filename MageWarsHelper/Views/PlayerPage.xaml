@@ -69,7 +69,8 @@
                               Content="QuickCast"/>
             </StackPanel>
 
-            <uc:MagePropDisplay x:Name="ChannelingPropDisplay"/>
+            <uc:MagePropDisplay x:Name="ChannelingPropDisplay" 
+                                Type="Channeling"/>
             
             <StackPanel x:Name="mainChanelStack"
                         Orientation="Vertical"

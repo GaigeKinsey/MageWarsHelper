@@ -7,7 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400">
+    d:DesignWidth="400"
+    x:Name="mainUserControl">
 
     <StackPanel x:Name="mainPropStack"
                         Orientation="Vertical"
@@ -21,15 +22,16 @@
                         VerticalAlignment="Top">
 
         <TextBlock x:Name="PropertyText"
-                           Margin="10,10"
-                           FontSize="24"
-                           HorizontalAlignment="Center"/>
+                    Margin="10,10"
+                    FontSize="24"
+                    HorizontalAlignment="Center"
+                   Text="{x:Bind Type, Mode=OneWay}"/>
 
         <TextBlock x:Name="currentProp"
                            Margin="10,10"
                            FontSize="24"
-                           Text="nio"
-                           HorizontalAlignment="Center"/>
+                           HorizontalAlignment="Center"
+                   Text="{Binding}"/>
 
         <TextBox x:Name="adjustProp"
                          Margin="10,10"

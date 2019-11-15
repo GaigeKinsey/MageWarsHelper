@@ -20,24 +20,22 @@ namespace MageWarsHelper.UserControls
     public sealed partial class MagePropDisplay : UserControl
     {
 
-
-
         public string Type
         {
             get { return (string)GetValue(TypeProperty); }
-            set { SetValue(TypeProperty, value); }
+            set 
+            {
+                SetValue(TypeProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for Type.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TypeProperty =
             DependencyProperty.Register("Type", typeof(string), typeof(MagePropDisplay), null);
 
-
-
         public MagePropDisplay()
         {
             this.InitializeComponent();
-            PropertyText.Text = Type;
+            
         }
 
         private void TextBoxNumber_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
