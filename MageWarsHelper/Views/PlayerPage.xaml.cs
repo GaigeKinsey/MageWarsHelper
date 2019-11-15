@@ -47,8 +47,10 @@ namespace MageWarsHelper.Views
 
             MageCard.SetBinding(ContentProperty, bind);
 
+            ChannelingPropDisplay.DataContext = p.Mage.Channeling;
+
             CardsGrid.ItemsSource = p.Cards;
-            MWCard c = new MWCard();
+            MWCard c = MWCard.Create(MWCard.SerialConverter("MW1C01"));
             c.SerialNumber = "MW1C01";
             p.Cards.Add(c);
             p.Cards.Add(c);
@@ -134,9 +136,11 @@ namespace MageWarsHelper.Views
         private void AddCardButton_Click(object sender, RoutedEventArgs e)
         {
 
-            MWCard card = new MWCard();
-            card.SerialNumber = CardID.Text;
-            p.Cards.Add(card);
+            MWCard c = MWCard.Create(MWCard.SerialConverter(CardID.Text));
+            c.SerialNumber = CardID.Text;
+            p.Cards.Add(c);
+
+
         }
     }
 }
