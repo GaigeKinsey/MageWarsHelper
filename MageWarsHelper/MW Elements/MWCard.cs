@@ -596,5 +596,15 @@ namespace MageWarsHelper
                     return typeof(MWAttackspell);
             }
         }
+        /// <summary>
+        /// Finds a non-abstract subtype of MWCard based on a serial number (the third-to-last character is key.)
+        /// </summary>
+        /// <param name="serialnum">The serial number to get a type based on</param>
+        /// <returns>a non-abstract subtype of MWCard</returns>
+        public static Type SerialConverter(string serialnum)
+        {
+            int index = serialnum.Length - 3;
+            return CharTypeConverter(serialnum[index]);
+        }
     }
 }
