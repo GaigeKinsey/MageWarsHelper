@@ -153,7 +153,7 @@ namespace MageWarsHelper
     /// <summary>
     /// Cards in Mage Wars. Aside from the Mage, they start in the player's spellbook.
     /// </summary>
-    public class MWCard : INotifyPropertyChanged
+    public abstract class MWCard : INotifyPropertyChanged
     {
         private string serialnum, name;
         /// <summary>

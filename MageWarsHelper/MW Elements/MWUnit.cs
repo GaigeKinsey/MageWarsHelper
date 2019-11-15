@@ -7,15 +7,30 @@ using System.Threading.Tasks;
 
 namespace MageWarsHelper
 {
-    public class MWUnit : MWCard
+    public abstract class MWUnit : MWCard
     {
         private Dictionary<AttackElement, int> elementModifiers = new Dictionary<AttackElement, int>();
-        private bool nonliving = false;
+        private bool nonliving = false, finitelife = false;
         private int life = 1, damage = 0, regen = 0, armor = 0;
         /// <summary>
         /// If true, only one copy can be in play at a time.
         /// </summary>
         public bool Legendary { get; set; }
+        /// <summary>
+        /// If true, can't be healed or repaired, and Regenerate is treated as 0;
+        /// </summary>
+        public bool FiniteLife
+        {
+            get
+            {
+                return finitelife;
+            }
+            set
+            {
+                finitelife = value;
+                FieldChanged();
+            }
+        }
         /// <summary>
         /// If true, can't be healed and can't regenerate, but can be repaired and have poison immunity.
         /// </summary>
@@ -73,13 +88,15 @@ namespace MageWarsHelper
             }
         }
         /// <summary>
-        /// How much damage this unit heals during upkeep.
+        /// How much damage this unit heals during upkeep. If this unit has Finite Life, this counts as 0, 
+        /// but the value is still stored behind the scenes.
         /// </summary>
         public int Regenerate
         {
             get
             {
-                return regen;
+                if (FiniteLife) return 0;
+                else return regen;
             }
             set
             {
@@ -88,6 +105,7 @@ namespace MageWarsHelper
                     regen = 0;
                 }
                 else regen = value;
+                FieldChanged();
             }
         }
         /// <summary>
@@ -236,7 +254,7 @@ namespace MageWarsHelper
             }
         }
         /// <summary>
-        /// The default constructor for a unit.
+        /// The default constructor for a unit. Sets all element modifiers to 0 at first.
         /// </summary>
         public MWUnit()
         {
