@@ -153,7 +153,7 @@ namespace MageWarsHelper
     /// <summary>
     /// Cards in Mage Wars. Aside from the Mage, they start in the player's spellbook.
     /// </summary>
-    public class MWCard : INotifyPropertyChanged
+    public abstract class MWCard : INotifyPropertyChanged
     {
         private string serialnum, name;
         /// <summary>
@@ -272,7 +272,7 @@ namespace MageWarsHelper
                 return level;
             }
         }
-        private bool chooseschool = false, quick = true, novice = false, epic = false;
+        private bool chooseschool = false, quick = true, novice = false, epic = false, spawnpoint = false, familiar = false, spellbind = false;
         /// <summary>
         /// If true, this spell's school/level is chooseable from the options, instead of a combination of them.
         /// </summary>
@@ -330,6 +330,61 @@ namespace MageWarsHelper
             set
             {
                 epic = value;
+                FieldChanged();
+            }
+        }
+        /// <summary>
+        /// If true, only one copy can be in play at a time.
+        /// </summary>
+        public bool Legendary { get; set; }
+        /// <summary>
+        /// If true, only one copy can be in play for each player.
+        /// </summary>
+        public bool Unique { get; set; }
+        /// <summary>
+        /// Can cast a spell during the Deployment phase. Can only be true for cards that have mana.
+        /// </summary>
+        public bool Spawnpoint
+        {
+            get
+            {
+                return spawnpoint;
+            }
+            set
+            {
+                if (value && HasMana) spawnpoint = true;
+                else spawnpoint = false;
+                FieldChanged();
+            }
+        }
+        /// <summary>
+        /// Can cast a spell during its turn (or a friendly action if it's not a creature.) Can only be true for cards that have mana.
+        /// </summary>
+        public bool Familiar
+        {
+            get
+            {
+                return familiar;
+            }
+            set
+            {
+                if (value && HasMana) familiar = true;
+                else familiar = false;
+                FieldChanged();
+            }
+        }
+        /// <summary>
+        /// Can have an incantation or attack spell bound, which it can cast repeatedly.
+        /// </summary>
+        public bool Spellbind
+        {
+            get
+            {
+                return spellbind;
+            }
+            set
+            {
+                spellbind = value;
                 FieldChanged();
             }
         }
