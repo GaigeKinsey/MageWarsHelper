@@ -23,7 +23,6 @@
         <TextBlock x:Name="PropertyText"
                            Margin="10,10"
                            FontSize="24"
-                           Text="prop"
                            HorizontalAlignment="Center"/>
 
         <TextBlock x:Name="currentProp"
