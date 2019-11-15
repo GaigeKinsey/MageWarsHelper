@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,9 +9,9 @@ namespace MageWarsHelper
 {
     public class MWPlayer
     {
-        private List<MWCard> cards = new List<MWCard>();
+        private ObservableCollection<MWCard> cards = new ObservableCollection<MWCard>();
 
-        public List<MWCard> Cards
+        public ObservableCollection<MWCard> Cards
         {
             get { return cards; }
             set { cards = value; }
