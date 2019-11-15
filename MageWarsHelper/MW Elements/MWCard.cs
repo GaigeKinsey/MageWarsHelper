@@ -606,5 +606,22 @@ namespace MageWarsHelper
             int index = serialnum.Length - 3;
             return CharTypeConverter(serialnum[index]);
         }
+        /// <summary>
+        /// Makes a default MWCard subtype based on a Type object.
+        /// </summary>
+        /// <param name="t">The Type object of the card type you want to make</param>
+        /// <returns>An object of one of MWCard's subtypes</returns>
+        public static MWCard Create(Type t)
+        {
+            if (t == null) throw new ArgumentNullException("Can't create a MWCard based on a null type.");
+            try {
+                MWCard card = (MWCard)(Activator.CreateInstance(t));
+                return card;
+            } catch(Exception e)
+            {
+                throw new ArgumentException("Type parameter isn't a subtype of MWCard.");
+            }
+            
+        }
     }
 }
