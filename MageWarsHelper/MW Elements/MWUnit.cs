@@ -13,10 +13,6 @@ namespace MageWarsHelper
         private bool nonliving = false, finitelife = false;
         private int life = 1, damage = 0, regen = 0, armor = 0;
         /// <summary>
-        /// If true, only one copy can be in play at a time.
-        /// </summary>
-        public bool Legendary { get; set; }
-        /// <summary>
         /// If true, can't be healed or repaired, and Regenerate is treated as 0;
         /// </summary>
         public bool FiniteLife
