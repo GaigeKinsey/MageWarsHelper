@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MageWarsHelper.MW_Elements
+namespace MageWarsHelper
 {
     class MWConjuration : MWUnit
     {

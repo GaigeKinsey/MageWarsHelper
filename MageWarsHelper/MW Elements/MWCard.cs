@@ -545,5 +545,56 @@ namespace MageWarsHelper
                 PropertyChanged(this, new PropertyChangedEventArgs(field));
             }
         }
+        /// <summary>
+        /// Finds a non-abstract subtype of MWCard based on a string.
+        /// </summary>
+        /// <param name="typestr">The string to get a type based on</param>
+        /// <returns>a non-abstract subtype of MWCard</returns>
+        public static Type StringTypeConverter(string typestr)
+        {
+            switch (typestr.Trim().ToLower())
+            {
+                case "creature":
+                    return typeof(MWCreature);
+                case "conjuration":
+                    return typeof(MWConjuration);
+                case "enchantment":
+                    return typeof(MWEnchantment);
+                case "equipment":
+                    return typeof(MWEquipment);
+                case "incantation":
+                    return typeof(MWIncantation);
+                default:
+                    return typeof(MWAttackspell);
+            }
+        }
+        /// <summary>
+        /// Finds a non-abstract subtype of MWCard based on a char.
+        /// </summary>
+        /// <param name="typechar">The char to get a type based on</param>
+        /// <returns>a non-abstract subtype of MWCard</returns>
+        public static Type CharTypeConverter(char typechar)
+        {
+            switch (typechar)
+            {
+                case 'C':
+                case 'c':
+                    return typeof(MWCreature);
+                case 'J':
+                case 'j':
+                    return typeof(MWConjuration);
+                case 'E':
+                case 'e':
+                    return typeof(MWEnchantment);
+                case 'Q':
+                case 'q':
+                    return typeof(MWEquipment);
+                case 'I':
+                case 'i':
+                    return typeof(MWIncantation);
+                default:
+                    return typeof(MWAttackspell);
+            }
+        }
     }
 }

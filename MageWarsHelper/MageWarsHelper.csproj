@@ -123,11 +123,14 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\SerialIDToImageConverter.cs" />
+    <Compile Include="MW Elements\MWAttackspell.cs" />
     <Compile Include="MW Elements\MWCard.cs" />
     <Compile Include="MW Elements\MWConjuration.cs" />
     <Compile Include="MW Elements\MWCreature.cs" />
     <Compile Include="MW Elements\MWDice.cs" />
     <Compile Include="MW Elements\MWEnchantment.cs" />
+    <Compile Include="MW Elements\MWEquipment.cs" />
+    <Compile Include="MW Elements\MWIncantation.cs" />
     <Compile Include="MW Elements\MWMage.cs" />
     <Compile Include="MW Elements\MWPlayer.cs" />
     <Compile Include="MW Elements\MWUnit.cs" />
