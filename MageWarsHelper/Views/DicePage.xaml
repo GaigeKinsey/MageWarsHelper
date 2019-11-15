@@ -17,8 +17,8 @@
                     Orientation="Horizontal">
 
             <StackPanel x:Name="damgeDiceStack"
-                            Orientation="Vertical"
-                            Padding="20">
+                        Orientation="Vertical"
+                        Padding="20">
 
                 <CheckBox x:Name="damageDiceCheck"
                               Content="Damage Dice"
@@ -33,10 +33,10 @@
                              HorizontalAlignment="Left"/>
             </StackPanel>
             <CheckBox x:Name="effectDieCheck"
-                          Content="Effect Dice"
-                          FontSize="24"
-                          VerticalAlignment="Top"
-                          Margin="20"/>
+                        Content="Effect Dice"
+                        FontSize="24"
+                        VerticalAlignment="Top"
+                        Margin="20"/>
             
             <Button x:Name="rollButton"
                     Content="ROLL"

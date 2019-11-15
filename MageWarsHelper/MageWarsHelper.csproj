@@ -133,6 +133,9 @@
     <Compile Include="MW Elements\MWPlayer.cs" />
     <Compile Include="MW Elements\MWUnit.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\CardButton.xaml.cs">
+      <DependentUpon>CardButton.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\CardRowControl.xaml.cs">
       <DependentUpon>CardRowControl.xaml</DependentUpon>
     </Compile>
@@ -178,6 +181,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControls\CardRowControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\CardButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

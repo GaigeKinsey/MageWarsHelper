@@ -9,21 +9,42 @@ using Windows.UI.Xaml.Media.Imaging;
 
 namespace MageWarsHelper.Models
 {
-    class SerialIDToImageConverter : IValueConverter
+    public class SerialIDToImageConverter : IValueConverter
     {
+        private Dictionary<String, BitmapImage> CardImageDictionary = new Dictionary<string, BitmapImage>();
 
-        Dictionary<String, Image> CardImageDictionary = new Dictionary<string, Image>();
+        private static SerialIDToImageConverter instance = new SerialIDToImageConverter();
+
+        public static SerialIDToImageConverter Instance
+        {
+            get { return instance; }
+            set { instance = value; }
+        }
+
+
+
+        private SerialIDToImageConverter() 
+        {}
 
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if (!CardImageDictionary.ContainsKey(value.ToString()))
+            BitmapImage bitImg = new BitmapImage();
+            if (!CardImageDictionary.ContainsKey((string)value))
             {
-                Image img = new Image();
-                img.Source = new BitmapImage(new Uri("http://forum.arcanewonders.com/cards/" + value.ToString() + ".jpg"));
+                bitImg = new BitmapImage(new Uri("http://forum.arcanewonders.com/cards/" + (string)value + ".jpg"));
                 
-                CardImageDictionary.Add(value.ToString(), img);
+                CardImageDictionary.Add((string)value, bitImg);
             }
-            return CardImageDictionary.GetValueOrDefault(value.ToString());
+            
+            if(CardImageDictionary.TryGetValue((string)value, out bitImg))
+            {
+                Image img = new Image() { Source = bitImg };
+                return img;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

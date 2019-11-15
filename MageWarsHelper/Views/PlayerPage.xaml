@@ -5,7 +5,7 @@
     xmlns:local="using:MageWarsHelper.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:usercontrols="using:MageWarsHelper.UserControls"
+    xmlns:uc="using:MageWarsHelper.UserControls"
     mc:Ignorable="d"
     Background="AliceBlue"
     RequestedTheme="Light">
@@ -69,6 +69,8 @@
                               Content="QuickCast"/>
             </StackPanel>
 
+            <uc:MagePropDisplay />
+            
             <StackPanel x:Name="mainChanelStack"
                         Orientation="Vertical"
                         Background="BlanchedAlmond"
@@ -349,7 +351,13 @@
                 Content="Add A Card"
                 Click="AddCardButton_Click"/>
         
-        <GridView x:Name="CardsGrid">
+        <GridView x:Name="CardsGrid"
+                  Height="300">
+            <GridView.ItemTemplate>
+                <DataTemplate>
+                    <uc:CardButton/>
+                </DataTemplate>
+            </GridView.ItemTemplate>
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <ItemsWrapGrid Orientation="Horizontal"/>
@@ -357,6 +365,8 @@
             </GridView.ItemsPanel>
            
         </GridView>
+        
+        
         
 
 
