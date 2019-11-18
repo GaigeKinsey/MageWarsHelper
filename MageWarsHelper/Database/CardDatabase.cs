@@ -22,13 +22,13 @@ namespace MageWarsHelper.Database
         public void LoadDataBase()
         {
             List<MWCard> cards = new List<MWCard>();
-            //StreamReader sr = new StreamReader("");
+            StreamReader sr = new StreamReader("Database/cardDatabase.txt");
 
-            //string line;
-            //while ((line = sr.ReadLine()) != null)
-            //{
-            //    Console.WriteLine(line);
-            //}
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(line);
+            }
         }
     }
 }
