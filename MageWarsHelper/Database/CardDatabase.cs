@@ -9,7 +9,7 @@ namespace MageWarsHelper.Database
 {
     public class CardDatabase
     {
-        private CardDatabase() {}
+        private CardDatabase() { }
 
         private static CardDatabase instance = new CardDatabase();
 
@@ -19,15 +19,99 @@ namespace MageWarsHelper.Database
             set { instance = value; }
         }
 
+        private List<MWCard> cards = new List<MWCard>();
+
+        public List<MWCard> Cards
+        {
+            get { return cards; }
+            set { cards = value; }
+        }
+
+
         public void LoadDataBase()
         {
-            List<MWCard> cards = new List<MWCard>();
             StreamReader sr = new StreamReader("Database/cardDatabase.txt");
 
             string line;
             while ((line = sr.ReadLine()) != null)
             {
-                Console.WriteLine(line);
+                string[] elements = line.Split("| ");
+                MWCard card = (MWCard)Activator.CreateInstance(MWCard.StringTypeConverter(elements[2]));
+
+                //Serial Number
+                card.SerialNumber = elements[0];
+
+                //Name
+                card.Name = elements[1];
+
+                //SubType
+                string[] subTypes = elements[3].Split(", ");
+                List<Subtype> subTypesEnum = new List<Subtype>();
+                foreach (string subType in subTypes)
+                {
+                    Subtype type;
+                    if (Enum.TryParse(subType.Replace(" ", "_").ToUpper(), out type))
+                    {
+                        subTypesEnum.Add(type);
+                    }
+                }
+                card.Subtypes = subTypesEnum;
+
+                //Levels and Schools
+                if (elements[4].Contains(","))
+                {
+                    string[] levels;
+                    string[] schools = elements[4].Split(", ");
+                    if (elements[5].Contains(" or "))
+                    {
+                        card.ChooseSchool = true;
+                        levels = elements[5].Split(" or ");
+                    }
+                    else
+                    {
+                        levels = elements[5].Split(" & ");
+                    }
+
+                    for (int i = 0; i < schools.Length; i++)
+                    {
+                        AddSchool(schools[i], levels[i], card);
+                    }
+                }
+                else
+                {
+                    AddSchool(elements[4], elements[5], card);
+                }
+
+                //Mana Cost
+                //Needs support for X and 2X mana cost
+                int manaCost = 0;
+                int.TryParse(elements[6], out manaCost);
+                card.ManaCost = manaCost;
+
+                if (card.GetType() == typeof(MWEnchantment))
+                {
+                    //Reveal Cost
+                    int revealCost = 0;
+                    int.TryParse(elements[7], out revealCost);
+                    MWEnchantment enchantCard = (MWEnchantment)card;
+                    enchantCard.RevealCost = revealCost;
+
+                    Cards.Add(enchantCard);
+                }
+                else
+                {
+                    Cards.Add(card);
+                }
+            }
+        }
+
+        private void AddSchool(string schoolstr, string levelstr, MWCard card)
+        {
+            SpellSchool school;
+            int level = 0;
+            if (Enum.TryParse(schoolstr.ToUpper(), out school) && int.TryParse(levelstr, out level))
+            {
+                card.SetSchoolLevel(school, level);
             }
         }
     }
