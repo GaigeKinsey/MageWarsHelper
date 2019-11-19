@@ -57,5 +57,9 @@ namespace MageWarsHelper
                 return 6;
             }
         }
+        public override string CardType()
+        {
+            return "Mage";
+        }
     }
 }

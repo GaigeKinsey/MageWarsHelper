@@ -8,5 +8,9 @@ namespace MageWarsHelper
 {
     public class MWIncantation : MWCard
     {
+        public override string CardType()
+        {
+            return "Incantation";
+        }
     }
 }

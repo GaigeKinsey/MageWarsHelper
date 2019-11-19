@@ -100,5 +100,10 @@ namespace MageWarsHelper
             MaxRange = 1;
             Quick = true;
         }
+
+        public override string CardType()
+        {
+            return "Conjuration";
+        }
     }
 }

@@ -8,5 +8,9 @@ namespace MageWarsHelper
 {
     public class MWAttackspell : MWCard
     {
+        public override string CardType()
+        {
+            return "Attack";
+        }
     }
 }

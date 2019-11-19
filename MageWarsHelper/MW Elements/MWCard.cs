@@ -208,6 +208,7 @@ namespace MageWarsHelper
         public TargetType Target { get; set; }
 
         private int mana = 0, channeling = 0, manacost = 5, minrange = 0, maxrange = 0;
+        private bool manax;
         private Dictionary<SpellSchool, int> levels = new Dictionary<SpellSchool, int>();
         private List<Subtype> subtypes = new List<Subtype>();
 
@@ -223,7 +224,55 @@ namespace MageWarsHelper
             }
             set
             {
-                manacost = value;
+                if (value < 1) value = 1;
+                else manacost = value;
+                FieldChanged("ManaCostString");
+                FieldChanged();
+            }
+        }
+        /// <summary>
+        /// If the mana cost is going to be multiplied by something, this is true.
+        /// </summary>
+        public bool ManaCostX {
+            get
+            {
+                return manax;
+            }
+            set
+            {
+                manax = value;
+                FieldChanged("ManaCostString");
+                FieldChanged();
+            } 
+        }
+        /// <summary>
+        /// The mana cost as a string. If you set this, it will parse the string into
+        /// a valid mana cost for you (inluding the X, if there is one.)
+        /// </summary>
+        public string ManaCostString
+        {
+            get
+            {
+                return ManaCostX ? ManaCost + "X" : ManaCost.ToString();
+            }
+            set
+            {
+                if (value[value.Length - 1] == 'X')
+                {
+                    if (int.TryParse(value.Substring(0, value.Length - 1), out manacost))
+                    {
+                        if (manacost < 1) manacost = 1;
+                        ManaCostX = true;
+                    }
+                }
+                else
+                {
+                    if (int.TryParse(value, out manacost))
+                    {
+                        if (manacost < 1) manacost = 1;
+                        ManaCostX = false;
+                    }
+                }
                 FieldChanged();
             }
         }
@@ -645,5 +694,10 @@ namespace MageWarsHelper
             }
             
         }
+        /// <summary>
+        /// Returns a string of what type of card this is.
+        /// </summary>
+        /// <returns></returns>
+        public abstract string CardType();
     }
 }
