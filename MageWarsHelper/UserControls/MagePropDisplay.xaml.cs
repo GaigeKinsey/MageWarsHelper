@@ -50,10 +50,31 @@ namespace MageWarsHelper.UserControls
         {
             int value = 0;
             int.TryParse(adjustProp.Text, out value);
-            if(Type == "Channeling")
+
+            if (Type == "Channeling")
             {
                 Mage.Channeling += value;
                 DataContext = Mage.Channeling;
+            }
+            else if (Type == "Life")
+            {
+                Mage.Life += value;
+                DataContext = Mage.Life;
+            }
+            else if (Type == "Mana")
+            {
+                Mage.Mana += value;
+                DataContext = Mage.Mana;
+            }
+            else if (Type == "Damage")
+            {
+                Mage.Damage += value;
+                DataContext = Mage.Damage;
+            }
+            else if (Type == "Armor")
+            {
+                Mage.Armor += value;
+                DataContext = Mage.Armor;
             }
 
         }
@@ -66,6 +87,26 @@ namespace MageWarsHelper.UserControls
             {
                 Mage.Channeling -= value;
                 DataContext = Mage.Channeling;
+            }
+            else if (Type == "Life")
+            {
+                Mage.Life -= value;
+                DataContext = Mage.Life;
+            }
+            else if (Type == "Mana")
+            {
+                Mage.Mana -= value;
+                DataContext = Mage.Mana;
+            }
+            else if (Type == "Damage")
+            {
+                Mage.Damage -= value;
+                DataContext = Mage.Damage;
+            }
+            else if (Type == "Armor")
+            {
+                Mage.Armor -= value;
+                DataContext = Mage.Armor;
             }
         }
     }

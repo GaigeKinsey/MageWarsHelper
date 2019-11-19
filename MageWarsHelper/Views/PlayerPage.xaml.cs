@@ -39,6 +39,7 @@ namespace MageWarsHelper.Views
             //test.Content = img;
 
             p.Mage.SerialNumber = "BEASTMASTERABILITYOUTLINE";
+            p.Mage.HasArmor = true;
 
             Binding bind = new Binding();
             bind.Source = p;
@@ -56,17 +57,33 @@ namespace MageWarsHelper.Views
             ChannelingPropDisplay.SetBinding(DataContextProperty, bind);
             ChannelingPropDisplay.Mage = p.Mage;
 
-            ManaPropDisplay.DataContext = p.Mage.Mana;
+            bind = new Binding();
+            bind.Source = p;
+            bind.Path = new PropertyPath("Mage.Mana");
+            bind.Mode = BindingMode.OneWay;
+            ManaPropDisplay.SetBinding(DataContextProperty, bind);
+            ManaPropDisplay.Mage = p.Mage;
 
             bind = new Binding();
             bind.Source = p;
             bind.Path = new PropertyPath("Mage.Life");
             bind.Mode = BindingMode.OneWay;
             LifePropDisplay.SetBinding(DataContextProperty , bind);
+            LifePropDisplay.Mage = p.Mage;
 
-            DamagePropDisplay.DataContext = p.Mage.Damage;
+            bind = new Binding();
+            bind.Source = p;
+            bind.Path = new PropertyPath("Mage.Damage");
+            bind.Mode = BindingMode.OneWay;
+            DamagePropDisplay.SetBinding(DataContextProperty, bind);
+            DamagePropDisplay.Mage = p.Mage;
 
-            ArmorPropDisplay.DataContext = p.Mage.Armor;
+            bind = new Binding();
+            bind.Source = p;
+            bind.Path = new PropertyPath("Mage.Armor");
+            bind.Mode = BindingMode.OneWay;
+            ArmorPropDisplay.SetBinding(DataContextProperty, bind);
+            ArmorPropDisplay.Mage = p.Mage;
 
             CardsGrid.ItemsSource = p.Cards;
             MWCard c = MWCard.Create(MWCard.SerialConverter("MW1C01"));
