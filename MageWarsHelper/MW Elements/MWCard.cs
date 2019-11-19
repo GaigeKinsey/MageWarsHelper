@@ -8,6 +8,21 @@ using System.Threading.Tasks;
 
 namespace MageWarsHelper
 {
+    #region TargetType
+    /// <summary>
+    /// Targets that cards are played on. Might change or convert these to a logical class later,
+    /// but for now it's just an enum for filtering.
+    /// </summary>
+    public enum TargetType
+    {
+        ARENA,
+        CREATURE,
+        ENCHANTMENT,
+        MAGE,
+        OBJECT,
+        ZONE
+    }
+    #endregion
     #region AttackElement
     /// <summary>
     /// Elements of attacks, used for calculating weakness, resistance, and bonuses.
@@ -187,13 +202,20 @@ namespace MageWarsHelper
             }
         }
         /// <summary>
-        /// The base cost to cast this card.
+        /// What sort of target this card has. Doesn't factor in things like "friendly"
+        /// or "living," just the general target type.
         /// </summary>
+        public TargetType Target { get; set; }
+
         private int mana = 0, channeling = 0, manacost = 5, minrange = 0, maxrange = 0;
         private Dictionary<SpellSchool, int> levels = new Dictionary<SpellSchool, int>();
         private List<Subtype> subtypes = new List<Subtype>();
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// The base cost to cast this card.
+        /// </summary>
         public int ManaCost {
             get
             {
