@@ -83,10 +83,7 @@ namespace MageWarsHelper.Database
                 }
 
                 //Mana Cost
-                //Needs support for X and 2X mana cost
-                int manaCost = 0;
-                int.TryParse(elements[6], out manaCost);
-                card.ManaCost = manaCost;
+                card.ManaCostString = elements[6];
 
                 if (card.GetType() == typeof(MWEnchantment))
                 {

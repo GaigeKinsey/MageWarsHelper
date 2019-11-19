@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MageWarsHelper.Database;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,8 @@ namespace MageWarsHelper.Views
         public CardsPage()
         {
             this.InitializeComponent();
+
+            cardListView.ItemsSource = CardDatabase.Instance.Cards;
         }
     }
 }
