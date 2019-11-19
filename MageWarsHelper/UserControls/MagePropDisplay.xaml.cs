@@ -19,13 +19,15 @@ namespace MageWarsHelper.UserControls
 {
     public sealed partial class MagePropDisplay : UserControl
     {
-
+        public MWMage Mage { get; set; }
         public string Type
         {
             get { return (string)GetValue(TypeProperty); }
             set 
             {
-                SetValue(TypeProperty, value); }
+                SetValue(TypeProperty, value); 
+                
+            }
         }
 
         // Using a DependencyProperty as the backing store for Type.  This enables animation, styling, binding, etc...
@@ -44,14 +46,27 @@ namespace MageWarsHelper.UserControls
             args.Cancel = args.NewText.Any(c => !char.IsDigit(c));
         }
 
-        private void propSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        private void propAdd_Click(object sender, RoutedEventArgs e)
         {
+            int value = 0;
+            int.TryParse(adjustProp.Text, out value);
+            if(Type == "Channeling")
+            {
+                Mage.Channeling += value;
+                DataContext = Mage.Channeling;
+            }
 
         }
 
-        private void propAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        private void propSubtract_Click(object sender, RoutedEventArgs e)
         {
-
+            int value = 0;
+            int.TryParse(adjustProp.Text, out value);
+            if (Type == "Channeling")
+            {
+                Mage.Channeling -= value;
+                DataContext = Mage.Channeling;
+            }
         }
     }
 }

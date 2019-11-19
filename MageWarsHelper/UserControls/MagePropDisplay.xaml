@@ -28,9 +28,9 @@
                    Text="{x:Bind Type, Mode=OneWay}"/>
 
         <TextBlock x:Name="currentProp"
-                           Margin="10,10"
-                           FontSize="24"
-                           HorizontalAlignment="Center"
+                    Margin="10,10"
+                    FontSize="24"
+                    HorizontalAlignment="Center"
                    Text="{Binding}"/>
 
         <TextBox x:Name="adjustProp"
@@ -50,7 +50,7 @@
                             Height="50"
                             FontSize="24"
                             Content="+"
-                            Tapped="propAdd_Tapped"/>
+                            Click="propAdd_Click"/>
 
             <Button x:Name="propSubtract"
                             Margin="10,10"
@@ -58,7 +58,7 @@
                             Height="50"
                             FontSize="24"
                             Content="-"
-                            Tapped="propSubtract_Tapped"/>
+                            Click="propSubtract_Click"/>
 
         </StackPanel>
     </StackPanel>

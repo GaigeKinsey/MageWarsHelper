@@ -1,4 +1,5 @@
 ﻿using MageWarsHelper.Models;
+using MageWarsHelper.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -44,10 +45,28 @@ namespace MageWarsHelper.Views
             bind.Path = new PropertyPath("Mage.SerialNumber");
             bind.Mode = BindingMode.OneWay;
             bind.Converter = converter;
-
+            
             MageCard.SetBinding(ContentProperty, bind);
 
-            ChannelingPropDisplay.DataContext = p.Mage.Channeling;
+
+            bind = new Binding();
+            bind.Source = p;
+            bind.Path = new PropertyPath("Mage.Channeling");
+            bind.Mode = BindingMode.OneWay;
+            ChannelingPropDisplay.SetBinding(DataContextProperty, bind);
+            ChannelingPropDisplay.Mage = p.Mage;
+
+            ManaPropDisplay.DataContext = p.Mage.Mana;
+
+            bind = new Binding();
+            bind.Source = p;
+            bind.Path = new PropertyPath("Mage.Life");
+            bind.Mode = BindingMode.OneWay;
+            LifePropDisplay.SetBinding(DataContextProperty , bind);
+
+            DamagePropDisplay.DataContext = p.Mage.Damage;
+
+            ArmorPropDisplay.DataContext = p.Mage.Armor;
 
             CardsGrid.ItemsSource = p.Cards;
             MWCard c = MWCard.Create(MWCard.SerialConverter("MW1C01"));
@@ -57,75 +76,75 @@ namespace MageWarsHelper.Views
             p.Cards.Add(c);
         }
 
-        private void channelAdd_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            int value = 0;
-            int.TryParse(adjustChanel.Text, out value);
-            p.Mage.Channeling += value;
-        }
+        //private void channelAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    int value = 0;
+        //    int.TryParse(adjustChanel.Text, out value);
+        //    p.Mage.Channeling += value;
+        //}
 
-        private void channelSubtract_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            int value = 0;
-            int.TryParse(adjustChanel.Text, out value);
-            p.Mage.Channeling -= value;
-        }
+        //private void channelSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    int value = 0;
+        //    int.TryParse(adjustChanel.Text, out value);
+        //    p.Mage.Channeling -= value;
+        //}
 
-        private void lifeAdd_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            int value = 0;
-            int.TryParse(adjustLife.Text, out value);
-            p.Mage.Life += value;
-        }
+        //private void lifeAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    int value = 0;
+        //    int.TryParse(adjustLife.Text, out value);
+        //    p.Mage.Life += value;
+        //}
 
-        private void lifeSubtract_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            int value = 0;
-            int.TryParse(adjustLife.Text, out value);
-            p.Mage.Life -= value;
-        }
+        //private void lifeSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    int value = 0;
+        //    int.TryParse(adjustLife.Text, out value);
+        //    p.Mage.Life -= value;
+        //}
 
-        private void manaAdd_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            int value = 0;
-            int.TryParse(adjustMana.Text, out value);
-            p.Mage.Mana += value;
-        }
+        //private void manaAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    int value = 0;
+        //    int.TryParse(adjustMana.Text, out value);
+        //    p.Mage.Mana += value;
+        //}
 
-        private void manaSubtract_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            int value = 0;
-            int.TryParse(adjustMana.Text, out value);
-            p.Mage.Mana -= value;
-        }
+        //private void manaSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    int value = 0;
+        //    int.TryParse(adjustMana.Text, out value);
+        //    p.Mage.Mana -= value;
+        //}
 
-        private void DamageAdd_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            int value = 0;
-            int.TryParse(adjustDamage.Text, out value);
-            p.Mage.Damage += value;
-        }
+        //private void DamageAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    int value = 0;
+        //    int.TryParse(adjustDamage.Text, out value);
+        //    p.Mage.Damage += value;
+        //}
 
-        private void DamageSubtract_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            int value = 0;
-            int.TryParse(adjustDamage.Text, out value);
-            p.Mage.Damage -= value;
-        }
+        //private void DamageSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    int value = 0;
+        //    int.TryParse(adjustDamage.Text, out value);
+        //    p.Mage.Damage -= value;
+        //}
 
-        private void ArmorAdd_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            int value = 0;
-            int.TryParse(adjustArmor.Text, out value);
-            p.Mage.Armor += value;
-        }
+        //private void ArmorAdd_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    int value = 0;
+        //    int.TryParse(adjustArmor.Text, out value);
+        //    p.Mage.Armor += value;
+        //}
 
-        private void ArmorSubtract_Tapped(object sender, TappedRoutedEventArgs e)
-        {
-            int value = 0;
-            int.TryParse(adjustArmor.Text, out value);
-            p.Mage.Armor -= value;
-        }
+        //private void ArmorSubtract_Tapped(object sender, TappedRoutedEventArgs e)
+        //{
+        //    int value = 0;
+        //    int.TryParse(adjustArmor.Text, out value);
+        //    p.Mage.Armor -= value;
+        //}
 
         private void TextBoxNumber_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
         {

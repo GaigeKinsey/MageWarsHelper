@@ -71,8 +71,16 @@
 
             <uc:MagePropDisplay x:Name="ChannelingPropDisplay" 
                                 Type="Channeling"/>
+            <uc:MagePropDisplay x:Name="ManaPropDisplay" 
+                                Type="Mana"/>
+            <uc:MagePropDisplay x:Name="LifePropDisplay" 
+                                Type="Life"/>
+            <uc:MagePropDisplay x:Name="DamagePropDisplay" 
+                                Type="Damage"/>
+            <uc:MagePropDisplay x:Name="ArmorPropDisplay" 
+                                Type="Armor"/>
             
-            <StackPanel x:Name="mainChanelStack"
+            <!--<StackPanel x:Name="mainChanelStack"
                         Orientation="Vertical"
                         Background="BlanchedAlmond"
                         BorderBrush="Black"
@@ -338,7 +346,7 @@
                             Tapped="ArmorSubtract_Tapped"/>
 
                 </StackPanel>
-            </StackPanel>
+            </StackPanel>-->
 
         </StackPanel>
 
