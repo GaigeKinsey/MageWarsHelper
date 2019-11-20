@@ -277,8 +277,9 @@ namespace MageWarsHelper
             }
         }
         /// <summary>
-        /// The minimum range to cast this spell. Can only go as low as 0.
-        /// MaxRange will always be greater than or equal to this.
+        /// The minimum range to cast this spell. Can only go as low as 0, which
+        /// refers to the zone that the caster is in. MaxRange will always be greater
+        /// than or equal to this.
         /// </summary>
         public int MinRange
         {
@@ -296,8 +297,9 @@ namespace MageWarsHelper
             }
         }
         /// <summary>
-        /// The maximum range to cast this spell. Can only go as low as 0.
-        /// MinRange will always be less than or equal to this.
+        /// The maximum range to cast this spell. Can only go as low as 0, which
+        /// refers to the zone that the caster is in. MinRange will always be less
+        /// than or equal to this.
         /// </summary>
         public int MaxRange
         {

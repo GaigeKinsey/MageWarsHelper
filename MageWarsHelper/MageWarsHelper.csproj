@@ -125,6 +125,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\SerialIDToImageConverter.cs" />
+    <Compile Include="MW Elements\MWAttackAction.cs" />
     <Compile Include="MW Elements\MWAttackspell.cs" />
     <Compile Include="MW Elements\MWCard.cs" />
     <Compile Include="MW Elements\MWConjuration.cs" />
