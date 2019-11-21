@@ -6,12 +6,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    d:DesignHeight="510"
-    d:DesignWidth="366"
+    d:DesignHeight="515"
+    d:DesignWidth="370"
     x:Name="mainControl">
 
-    <Button x:Name="Card"
-            Height="510"
-            Width="366"/>
+    <Border BorderThickness="7"
+            BorderBrush="Black"
+            CornerRadius="20">
+        
+        <Button x:Name="Card"
+                Height="510"
+                Width="366"/>
+    </Border>
     
 </UserControl>

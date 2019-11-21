@@ -33,24 +33,26 @@ namespace MageWarsHelper.Views
         public PlayerPage()
         {
             this.InitializeComponent();
-            subStackPannel.DataContext = p;
-            //Image img = new Image();
-            //img.Source = new BitmapImage(new Uri("http://forum.arcanewonders.com/cards/BEASTMASTERABILITYOUTLINE.jpg"));
-            //test.Content = img;
+            playerGrid.DataContext = p;
 
             p.Mage.SerialNumber = "BEASTMASTERABILITYOUTLINE";
-            p.Mage.HasArmor = true;
+
+            MageCard.DataContext = p.Mage;
+
+            BindPropDisplays();
+
+            CardsGrid.ItemsSource = p.Cards;
+            MWCard c = MWCard.Create(MWCard.SerialConverter("MW1C01"));
+            c.SerialNumber = "MW1C01";
+            p.Cards.Add(c);
+            p.Cards.Add(c);
+            p.Cards.Add(c);
+        }
+
+        private void BindPropDisplays()
+        {
 
             Binding bind = new Binding();
-            bind.Source = p;
-            bind.Path = new PropertyPath("Mage.SerialNumber");
-            bind.Mode = BindingMode.OneWay;
-            bind.Converter = converter;
-            
-            MageCard.SetBinding(ContentProperty, bind);
-
-
-            bind = new Binding();
             bind.Source = p;
             bind.Path = new PropertyPath("Mage.Channeling");
             bind.Mode = BindingMode.OneWay;
@@ -68,7 +70,7 @@ namespace MageWarsHelper.Views
             bind.Source = p;
             bind.Path = new PropertyPath("Mage.Life");
             bind.Mode = BindingMode.OneWay;
-            LifePropDisplay.SetBinding(DataContextProperty , bind);
+            LifePropDisplay.SetBinding(DataContextProperty, bind);
             LifePropDisplay.Mage = p.Mage;
 
             bind = new Binding();
@@ -84,84 +86,7 @@ namespace MageWarsHelper.Views
             bind.Mode = BindingMode.OneWay;
             ArmorPropDisplay.SetBinding(DataContextProperty, bind);
             ArmorPropDisplay.Mage = p.Mage;
-
-            CardsGrid.ItemsSource = p.Cards;
-            MWCard c = MWCard.Create(MWCard.SerialConverter("MW1C01"));
-            c.SerialNumber = "MW1C01";
-            p.Cards.Add(c);
-            p.Cards.Add(c);
-            p.Cards.Add(c);
         }
-
-        //private void channelAdd_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    int value = 0;
-        //    int.TryParse(adjustChanel.Text, out value);
-        //    p.Mage.Channeling += value;
-        //}
-
-        //private void channelSubtract_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    int value = 0;
-        //    int.TryParse(adjustChanel.Text, out value);
-        //    p.Mage.Channeling -= value;
-        //}
-
-        //private void lifeAdd_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    int value = 0;
-        //    int.TryParse(adjustLife.Text, out value);
-        //    p.Mage.Life += value;
-        //}
-
-        //private void lifeSubtract_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    int value = 0;
-        //    int.TryParse(adjustLife.Text, out value);
-        //    p.Mage.Life -= value;
-        //}
-
-        //private void manaAdd_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    int value = 0;
-        //    int.TryParse(adjustMana.Text, out value);
-        //    p.Mage.Mana += value;
-        //}
-
-        //private void manaSubtract_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    int value = 0;
-        //    int.TryParse(adjustMana.Text, out value);
-        //    p.Mage.Mana -= value;
-        //}
-
-        //private void DamageAdd_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    int value = 0;
-        //    int.TryParse(adjustDamage.Text, out value);
-        //    p.Mage.Damage += value;
-        //}
-
-        //private void DamageSubtract_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    int value = 0;
-        //    int.TryParse(adjustDamage.Text, out value);
-        //    p.Mage.Damage -= value;
-        //}
-
-        //private void ArmorAdd_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    int value = 0;
-        //    int.TryParse(adjustArmor.Text, out value);
-        //    p.Mage.Armor += value;
-        //}
-
-        //private void ArmorSubtract_Tapped(object sender, TappedRoutedEventArgs e)
-        //{
-        //    int value = 0;
-        //    int.TryParse(adjustArmor.Text, out value);
-        //    p.Mage.Armor -= value;
-        //}
 
         private void TextBoxNumber_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
         {

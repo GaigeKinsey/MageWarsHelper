@@ -10,374 +10,125 @@
     Background="AliceBlue"
     RequestedTheme="Light">
 
-    <StackPanel x:Name="mainStackPannel"
-                Orientation="Vertical">
+    <ScrollViewer>
+        
+        <StackPanel x:Name="mainStackPannel"
+                    Orientation="Vertical">
 
-        <StackPanel x:Name="subStackPannel" 
-                    Orientation="Horizontal">
+            <Grid x:Name="playerGrid" >
 
-            <StackPanel x:Name="playerInfo"
-                        Orientation="Vertical"
-                        Background="BlanchedAlmond"
-                        BorderBrush="Black"
-                        BorderThickness="2"
-                        CornerRadius="10"
-                        Margin="10"
-                        Padding="15,5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
 
-                <TextBox x:Name="PlayerName"
-                         Margin="10,10"
-                         FontSize="24"
-                         BorderBrush="Transparent"
-                         Background="Transparent"
-                         PlaceholderText="Name"/>
+                <StackPanel x:Name="playerInfo"
+                            Grid.Column="0"
+                            Orientation="Vertical"
+                            VerticalAlignment="Top"
+                            Background="BlanchedAlmond"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="10"
+                            Margin="10"
+                            Padding="15,5"
+                            Height="605"
+                            Width="auto">
 
-                <Button x:Name="MageCard"
-                        MaxHeight="510"
-                        MaxWidth="366"/>
+                    <TextBox x:Name="PlayerName"
+                             Margin="10,10"
+                             FontSize="24"
+                             BorderBrush="Transparent"
+                             Background="Transparent"
+                             PlaceholderText="Name"/>
 
-            </StackPanel>
-
-            <StackPanel x:Name="turn"
-                        Orientation="Vertical"
-                        Background="BlanchedAlmond"
-                        BorderBrush="Black"
-                        BorderThickness="2"
-                        CornerRadius="10"
-                        Margin="10,10"
-                        Padding="15,5"
-                        MinHeight="250"
-                        VerticalAlignment="Top">
-
-                <CheckBox x:Name="initativeCheckBox"
-                            FontSize="24"
-                            Margin="10,1"
-                            VerticalContentAlignment="Center"
-                            Content="Initiative"/>
-
-
-                <CheckBox x:Name="actionCheckBox"
-                            FontSize="24"
-                            Margin="10,1"
-                            VerticalContentAlignment="Center"
-                            Content="Action"/>
-
-                <CheckBox x:Name="quickCastCheckBox"
-                              FontSize="24"
-                              Margin="10,1"
-                              VerticalContentAlignment="Center"
-                              Content="QuickCast"/>
-            </StackPanel>
-
-            <uc:MagePropDisplay x:Name="ChannelingPropDisplay" 
-                                Type="Channeling"/>
-            <uc:MagePropDisplay x:Name="ManaPropDisplay" 
-                                Type="Mana"/>
-            <uc:MagePropDisplay x:Name="LifePropDisplay" 
-                                Type="Life"/>
-            <uc:MagePropDisplay x:Name="DamagePropDisplay" 
-                                Type="Damage"/>
-            <uc:MagePropDisplay x:Name="ArmorPropDisplay" 
-                                Type="Armor"/>
-            
-            <!--<StackPanel x:Name="mainChanelStack"
-                        Orientation="Vertical"
-                        Background="BlanchedAlmond"
-                        BorderBrush="Black"
-                        BorderThickness="2"
-                        CornerRadius="10"
-                        Margin="10"
-                        Padding="15,5"
-                        MinHeight="250"
-                        VerticalAlignment="Top">
-
-                <TextBlock x:Name="channeling"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="Channeling"
-                           HorizontalAlignment="Center"/>
-
-                <TextBlock x:Name="currentChanneling"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="{Binding Path=Mage.Channeling, Mode=OneWay}"
-                           HorizontalAlignment="Center"/>
-
-                <TextBox x:Name="adjustChanel"
-                         Margin="10,10"
-                         FontSize="24"
-                         BorderBrush="Gray"
-                         PlaceholderText="0"
-                         BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
-
-                <StackPanel x:Name="channelButtons"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center">
-
-                    <Button x:Name="channelAdd"
-                            Margin="10,10"
-                            Width="50"
-                            Height="50"
-                            FontSize="24"
-                            Content="+"
-                            Tapped="channelAdd_Tapped"/>
-
-                    <Button x:Name="channelSubtract"
-                            Margin="10,10"
-                            Width="50"
-                            Height="50"
-                            FontSize="24"
-                            Content="-"
-                            Tapped="channelSubtract_Tapped"/>
+                    <uc:CardButton x:Name="MageCard"/>
 
                 </StackPanel>
-            </StackPanel>
 
-            <StackPanel x:Name="mainManaStack"
-                        Orientation="Vertical"
-                        Background="BlanchedAlmond"
-                        BorderBrush="Black"
-                        BorderThickness="2"
-                        CornerRadius="10"
-                        Margin="10"
-                        Padding="15,5"
-                        MinHeight="250"
-                        VerticalAlignment="Top">
+                <GridView x:Name="propGrid"
+                          Grid.Column="1">
 
-                <TextBlock x:Name="mana"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="Mana"
-                           HorizontalAlignment="Center"/>
+                    <GridView.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <ItemsWrapGrid Orientation="Horizontal"/>
+                        </ItemsPanelTemplate>
+                    </GridView.ItemsPanel>
 
-                <TextBlock x:Name="currentMana"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="{Binding Path=Mage.Mana, Mode=OneWay}"
-                           HorizontalAlignment="Center"/>
-
-                <TextBox x:Name="adjustMana"
-                         Margin="10,10"
-                         FontSize="24"
-                         BorderBrush="Gray"
-                         PlaceholderText="0"
-                         BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
-
-                <StackPanel x:Name="manaButtons"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center">
-
-                    <Button x:Name="manaAdd"
+                    <StackPanel x:Name="turn"
+                            Orientation="Vertical"
+                            Background="BlanchedAlmond"
+                            BorderBrush="Black"
+                            BorderThickness="2"
+                            CornerRadius="10"
                             Margin="10,10"
-                            Width="50"
-                            Height="50"
-                            FontSize="24"
-                            Content="+"
-                            Tapped="manaAdd_Tapped"/>
+                            Padding="15,5"
+                            MinHeight="255"
+                            VerticalAlignment="Top">
 
-                    <Button x:Name="manaSubtract"
-                            Margin="10,10"
-                            Width="50"
-                            Height="50"
-                            FontSize="24"
-                            Content="-"
-                            Tapped="manaSubtract_Tapped"/>
+                        <CheckBox x:Name="initativeCheckBox"
+                                FontSize="24"
+                                Margin="10,1"
+                                VerticalContentAlignment="Center"
+                                Content="Initiative"/>
 
-                </StackPanel>
-            </StackPanel>
+                        <CheckBox x:Name="actionCheckBox"
+                                FontSize="24"
+                                Margin="10,1"
+                                VerticalContentAlignment="Center"
+                                Content="Action"/>
 
-            <StackPanel x:Name="mainLifeStack"
-                        Orientation="Vertical"
-                        Background="BlanchedAlmond"
-                        BorderBrush="Black"
-                        BorderThickness="2"
-                        CornerRadius="10"
-                        Margin="10"
-                        Padding="15,5"
-                        MinHeight="250"
-                        VerticalAlignment="Top">
+                        <CheckBox x:Name="quickCastCheckBox"
+                                  FontSize="24"
+                                  Margin="10,1"
+                                  VerticalContentAlignment="Center"
+                                  Content="QuickCast"/>
+                    </StackPanel>
 
-                <TextBlock x:Name="LifeText"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="Life"
-                           HorizontalAlignment="Center"/>
 
-                <TextBlock x:Name="currentLife"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="{Binding Path=Mage.Life, Mode=OneWay}"
-                           HorizontalAlignment="Center"/>
+                    <uc:MagePropDisplay x:Name="ChannelingPropDisplay" 
+                                        Type="Channeling"/>
 
-                <TextBox x:Name="adjustLife"
-                         Margin="10,10"
-                         FontSize="24"
-                         BorderBrush="Gray"
-                         InputScope="Number"
-                         PlaceholderText="0"
-                         BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
 
-                <StackPanel x:Name="lifeButtons"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center">
+                    <uc:MagePropDisplay x:Name="ManaPropDisplay" 
+                                        Type="Mana"/>
 
-                    <Button x:Name="lifeAdd"
-                            Margin="10,10"
-                            Width="50"
-                            Height="50"
-                            FontSize="24"
-                            Content="+"
-                            Tapped="lifeAdd_Tapped"/>
+                    <uc:MagePropDisplay x:Name="LifePropDisplay" 
+                                        Type="Life"/>
 
-                    <Button x:Name="lifeSubtract"
-                            Margin="10,10"
-                            Width="50"
-                            Height="50"
-                            FontSize="24"
-                            Content="-"
-                            Tapped="lifeSubtract_Tapped"/>
+                    <uc:MagePropDisplay x:Name="DamagePropDisplay" 
+                                        Type="Damage"/>
 
-                </StackPanel>
-            </StackPanel>
+                    <uc:MagePropDisplay x:Name="ArmorPropDisplay" 
+                                        Type="Armor"/>
+                </GridView>
 
-            <StackPanel x:Name="mainDamageStack"
-                        Orientation="Vertical"
-                        Background="BlanchedAlmond"
-                        BorderBrush="Black"
-                        BorderThickness="2"
-                        CornerRadius="10"
-                        Margin="10"
-                        Padding="15,5"
-                        MinHeight="250"
-                        VerticalAlignment="Top">
+            </Grid>
 
-                <TextBlock x:Name="DamageText"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="Damage"
-                           HorizontalAlignment="Center"/>
+            <TextBox x:Name="CardID"
+                     Width="100"
+                     Height="50"
+                     FontSize="24"
+                     PlaceholderText="Card Id"
+                     HorizontalAlignment="Left"/>
+            <Button x:Name="AddCardButton"
+                    Content="Add A Card"
+                    Click="AddCardButton_Click"/>
 
-                <TextBlock x:Name="currentDamage"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="{Binding Path=Mage.Damage, Mode=OneWay}"
-                           HorizontalAlignment="Center"/>
+            <GridView x:Name="CardsGrid"
+                      Height="750">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <uc:CardButton/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
 
-                <TextBox x:Name="adjustDamage"
-                         Margin="10,10"
-                         FontSize="24"
-                         BorderBrush="Gray"
-                         InputScope="Number"
-                         PlaceholderText="0"
-                         BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
-
-                <StackPanel x:Name="DamageButtons"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center">
-
-                    <Button x:Name="DamageAdd"
-                            Margin="10,10"
-                            Width="50"
-                            Height="50"
-                            FontSize="24"
-                            Content="+"
-                            Tapped="DamageAdd_Tapped"/>
-
-                    <Button x:Name="DamageSubtract"
-                            Margin="10,10"
-                            Width="50"
-                            Height="50"
-                            FontSize="24"
-                            Content="-"
-                            Tapped="DamageSubtract_Tapped"/>
-
-                </StackPanel>
-            </StackPanel>
-
-            <StackPanel x:Name="mainArmorStack"
-                        Orientation="Vertical"
-                        Background="BlanchedAlmond"
-                        BorderBrush="Black"
-                        BorderThickness="2"
-                        CornerRadius="10"
-                        Margin="10"
-                        Padding="15,5"
-                        MinHeight="250"
-                        VerticalAlignment="Top">
-
-                <TextBlock x:Name="ArmorText"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="Armor"
-                           HorizontalAlignment="Center"/>
-
-                <TextBlock x:Name="currentArmor"
-                           Margin="10,10"
-                           FontSize="24"
-                           Text="{Binding Path=Mage.Armor, Mode=OneWay}"
-                           HorizontalAlignment="Center"/>
-
-                <TextBox x:Name="adjustArmor"
-                         Margin="10,10"
-                         FontSize="24"
-                         BorderBrush="Gray"
-                         InputScope="Number"
-                         PlaceholderText="0"
-                         BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
-
-                <StackPanel x:Name="ArmorButtons"
-                            Orientation="Horizontal"
-                            HorizontalAlignment="Center">
-
-                    <Button x:Name="ArmorAdd"
-                            Margin="10,10"
-                            Width="50"
-                            Height="50"
-                            FontSize="24"
-                            Content="+"
-                            Tapped="ArmorAdd_Tapped"/>
-
-                    <Button x:Name="ArmorSubtract"
-                            Margin="10,10"
-                            Width="50"
-                            Height="50"
-                            FontSize="24"
-                            Content="-"
-                            Tapped="ArmorSubtract_Tapped"/>
-
-                </StackPanel>
-            </StackPanel>-->
-
+            </GridView>
         </StackPanel>
-
-        <TextBox x:Name="CardID"
-                 Width="100"
-                 Height="50"
-                 FontSize="24"
-                 PlaceholderText="Card Id"
-                 HorizontalAlignment="Left"/>
-        <Button x:Name="AddCardButton"
-                Content="Add A Card"
-                Click="AddCardButton_Click"/>
-        
-        <GridView x:Name="CardsGrid"
-                  Height="300">
-            <GridView.ItemTemplate>
-                <DataTemplate>
-                    <uc:CardButton/>
-                </DataTemplate>
-            </GridView.ItemTemplate>
-            <GridView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <ItemsWrapGrid Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </GridView.ItemsPanel>
-           
-        </GridView>
-        
-        
-        
-
-
-    </StackPanel>
+    </ScrollViewer>
 </Page>
