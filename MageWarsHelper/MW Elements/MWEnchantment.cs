@@ -105,13 +105,20 @@ namespace MageWarsHelper
         {
             get
             {
+                if (RevealCost == 0) return "0";
+                if (RevealCost == 1 && RevealCostX) return "X";
                 return RevealCostX ? RevealCost + "X" : RevealCost.ToString();
             }
             set
             {
                 if (value[value.Length - 1] == 'X')
                 {
-                    if (int.TryParse(value.Substring(0, value.Length - 1), out revealcost))
+                    if (value == "X")
+                    {
+                        RevealCost = 1;
+                        RevealCostX = true;
+                    }
+                    else if (int.TryParse(value.Substring(0, value.Length - 1), out revealcost))
                     {
                         if (revealcost < 1) revealcost = 1;
                         RevealCostX = true;

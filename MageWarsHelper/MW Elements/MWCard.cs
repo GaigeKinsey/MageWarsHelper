@@ -253,13 +253,20 @@ namespace MageWarsHelper
         {
             get
             {
+                if (ManaCost == 0) return "0";
+                if (ManaCost == 1 && ManaCostX) return "X";
                 return ManaCostX ? ManaCost + "X" : ManaCost.ToString();
             }
             set
             {
                 if (value[value.Length - 1] == 'X')
                 {
-                    if (int.TryParse(value.Substring(0, value.Length - 1), out manacost))
+                    if (value == "X")
+                    {
+                        ManaCost = 1;
+                        ManaCostX = true;
+                    }
+                    else if (int.TryParse(value.Substring(0, value.Length - 1), out manacost))
                     {
                         if (manacost < 1) manacost = 1;
                         ManaCostX = true;
@@ -391,8 +398,8 @@ namespace MageWarsHelper
             get
             {
                 if (levels.Count() == 0) return "1";
-                var levelist = new List<SpellSchool>();
-                foreach (SpellSchool eachLv in levels.Values)
+                var levelist = new List<int>();
+                foreach (int eachLv in levels.Values)
                 {
                     levelist.Add(eachLv);
                 }
