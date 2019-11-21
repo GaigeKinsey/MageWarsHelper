@@ -117,7 +117,7 @@ namespace MageWarsHelper
              */
             get
             {
-                return armor > 0;
+                return armor >= 0;
             }
             set
             {
