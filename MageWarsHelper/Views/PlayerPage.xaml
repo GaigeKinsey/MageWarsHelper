@@ -47,7 +47,8 @@
                 </StackPanel>
 
                 <GridView x:Name="propGrid"
-                          Grid.Column="1">
+                          Grid.Column="1"
+                          VerticalAlignment="Bottom">
 
                     <GridView.ItemsPanel>
                         <ItemsPanelTemplate>
@@ -116,7 +117,7 @@
                     Click="AddCardButton_Click"/>
 
             <GridView x:Name="CardsGrid"
-                      Height="750">
+                      Height="650">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <uc:CardButton/>
