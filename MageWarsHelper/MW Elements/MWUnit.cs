@@ -109,32 +109,47 @@ namespace MageWarsHelper
         /// </summary>
         public bool HasArmor
         {
+            /*
+             * Behind the scenes, armor is tracked as an integer. If it's 0, or something positive,
+             * that's how much armor the unit has. If it's negative (-1 or -2) this is a unit that
+             * can't have armor at all (and the armor is treated as 0 for card effects.) If it's
+             * -2 specifically, it's Incorporeal. Incorporeal units can never have armor.
+             */
             get
             {
                 return armor > 0;
             }
             set
             {
-                if (value && armor < 0)
+                if (value && !HasArmor)
                 {
                     armor = 0;
                     Incorporeal = false;
                     FieldChanged("Incorporeal");
+                    FieldChanged("Armor");
+                    FieldChanged();
                 } else if (!value && armor >= 0)
                 {
                     armor = -1;
+                    FieldChanged("Armor");
+                    FieldChanged();
                 }
-                FieldChanged("Armor");
-                FieldChanged();
             }
         }
         /// <summary>
         /// If true, can't have armor and 2s rolled on damage dice only count if the attack is ethereal.
         /// </summary>
-        public bool Incorporeal {
+        public bool Incorporeal
+        {
+            /*
+             * Behind the scenes, armor is tracked as an integer. If it's 0, or something positive,
+             * that's how much armor the unit has. If it's negative (-1 or -2) this is a unit that
+             * can't have armor at all (and the armor is treated as 0 for card effects.) If it's
+             * -2 specifically, it's Incorporeal. Incorporeal units can never have armor.
+             */
             get
             {
-                return armor > -1;
+                return armor == -2;
             }
             set
             {
@@ -143,7 +158,7 @@ namespace MageWarsHelper
                     armor = -2;
                 } else
                 {
-                    if (armor < 0)
+                    if (!HasArmor)
                     {
                         armor = -1;
                     }
@@ -158,16 +173,25 @@ namespace MageWarsHelper
         /// </summary>
         public int Armor
         {
+            /*
+             * Behind the scenes, armor is tracked as an integer. If it's 0, or something positive,
+             * that's how much armor the unit has. If it's negative (-1 or -2) this is a unit that
+             * can't have armor at all (and the armor is treated as 0 for card effects.) If it's
+             * -2 specifically, it's Incorporeal. Incorporeal units can never have armor.
+             */
             get
             {
-                if (Incorporeal) return 0;
-                return armor;
+                if (armor < 0) return 0;
+                else return armor;
             }
             set
             {
-                if (!HasArmor || value < 0) armor = 0;
-                else armor = value;
-                FieldChanged();
+                if (HasArmor)
+                {
+                    if (value < 0) armor = 0;
+                    else armor = value;
+                    FieldChanged();
+                }
             }
         }
         /// <summary>
