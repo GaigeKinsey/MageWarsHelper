@@ -101,9 +101,6 @@ namespace MageWarsHelper
             Quick = true;
         }
 
-        public override string CardType()
-        {
-            return "Conjuration";
-        }
+        public override string CardType => "Conjuration";
     }
 }

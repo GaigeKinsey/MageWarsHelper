@@ -700,6 +700,6 @@ namespace MageWarsHelper
         /// Returns a string of what type of card this is.
         /// </summary>
         /// <returns></returns>
-        public abstract string CardType();
+        public abstract string CardType { get; }
     }
 }

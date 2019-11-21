@@ -8,9 +8,6 @@ namespace MageWarsHelper
 {
     public class MWCreature : MWUnit
     {
-        public override string CardType()
-        {
-            return "Creature";
-        }
+        public override string CardType => "Creature";
     }
 }

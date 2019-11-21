@@ -180,9 +180,6 @@ namespace MageWarsHelper
         {
         }
 
-        public override string CardType()
-        {
-            return "Enchantment";
-        }
+        public override string CardType => "Enchantment";
     }
 }
