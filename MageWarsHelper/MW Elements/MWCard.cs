@@ -53,7 +53,7 @@ namespace MageWarsHelper
         NATURE,
         MIND,
         WAR,
-        LIGHT,
+        HOLY,
         DARK,
         FIRE,
         WATER,
