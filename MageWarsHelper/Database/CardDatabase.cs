@@ -27,7 +27,6 @@ namespace MageWarsHelper.Database
             set { cards = value; }
         }
 
-
         public void LoadDataBase()
         {
             StreamReader sr = new StreamReader("Database/cardDatabase.txt");
@@ -88,10 +87,9 @@ namespace MageWarsHelper.Database
                 if (card.GetType() == typeof(MWEnchantment))
                 {
                     //Reveal Cost
-                    int revealCost = 0;
-                    int.TryParse(elements[7], out revealCost);
+                    string revealCost = elements[7];
                     MWEnchantment enchantCard = (MWEnchantment)card;
-                    enchantCard.RevealCost = revealCost;
+                    enchantCard.RevealCostString = revealCost;
 
                     Cards.Add(enchantCard);
                 }
