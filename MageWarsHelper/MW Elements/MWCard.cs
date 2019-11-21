@@ -363,6 +363,48 @@ namespace MageWarsHelper
             }
         }
         /// <summary>
+        /// A string of all of the schools in this spell, or "NOVICE" if there are none.
+        /// </summary>
+        public string Schools
+        {
+            get
+            {
+                if (levels.Count() == 0) return "NOVICE";
+                var schools = new List<SpellSchool>();
+                foreach(SpellSchool eachSchool in levels.Keys)
+                {
+                    schools.Add(eachSchool);
+                }
+                string schoolstr = schools[0].ToString();
+                for (int i = 1; i < schools.Count; i++)
+                {
+                    schoolstr += ", " + schools[i];
+                }
+                return schoolstr;
+            }
+        }
+        /// <summary>
+        /// A string of all of the levels in this spell, or "1" if there are none.
+        /// </summary>
+        public string Levels
+        {
+            get
+            {
+                if (levels.Count() == 0) return "1";
+                var levelist = new List<SpellSchool>();
+                foreach (SpellSchool eachLv in levels.Values)
+                {
+                    levelist.Add(eachLv);
+                }
+                string lvstr = levelist[0].ToString();
+                for (int i = 1; i < levelist.Count; i++)
+                {
+                    lvstr += (ChooseSchool ? " or " : " & ")  + levelist[i];
+                }
+                return lvstr;
+            }
+        }
+        /// <summary>
         /// If true, casting this spell is a quick action.
         /// </summary>
         public bool Quick {
