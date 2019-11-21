@@ -40,7 +40,8 @@
                              FontSize="24"
                              BorderBrush="Transparent"
                              Background="Transparent"
-                             PlaceholderText="Name"/>
+                             PlaceholderText="Name"
+                             TextChanged="PlayerName_TextChanged"/>
 
                     <uc:CardButton x:Name="MageCard"/>
 
@@ -107,13 +108,16 @@
             </Grid>
 
             <TextBox x:Name="CardID"
-                     Width="100"
+                     Width="250"
                      Height="50"
                      FontSize="24"
-                     PlaceholderText="Card Id"
-                     HorizontalAlignment="Left"/>
+                     PlaceholderText="Card Serial Number"
+                     HorizontalAlignment="Left"
+                     Margin="10"/>
+            
             <Button x:Name="AddCardButton"
                     Content="Add A Card"
+                    Margin="10"
                     Click="AddCardButton_Click"/>
 
             <GridView x:Name="CardsGrid"

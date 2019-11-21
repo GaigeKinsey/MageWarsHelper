@@ -24,5 +24,14 @@ namespace MageWarsHelper
         {
             Mage = new MWMage();
         }
+
+        private string name = "";
+
+        public string Name
+        {
+            get { return name; }
+            set { name = value; }
+        }
+
     }
 }

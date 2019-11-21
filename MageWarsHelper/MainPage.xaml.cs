@@ -32,12 +32,30 @@ namespace MageWarsHelper
             ("dicePage", typeof(Views.DicePage))
         };
 
+        private MWPlayer player = new MWPlayer();
+
         public MainPage()
         {
             this.InitializeComponent();
 
             CardDatabase database = CardDatabase.Instance;
             database.LoadDataBase();
+
+            InitPlayer();
+
+        }
+
+        private void InitPlayer()
+        {
+
+            player.Mage.SerialNumber = "BEASTMASTERABILITYOUTLINE";
+            
+            MWCard c = MWCard.Create(MWCard.SerialConverter("MW1C01"));
+            c.SerialNumber = "MW1C01";
+            player.Cards.Add(c);
+            player.Cards.Add(c);
+            player.Cards.Add(c);
+
         }
 
         private void navView_Loaded(object sender, RoutedEventArgs e)
@@ -69,7 +87,7 @@ namespace MageWarsHelper
             // Only navigate if the selected page isn't currently loaded.
             if (!(_page is null) && !Type.Equals(preNavPageType, _page))
             {
-                contentFrame.Navigate(_page, null, transitionInfo);
+                contentFrame.Navigate(_page, player, transitionInfo);
             }
         }
     }

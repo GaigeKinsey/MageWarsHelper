@@ -1,4 +1,5 @@
-﻿using MageWarsHelper.Models;
+﻿using MageWarsHelper.Database;
+using MageWarsHelper.Models;
 using MageWarsHelper.UserControls;
 using System;
 using System.Collections.Generic;
@@ -27,65 +28,73 @@ namespace MageWarsHelper.Views
     public sealed partial class PlayerPage : Page
     {
 
-        private MWPlayer p = new MWPlayer();
+        private MWPlayer player = null;
         private SerialIDToImageConverter converter = SerialIDToImageConverter.Instance;
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+
+            player = (MWPlayer)e.Parameter;
+
+            Binding bind = new Binding();
+            bind.Source = player;
+            bind.Path = new PropertyPath("Mage");
+            bind.Mode = BindingMode.OneWay;
+            MageCard.SetBinding(DataContextProperty, bind);
+
+            BindPropDisplays();
+
+            CardsGrid.ItemsSource = player.Cards;
+            PlayerName.Text = player.Name;
+
+        }
 
         public PlayerPage()
         {
             this.InitializeComponent();
-            playerGrid.DataContext = p;
 
-            p.Mage.SerialNumber = "BEASTMASTERABILITYOUTLINE";
+            playerGrid.DataContext = player;
 
-            MageCard.DataContext = p.Mage;
-
-            BindPropDisplays();
-
-            CardsGrid.ItemsSource = p.Cards;
-            MWCard c = MWCard.Create(MWCard.SerialConverter("MW1C01"));
-            c.SerialNumber = "MW1C01";
-            p.Cards.Add(c);
-            p.Cards.Add(c);
-            p.Cards.Add(c);
         }
 
         private void BindPropDisplays()
         {
 
             Binding bind = new Binding();
-            bind.Source = p;
+            bind.Source = player;
             bind.Path = new PropertyPath("Mage.Channeling");
             bind.Mode = BindingMode.OneWay;
             ChannelingPropDisplay.SetBinding(DataContextProperty, bind);
-            ChannelingPropDisplay.Mage = p.Mage;
+            ChannelingPropDisplay.Mage = player.Mage;
 
             bind = new Binding();
-            bind.Source = p;
+            bind.Source = player;
             bind.Path = new PropertyPath("Mage.Mana");
             bind.Mode = BindingMode.OneWay;
             ManaPropDisplay.SetBinding(DataContextProperty, bind);
-            ManaPropDisplay.Mage = p.Mage;
+            ManaPropDisplay.Mage = player.Mage;
 
             bind = new Binding();
-            bind.Source = p;
+            bind.Source = player;
             bind.Path = new PropertyPath("Mage.Life");
             bind.Mode = BindingMode.OneWay;
             LifePropDisplay.SetBinding(DataContextProperty, bind);
-            LifePropDisplay.Mage = p.Mage;
+            LifePropDisplay.Mage = player.Mage;
 
             bind = new Binding();
-            bind.Source = p;
+            bind.Source = player;
             bind.Path = new PropertyPath("Mage.Damage");
             bind.Mode = BindingMode.OneWay;
             DamagePropDisplay.SetBinding(DataContextProperty, bind);
-            DamagePropDisplay.Mage = p.Mage;
+            DamagePropDisplay.Mage = player.Mage;
 
             bind = new Binding();
-            bind.Source = p;
+            bind.Source = player;
             bind.Path = new PropertyPath("Mage.Armor");
             bind.Mode = BindingMode.OneWay;
             ArmorPropDisplay.SetBinding(DataContextProperty, bind);
-            ArmorPropDisplay.Mage = p.Mage;
+            ArmorPropDisplay.Mage = player.Mage;
         }
 
         private void TextBoxNumber_BeforeTextChanging(TextBox sender, TextBoxBeforeTextChangingEventArgs args)
@@ -97,10 +106,18 @@ namespace MageWarsHelper.Views
         private void AddCardButton_Click(object sender, RoutedEventArgs e)
         {
 
-            MWCard c = MWCard.Create(MWCard.SerialConverter(CardID.Text));
-            c.SerialNumber = CardID.Text;
-            p.Cards.Add(c);
+            MWCard c = CardDatabase.Instance.Cards.Where(m => m.SerialNumber == CardID.Text).FirstOrDefault();
+            if(c != null)
+            {
+                c.SerialNumber = CardID.Text;
+                player.Cards.Add(c);
+            }
 
+        }
+
+        private void PlayerName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            player.Name = PlayerName.Text;
 
         }
     }
