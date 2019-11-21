@@ -58,7 +58,7 @@ namespace MageWarsHelper
         FIRE,
         WATER,
         EARTH,
-        WIND
+        AIR
     }
     #endregion
     #region Subtype
