@@ -615,8 +615,9 @@ namespace MageWarsHelper
         /// </summary>
         /// <param name="trained">Your Mage's trained schools</param>
         /// <param name="restricted">Your Mage's restricted schools</param>
+        /// <param name="restrictcreatures">Whether untrained creatures count as restricted</param>
         /// <returns>The total cost for your Mage to put this in a spellbook.</returns>
-        public int CostToLearn(ICollection<SpellSchool> trained, ICollection<SpellSchool> restricted)
+        public int CostToLearn(IDictionary<SpellSchool, int?> trained, ICollection<SpellSchool> restricted, bool restrictcreatures = false)
         {
             if (Novice || levels.Count > 0) return 1;
             int cost;
@@ -625,11 +626,11 @@ namespace MageWarsHelper
                 cost = 10;
                 foreach (var bySchool in levels)
                 {
-                    if (trained.Contains(bySchool.Key))
+                    if (trained.Keys.Contains(bySchool.Key) && (trained[bySchool.Key] == null || trained[bySchool.Key] <= levels[bySchool.Key]))
                     {
                         cost = Math.Min(bySchool.Value, cost);
                     }
-                    else if (restricted.Contains(bySchool.Key))
+                    else if (restricted.Contains(bySchool.Key) || (restrictcreatures && GetType() == typeof(MWCreature)))
                     {
                         cost = Math.Min(bySchool.Value * 3, cost);
                     }
@@ -644,11 +645,11 @@ namespace MageWarsHelper
                 cost = 0;
                 foreach (var bySchool in levels)
                 {
-                    if (trained.Contains(bySchool.Key))
+                    if (trained.Keys.Contains(bySchool.Key) && (trained[bySchool.Key] == null || trained[bySchool.Key] <= levels[bySchool.Key]))
                     {
                         cost += bySchool.Value;
                     }
-                    else if (restricted.Contains(bySchool.Key))
+                    else if (restricted.Contains(bySchool.Key) || (restrictcreatures && GetType() == typeof(MWCreature)))
                     {
                         cost += bySchool.Value * 3;
                     }
