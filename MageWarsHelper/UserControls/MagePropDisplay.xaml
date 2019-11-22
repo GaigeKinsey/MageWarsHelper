@@ -12,7 +12,7 @@
 
     <StackPanel x:Name="mainPropStack"
                         Orientation="Vertical"
-                        Background="BlanchedAlmond"
+                        Background="{StaticResource redScratch}"
                         BorderBrush="Black"
                         BorderThickness="2"
                         CornerRadius="10"

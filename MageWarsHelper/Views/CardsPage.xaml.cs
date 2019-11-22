@@ -59,14 +59,21 @@ namespace MageWarsHelper.Views
 
             button.SetBinding(DataContextProperty, bind);
             button.Tapped += Button_Tapped;
+            button.RightTapped += Button_RightTapped;
 
             cardPopup.Child = button;
             cardPopup.IsOpen = true;
+        }
+
+        private void Button_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            player.Cards.Add(CardDatabase.Instance.Cards.ElementAt(cardListView.SelectedIndex));
         }
 
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
         {
             cardPopup.IsOpen = false;
         }
+
     }
 }

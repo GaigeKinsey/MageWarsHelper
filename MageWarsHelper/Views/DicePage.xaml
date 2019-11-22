@@ -6,19 +6,27 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    RequestedTheme="Light"
-    Background="Azure">
+    RequestedTheme="Dark"
+    Background="{StaticResource smokey}">
 
     <StackPanel x:Name="mainStack"
-                Orientation="Vertical">
+                Orientation="Vertical"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
         
         <StackPanel x:Name="controlStack"
                     VerticalAlignment="Center"
-                    Orientation="Horizontal">
+                    Orientation="Horizontal"
+                    Margin="10">
 
             <StackPanel x:Name="damgeDiceStack"
                         Orientation="Vertical"
-                        Padding="20">
+                        Padding="20"
+                        Margin="10"
+                        Background="{StaticResource redScratch}"
+                        CornerRadius="30"
+                        BorderBrush="Black"
+                        BorderThickness="5">
 
                 <CheckBox x:Name="damageDiceCheck"
                               Content="Damage Dice"
@@ -29,14 +37,25 @@
                                Text="Number Of Damage Dice:"/>
 
                 <TextBox x:Name="numOfDamageDice"
-                             Width="100"
-                             HorizontalAlignment="Left"/>
+                          Width="100"
+                          HorizontalAlignment="Left"
+                          BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
             </StackPanel>
-            <CheckBox x:Name="effectDieCheck"
-                        Content="Effect Dice"
-                        FontSize="24"
-                        VerticalAlignment="Top"
-                        Margin="20"/>
+            <StackPanel Margin="10"
+                        Background="{StaticResource redScratch}"
+                        CornerRadius="30"
+                        BorderBrush="Black"
+                        BorderThickness="5"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Height="auto">
+                
+                <CheckBox x:Name="effectDieCheck"
+                            Content="Effect Dice"
+                            FontSize="24"
+                            VerticalAlignment="Top"
+                            Margin="20"/>
+            </StackPanel>
             
             <Button x:Name="rollButton"
                     Content="ROLL"
@@ -52,38 +71,56 @@
             
             <StackPanel x:Name="critStack"
                         Orientation="Vertical"
-                        Margin="10">
+                        Margin="10"
+                        Padding="10"
+                        Background="{StaticResource redScratch}"
+                        CornerRadius="30"
+                        BorderBrush="Black"
+                        BorderThickness="5">
             
                 <TextBlock x:Name="CritDamage"
                            FontSize="36"
                            Text="Crit Damage:"/>
                 
                 <TextBlock x:Name="CritDamageNum"
-                           FontSize="36"/>
+                           FontSize="36"
+                           TextAlignment="Center"/>
             </StackPanel>
             
             <StackPanel x:Name="normalStack"
                         Orientation="Vertical"
-                        Margin="10">
+                        Margin="10"
+                        Padding="10"
+                        Background="{StaticResource redScratch}"
+                        CornerRadius="30"
+                        BorderBrush="Black"
+                        BorderThickness="5">
             
                 <TextBlock x:Name="normalDamage"
                            FontSize="36"
                            Text="Normal Damage:"/>
                 
                 <TextBlock x:Name="NormalDamageNum"
-                           FontSize="36"/>
+                           FontSize="36"
+                           TextAlignment="Center"/>
             </StackPanel>
             
             <StackPanel x:Name="effectResultStack"
                         Orientation="Vertical"
-                        Margin="10">
+                        Margin="10"
+                        Padding="10"
+                        Background="{StaticResource redScratch}"
+                        CornerRadius="30"
+                        BorderBrush="Black"
+                        BorderThickness="5">
             
                 <TextBlock x:Name="effectResult"
                            FontSize="36"
                            Text="Effect Die Result:"/>
                 
                 <TextBlock x:Name="effectResultNum"
-                           FontSize="36"/>
+                           FontSize="36"
+                           TextAlignment="Center"/>
             </StackPanel>
             
         </StackPanel>

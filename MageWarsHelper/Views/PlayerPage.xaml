@@ -7,8 +7,10 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:uc="using:MageWarsHelper.UserControls"
     mc:Ignorable="d"
-    Background="AliceBlue"
-    RequestedTheme="Light">
+    Background="{StaticResource ResourceKey=smokey}"
+    RequestedTheme="Dark"
+    >
+
 
     <ScrollViewer>
         
@@ -26,7 +28,7 @@
                             Grid.Column="0"
                             Orientation="Vertical"
                             VerticalAlignment="Top"
-                            Background="BlanchedAlmond"
+                            Background="{StaticResource redScratch}"
                             BorderBrush="Black"
                             BorderThickness="2"
                             CornerRadius="10"
@@ -57,9 +59,26 @@
                         </ItemsPanelTemplate>
                     </GridView.ItemsPanel>
 
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="GridViewItem">
+                                        <ListViewItemPresenter
+                                            SelectedBackground="Transparent"
+                                            SelectedPointerOverBackground="Transparent"
+                                            PressedBackground="Transparent"
+                                            SelectedPressedBackground="Transparent"
+                                            />
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </GridView.ItemContainerStyle>
+
                     <StackPanel x:Name="turn"
                             Orientation="Vertical"
-                            Background="BlanchedAlmond"
+                            Background="{StaticResource redScratch}"
                             BorderBrush="Black"
                             BorderThickness="2"
                             CornerRadius="10"
@@ -127,6 +146,24 @@
                         <uc:CardButton/>
                     </DataTemplate>
                 </GridView.ItemTemplate>
+                
+                <GridView.ItemContainerStyle>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="GridViewItem">
+                                    <ListViewItemPresenter
+                                            SelectedBackground="Transparent"
+                                            SelectedPointerOverBackground="Transparent"
+                                            PressedBackground="Transparent"
+                                            SelectedPressedBackground="Transparent"
+                                            />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </GridView.ItemContainerStyle>
+                
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <ItemsWrapGrid Orientation="Horizontal"/>

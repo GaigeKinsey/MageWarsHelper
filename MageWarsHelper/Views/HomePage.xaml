@@ -6,10 +6,10 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    RequestedTheme="Light"
-    Background="Azure">
+    RequestedTheme="Dark"
+    Background="{StaticResource redScratchBack}">
 
-    <Grid Background="AliceBlue">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition/>
             <RowDefinition/>
@@ -18,7 +18,6 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="1"
-                   Foreground="Black"
                    FontSize="40"
                    TextAlignment="Center"
                    VerticalAlignment="Center"
@@ -28,16 +27,14 @@
             <Run Text="By the Arbitrary Ninjas"/>
         </TextBlock>
 
-        <TextBlock Foreground="Black"
-                   VerticalAlignment="Center"
+        <TextBlock VerticalAlignment="Center"
                    Grid.Row="2"
                    FontSize="40"
                    TextAlignment="Center"
                    Width="auto"
                    Text="Head to the player page to set up your stats."/>
 
-        <TextBlock Foreground="Black"
-                   VerticalAlignment="Bottom"
+        <TextBlock VerticalAlignment="Bottom"
                    Grid.Row="3"
                    FontSize="20"
                    TextAlignment="Right"

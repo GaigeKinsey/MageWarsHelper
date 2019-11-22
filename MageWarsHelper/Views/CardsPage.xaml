@@ -7,8 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:mwuc="using:MageWarsHelper.UserControls"
     mc:Ignorable="d"
-    RequestedTheme="Light"
-    Background="Azure">
+    RequestedTheme="Dark"
+    Background="{StaticResource smokey}">
 
     <Grid>
         <Grid.RowDefinitions>
