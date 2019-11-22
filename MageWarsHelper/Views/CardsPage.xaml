@@ -68,6 +68,7 @@
         <ListView x:Name="cardListView"
                   SelectionMode="Single"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  SelectionChanged="cardListView_SelectionChanged"
                   Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
