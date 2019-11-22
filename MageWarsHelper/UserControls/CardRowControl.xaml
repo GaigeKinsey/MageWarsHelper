@@ -9,7 +9,7 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400"
-    MinWidth="1500">
+    Width="1500">
 
     <UserControl.Resources>
         <mwvc:SubtypesToStringConverter x:Key="SubtypeToString"/>

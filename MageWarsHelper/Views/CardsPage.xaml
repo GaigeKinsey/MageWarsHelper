@@ -11,14 +11,157 @@
     Background="Azure">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="8*"/>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Text="Card Name"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="30"
+                       Grid.Column="0"/>
+            <TextBlock Text="Type"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="30"
+                       Grid.Column="1"/>
+            <TextBlock Text="Subtype(s)"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="30" 
+                       Grid.Column="2"/>
+            <TextBlock Text="School(s)"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="30"
+                       Grid.Column="3"/>
+            <TextBlock Text="Level(s)"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="30"
+                       Grid.Column="4"/>
+            <TextBlock Text="Cost"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="30"
+                       Grid.Column="5"/>
+            <TextBlock Text="Reveal"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontSize="30"
+                       Grid.Column="6"/>
+        </Grid>
+
         <ListView x:Name="cardListView"
                   SelectionMode="Single"
-                  ScrollViewer.VerticalScrollBarVisibility="Auto">
+                  ScrollViewer.VerticalScrollBarVisibility="Auto"
+                  Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <mwuc:CardRowControl/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBox PlaceholderText="Search name"
+                     Width="150"
+                     Height="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="15"
+                     Grid.Column="0"/>
+            
+            <ComboBox Width="150"
+                      Height="40"
+                      PlaceholderText="All"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      FontSize="15"
+                      Grid.Column="1">
+
+                <x:String>Conjuration</x:String>
+                <x:String>Incantation</x:String>
+                <x:String>Creature</x:String>
+                <x:String>Attack</x:String>
+                <x:String>Enchantment</x:String>
+                <x:String>Creature</x:String>
+            </ComboBox>
+
+            <TextBox PlaceholderText="Search subtype(s)"
+                     Width="150"
+                     Height="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="15"
+                     Grid.Column="2"/>
+
+            <ComboBox Width="150"
+                      Height="40"
+                      PlaceholderText="All"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      FontSize="15"
+                      Grid.Column="3">
+
+                <x:String>Air</x:String>
+                <x:String>Water</x:String>
+                <x:String>Earth</x:String>
+                <x:String>Fire</x:String>
+                <x:String>Holy</x:String>
+                <x:String>Dark</x:String>
+                <x:String>Nature</x:String>
+                <x:String>Arcane</x:String>
+                <x:String>War</x:String>
+                <x:String>Mind</x:String>
+            </ComboBox>
+
+            <TextBox PlaceholderText="Search level(s)"
+                     Width="150"
+                     Height="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="15"
+                     Grid.Column="4"/>
+
+            <TextBox PlaceholderText="Search cast"
+                     Width="100"
+                     Height="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="15"
+                     Grid.Column="5"/>
+
+            <TextBox PlaceholderText="Search reveal"
+                     Width="100"
+                     Height="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="15"
+                     Grid.Column="6"/>
+        </Grid>
     </Grid>
 </Page>
