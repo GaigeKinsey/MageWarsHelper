@@ -46,6 +46,8 @@ namespace MageWarsHelper.Views
             BindPropDisplays();
 
             SpellBookGrid.ItemsSource = player.Spellbook;
+            PreparedGrid.ItemsSource = player.Prepared;
+            DiscardGrid.ItemsSource = player.Discard;
             PlayerName.Text = player.Name;
 
         }
@@ -165,6 +167,25 @@ namespace MageWarsHelper.Views
 
             }
             
+        }
+
+        private void PreparedCardButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            MWCard card = (MWCard)((CardButton)sender).DataContext;
+            player.Discard.Add(card);
+            player.Prepared.Remove(card);
+        }
+        private void SpellbookCardButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            MWCard card = (MWCard)((CardButton)sender).DataContext;
+            player.Prepared.Add(card);
+            player.Spellbook.Remove(card);
+        }
+        private void DiscardCardButton_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            MWCard card = (MWCard)((CardButton)sender).DataContext;
+            player.Prepared.Add(card);
+            player.Discard.Remove(card);
         }
     }
 }

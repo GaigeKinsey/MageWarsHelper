@@ -158,6 +158,41 @@
                     Margin="10"
                     Click="AddCardButton_Click"/>
 
+            <GridView x:Name="PreparedGrid"
+                      Height="600"
+                      Header="Prepared"
+                      FontSize="36"
+                      Margin="10 10 50 10">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <uc:CardButton Tapped="PreparedCardButton_Tapped"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                
+                <GridView.ItemContainerStyle>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="GridViewItem">
+                                    <ListViewItemPresenter
+                                            SelectedBackground="Transparent"
+                                            SelectedPointerOverBackground="Transparent"
+                                            PressedBackground="Transparent"
+                                            SelectedPressedBackground="Transparent"
+                                            />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </GridView.ItemContainerStyle>
+                
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+
+            </GridView>
             <GridView x:Name="SpellBookGrid"
                       Height="650"
                       Header="SpellBook"
@@ -165,7 +200,42 @@
                       Margin="10 10 50 10">
                 <GridView.ItemTemplate>
                     <DataTemplate>
-                        <uc:CardButton/>
+                        <uc:CardButton Tapped="SpellbookCardButton_Tapped"/>
+                    </DataTemplate>
+                </GridView.ItemTemplate>
+                
+                <GridView.ItemContainerStyle>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="GridViewItem">
+                                    <ListViewItemPresenter
+                                            SelectedBackground="Transparent"
+                                            SelectedPointerOverBackground="Transparent"
+                                            PressedBackground="Transparent"
+                                            SelectedPressedBackground="Transparent"
+                                            />
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </GridView.ItemContainerStyle>
+                
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+
+            </GridView>
+            <GridView x:Name="DiscardGrid"
+                      Height="650"
+                      Header="Discard"
+                      FontSize="36"
+                      Margin="10 10 50 10">
+                <GridView.ItemTemplate>
+                    <DataTemplate>
+                        <uc:CardButton Tapped="DiscardCardButton_Tapped"/>
                     </DataTemplate>
                 </GridView.ItemTemplate>
                 
