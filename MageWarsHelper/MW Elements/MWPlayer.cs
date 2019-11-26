@@ -9,13 +9,14 @@ namespace MageWarsHelper
 {
     public class MWPlayer
     {
-        private ObservableCollection<MWCard> cards = new ObservableCollection<MWCard>();
+        private ObservableCollection<MWCard> spellbook = new ObservableCollection<MWCard>();
 
-        public ObservableCollection<MWCard> Cards
+        public ObservableCollection<MWCard> Spellbook
         {
-            get { return cards; }
-            set { cards = value; }
+            get { return spellbook; }
+            set { spellbook = value; }
         }
+
 
 
         public MWMage Mage { get; set; }

@@ -67,7 +67,7 @@ namespace MageWarsHelper.Views
 
         private void Button_RightTapped(object sender, RightTappedRoutedEventArgs e)
         {
-            player.Cards.Add(CardDatabase.Instance.Cards.ElementAt(cardListView.SelectedIndex));
+            player.Spellbook.Add(CardDatabase.Instance.Cards.ElementAt(cardListView.SelectedIndex));
         }
 
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
