@@ -88,7 +88,9 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <TextBox PlaceholderText="Search name"
+            <TextBox x:Name="nameSearch"
+                     TextChanged="TextChanged"
+                     PlaceholderText="Search name"
                      Width="150"
                      Height="40"
                      HorizontalAlignment="Center"
@@ -96,7 +98,9 @@
                      FontSize="15"
                      Grid.Column="0"/>
             
-            <ComboBox Width="150"
+            <ComboBox x:Name="typeSearch"
+                      SelectionChanged="SelectionChanged"
+                      Width="150"
                       Height="40"
                       PlaceholderText="All"
                       HorizontalAlignment="Center"
@@ -112,7 +116,9 @@
                 <x:String>Creature</x:String>
             </ComboBox>
 
-            <TextBox PlaceholderText="Search subtype(s)"
+            <TextBox x:Name="subtypeSearch"
+                     TextChanged="TextChanged"
+                     PlaceholderText="Search subtype(s)"
                      Width="150"
                      Height="40"
                      HorizontalAlignment="Center"
@@ -120,7 +126,9 @@
                      FontSize="15"
                      Grid.Column="2"/>
 
-            <ComboBox Width="150"
+            <ComboBox x:Name="schoolSearch"
+                      SelectionChanged="SelectionChanged"
+                      Width="150"
                       Height="40"
                       PlaceholderText="All"
                       HorizontalAlignment="Center"
@@ -140,7 +148,9 @@
                 <x:String>Mind</x:String>
             </ComboBox>
 
-            <TextBox PlaceholderText="Search level(s)"
+            <TextBox x:Name="levelSearch"
+                     TextChanged="TextChanged"
+                     PlaceholderText="Search level(s)"
                      Width="150"
                      Height="40"
                      HorizontalAlignment="Center"
@@ -148,7 +158,9 @@
                      FontSize="15"
                      Grid.Column="4"/>
 
-            <TextBox PlaceholderText="Search cast"
+            <TextBox x:Name="costSearch"
+                     TextChanged="TextChanged"
+                     PlaceholderText="Search cast"
                      Width="100"
                      Height="40"
                      HorizontalAlignment="Center"
@@ -156,7 +168,9 @@
                      FontSize="15"
                      Grid.Column="5"/>
 
-            <TextBox PlaceholderText="Search reveal"
+            <TextBox x:Name="revealSearch"
+                     TextChanged="TextChanged"
+                     PlaceholderText="Search reveal"
                      Width="100"
                      Height="40"
                      HorizontalAlignment="Center"

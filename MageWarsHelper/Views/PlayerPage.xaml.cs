@@ -45,7 +45,7 @@ namespace MageWarsHelper.Views
 
             BindPropDisplays();
 
-            SpellBookGrid.ItemsSource = player.Cards;
+            CardsGrid.ItemsSource = player.Spellbook;
             PlayerName.Text = player.Name;
 
         }
@@ -110,7 +110,7 @@ namespace MageWarsHelper.Views
             if(c != null)
             {
                 c.SerialNumber = CardID.Text;
-                player.Cards.Add(c);
+                player.Spellbook.Add(c);
             }
 
         }
