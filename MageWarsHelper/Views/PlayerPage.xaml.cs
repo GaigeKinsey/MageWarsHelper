@@ -45,7 +45,7 @@ namespace MageWarsHelper.Views
 
             BindPropDisplays();
 
-            CardsGrid.ItemsSource = player.Spellbook;
+            SpellBookGrid.ItemsSource = player.Spellbook;
             PlayerName.Text = player.Name;
 
         }
