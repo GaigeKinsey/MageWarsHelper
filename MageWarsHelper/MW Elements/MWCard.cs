@@ -211,6 +211,7 @@ namespace MageWarsHelper
         private bool manax;
         private Dictionary<SpellSchool, int> levels = new Dictionary<SpellSchool, int>();
         private List<Subtype> subtypes = new List<Subtype>();
+        private List<MWAttackAction> attacks = new List<MWAttackAction>();
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -517,11 +518,53 @@ namespace MageWarsHelper
         {
             get
             {
-                return subtypes;
+                List<Subtype> subs = new List<Subtype>();
+                foreach (Subtype sub in subtypes)
+                {
+                    subs.Add(sub);
+                }
+                return subs;
             }
             set
             {
-                subtypes = value;
+                subtypes.Clear();
+                if (value != null)
+                {
+                    foreach (Subtype sub in value)
+                    {
+                        subtypes.Add(sub);
+                    }
+                }
+                FieldChanged();
+            }
+        }
+        /// <summary>
+        /// A list of all the different attacks this spell has. It can be empty.
+        /// If a creature has an attack, it can use it during its turn.
+        /// If an equipment has an attack, the equipped Mage can use it.
+        /// Some attacks will be produced by Attack spells and other card effects.
+        /// </summary>
+        public List<MWAttackAction> Attacks
+        {
+            get
+            {
+                List<MWAttackAction> atks = new List<MWAttackAction>();
+                foreach (MWAttackAction atk in attacks)
+                {
+                    atks.Add(atk);
+                }
+                return atks;
+            }
+            set
+            {
+                attacks.Clear();
+                if (value != null)
+                {
+                    foreach (MWAttackAction atk in value)
+                    {
+                        attacks.Add(atk);
+                    }
+                }
                 FieldChanged();
             }
         }
