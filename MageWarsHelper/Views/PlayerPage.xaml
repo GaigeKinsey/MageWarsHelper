@@ -34,7 +34,7 @@
                             CornerRadius="10"
                             Margin="10"
                             Padding="15,5"
-                            Height="605"
+                            Height="auto"
                             Width="auto">
 
                     <TextBox x:Name="PlayerName"
@@ -46,6 +46,25 @@
                              TextChanged="PlayerName_TextChanged"/>
 
                     <uc:CardButton x:Name="MageCard"/>
+                    
+                    <ComboBox x:Name="mageComboBox" Width="350"
+                              Header="Mage" 
+                              FontSize="24"
+                              PlaceholderText="Pick a Mage"
+                              SelectionChanged="mageComboBox_SelectionChanged">
+                        <x:String>Beastmaster Straywood</x:String>
+                        <x:String>Beastmaster Johktari</x:String>
+                        <x:String>Druid</x:String>
+                        <x:String>Warlock Arraxian</x:String>
+                        <x:String>Warlock Adramelech</x:String>
+                        <x:String>Priestess Westlock</x:String>
+                        <x:String>Priest Malakai</x:String>
+                        <x:String>Wizard</x:String>
+                        <x:String>Forcemaster</x:String>
+                        <x:String>Warlord Bloodwave</x:String>
+                        <x:String>Warlord Anvil</x:String>
+                        <x:String>Necromancer</x:String>
+                    </ComboBox>
 
                 </StackPanel>
 

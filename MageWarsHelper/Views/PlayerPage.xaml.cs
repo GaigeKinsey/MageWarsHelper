@@ -120,5 +120,50 @@ namespace MageWarsHelper.Views
             player.Name = PlayerName.Text;
 
         }
+
+        private void mageComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            string mageName = e.AddedItems[0].ToString();
+            switch (mageName)
+            {
+                case "Beastmaster Straywood":
+                    player.Mage.Type = MWMage.MageType.BEASTMASTER_STRAYWOOD;
+                    break;
+                case "Beastmaster Johktari":
+                    player.Mage.Type = MWMage.MageType.BEASTMASTER_JOHKTARI;
+                    break;
+                case "Druid":
+                    player.Mage.Type = MWMage.MageType.DRUID;
+                    break;
+                case "Warlock Arraxian":
+                    player.Mage.Type = MWMage.MageType.WARLOCK_ARRAXIAN;
+                    break;
+                case "Warlock Adramelech":
+                    player.Mage.Type = MWMage.MageType.WARLOCK_ADRAMELECH;
+                    break;
+                case "Priestess Westlock":
+                    player.Mage.Type = MWMage.MageType.PRIESTESS_WESTLOCK;
+                    break;
+                case "Priest Malakai":
+                    player.Mage.Type = MWMage.MageType.PRIEST_MALAKAI;
+                    break;
+                case "Wizard":
+                    player.Mage.Type = MWMage.MageType.WIZARD;
+                    break;
+                case "Forcemaster":
+                    player.Mage.Type = MWMage.MageType.FORCEMASTER;
+                    break;
+                case "Warlord Bloodwave":
+                    player.Mage.Type = MWMage.MageType.WARLORD_BLOODWAVE;
+                    break;
+                case "Warlord Anvil":
+                    player.Mage.Type = MWMage.MageType.WARLORD_ANVIL;
+                    break;
+                case "Necromancer":
+                    player.Mage.Type = MWMage.MageType.NECROMANCER;
+                    break;
+            }
+            
+        }
     }
 }

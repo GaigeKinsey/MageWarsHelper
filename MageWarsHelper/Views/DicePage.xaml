@@ -10,13 +10,13 @@
     Background="{StaticResource smokey}">
 
     <StackPanel x:Name="mainStack"
-                Orientation="Vertical"
+                Orientation="Horizontal"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">
         
-        <StackPanel x:Name="controlStack"
-                    VerticalAlignment="Center"
-                    Orientation="Horizontal"
+        <StackPanel x:Name="damageRollerStack"
+                    VerticalAlignment="Top"
+                    Orientation="Vertical"
                     Margin="10">
 
             <StackPanel x:Name="damgeDiceStack"
@@ -41,34 +41,6 @@
                           HorizontalAlignment="Left"
                           BeforeTextChanging="TextBoxNumber_BeforeTextChanging"/>
             </StackPanel>
-            <StackPanel Margin="10"
-                        Background="{StaticResource redScratch}"
-                        CornerRadius="30"
-                        BorderBrush="Black"
-                        BorderThickness="5"
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
-                        Height="auto">
-                
-                <CheckBox x:Name="effectDieCheck"
-                            Content="Effect Dice"
-                            FontSize="24"
-                            VerticalAlignment="Top"
-                            Margin="20"/>
-            </StackPanel>
-            
-            <Button x:Name="rollButton"
-                    Content="ROLL"
-                    FontSize="36"
-                    FontWeight="Bold"
-                    Width="125"
-                    Height="100" Click="rollButton_Click"/>
-
-        </StackPanel>
-
-        <StackPanel x:Name="resultStack"
-                    Orientation="Horizontal">
-            
             <StackPanel x:Name="critStack"
                         Orientation="Vertical"
                         Margin="10"
@@ -77,16 +49,16 @@
                         CornerRadius="30"
                         BorderBrush="Black"
                         BorderThickness="5">
-            
+
                 <TextBlock x:Name="CritDamage"
                            FontSize="36"
                            Text="Crit Damage:"/>
-                
+
                 <TextBlock x:Name="CritDamageNum"
                            FontSize="36"
                            TextAlignment="Center"/>
             </StackPanel>
-            
+
             <StackPanel x:Name="normalStack"
                         Orientation="Vertical"
                         Margin="10"
@@ -95,16 +67,43 @@
                         CornerRadius="30"
                         BorderBrush="Black"
                         BorderThickness="5">
-            
+
                 <TextBlock x:Name="normalDamage"
                            FontSize="36"
                            Text="Normal Damage:"/>
-                
+
                 <TextBlock x:Name="NormalDamageNum"
                            FontSize="36"
                            TextAlignment="Center"/>
             </StackPanel>
             
+
+        </StackPanel>
+
+        <StackPanel x:Name="effectRollStack"
+                    Orientation="Vertical"
+                    Margin="10"
+                    VerticalAlignment="Top">
+
+            <StackPanel Margin="10"
+                        Background="{StaticResource redScratch}"
+                        CornerRadius="30"
+                        BorderBrush="Black"
+                        BorderThickness="5"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Height="150"
+                        Width="300">
+
+                <CheckBox x:Name="effectDieCheck"
+                          Content="Effect Dice"
+                          FontSize="24"
+                          Margin="20"
+                          VerticalAlignment="Center"
+                          HorizontalAlignment="Center"/>
+            </StackPanel>
+
+
             <StackPanel x:Name="effectResultStack"
                         Orientation="Vertical"
                         Margin="10"
@@ -123,8 +122,19 @@
                            TextAlignment="Center"/>
             </StackPanel>
             
+            
         </StackPanel>
-        
+
+        <Button x:Name="rollButton"
+                Content="ROLL"
+                FontSize="36"
+                FontWeight="Bold"
+                Width="125"
+                Margin="20"
+                CornerRadius="10"
+                Height="100" Click="rollButton_Click"/>
+
+
 
     </StackPanel>
 </Page>
