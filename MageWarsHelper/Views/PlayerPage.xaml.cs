@@ -45,7 +45,7 @@ namespace MageWarsHelper.Views
 
             BindPropDisplays();
 
-            CardsGrid.ItemsSource = player.Cards;
+            SpellBookGrid.ItemsSource = player.Cards;
             PlayerName.Text = player.Name;
 
         }
@@ -162,6 +162,7 @@ namespace MageWarsHelper.Views
                 case "Necromancer":
                     player.Mage.Type = MWMage.MageType.NECROMANCER;
                     break;
+
             }
             
         }

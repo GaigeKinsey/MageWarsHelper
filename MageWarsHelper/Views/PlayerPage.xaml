@@ -158,8 +158,11 @@
                     Margin="10"
                     Click="AddCardButton_Click"/>
 
-            <GridView x:Name="CardsGrid"
-                      Height="650">
+            <GridView x:Name="SpellBookGrid"
+                      Height="650"
+                      Header="SpellBook"
+                      FontSize="36"
+                      Margin="10 10 50 10">
                 <GridView.ItemTemplate>
                     <DataTemplate>
                         <uc:CardButton/>
