@@ -195,7 +195,6 @@
     <Content Include="Images\ScratchedRed.jpg" />
     <Content Include="Images\ScratchedRedPageBackground.jpg" />
     <Content Include="Images\smokeyGreyImg.jpg" />
-    <Content Include="Images\textures game of thrones red background house lannister 2048x1108 wallpaper_www.wallpapername.com_45.jpg" />
     <Content Include="Properties\Default.rd.xml" />
   </ItemGroup>
   <ItemGroup>
