@@ -28,6 +28,7 @@ namespace MageWarsHelper.Views
         private MWPlayer player;
         private Popup cardPopup = new Popup();
         private List<MWCard> cardDatabase = CardDatabase.Instance.Cards;
+        private List<MWCard> displayedCards;
 
         public CardsPage()
         {
@@ -54,7 +55,7 @@ namespace MageWarsHelper.Views
             string cost = costSearch.Text;
             string reveal = revealSearch.Text;
 
-            List<MWCard> displayedCards = cardDatabase;
+            displayedCards = cardDatabase;
 
             if (name != "")
             {
@@ -77,7 +78,7 @@ namespace MageWarsHelper.Views
 
         private void cardListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MWCard card = CardDatabase.Instance.Cards.ElementAt(cardListView.SelectedIndex);
+            MWCard card = displayedCards.ElementAt(cardListView.SelectedIndex);
 
             DisplayImage(card);
         }
