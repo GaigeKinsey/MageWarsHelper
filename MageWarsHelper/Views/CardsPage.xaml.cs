@@ -27,12 +27,46 @@ namespace MageWarsHelper.Views
     {
         private MWPlayer player;
         private Popup cardPopup = new Popup();
+        private List<MWCard> cardDatabase = CardDatabase.Instance.Cards;
+        private List<MWCard> displayedCards;
 
         public CardsPage()
         {
             this.InitializeComponent();
 
-            cardListView.ItemsSource = CardDatabase.Instance.Cards;
+            Search();
+        }
+
+        private void Search()
+        {
+            string name = nameSearch.Text;
+            string type = "";
+            if (typeSearch.SelectedItem != null)
+            {
+                type = typeSearch.SelectedItem.ToString();
+            }
+            string subtype = subtypeSearch.Text;
+            string school = "";
+            if (schoolSearch.SelectedItem != null)
+            {
+                school = schoolSearch.SelectedItem.ToString();
+            }
+            string level = levelSearch.Text;
+            string cost = costSearch.Text;
+            string reveal = revealSearch.Text;
+
+            displayedCards = cardDatabase;
+
+            if (name != "")
+            {
+                displayedCards = (displayedCards.Where(c => c.Name.ToUpper().Contains(name.ToUpper())).ToList());
+            }
+            if (type != "")
+            {
+                displayedCards = (displayedCards.Where(c => c.CardType.ToUpper().Contains(type.ToUpper())).ToList());
+            }
+
+            cardListView.ItemsSource = displayedCards;
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -44,7 +78,7 @@ namespace MageWarsHelper.Views
 
         private void cardListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MWCard card = CardDatabase.Instance.Cards.ElementAt(cardListView.SelectedIndex);
+            MWCard card = displayedCards.ElementAt(cardListView.SelectedIndex);
 
             DisplayImage(card);
         }
@@ -75,5 +109,14 @@ namespace MageWarsHelper.Views
             cardPopup.IsOpen = false;
         }
 
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Search();
+        }
+
+        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Search();
+        }
     }
 }
