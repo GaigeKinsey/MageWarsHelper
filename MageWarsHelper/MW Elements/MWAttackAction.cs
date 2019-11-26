@@ -102,7 +102,7 @@ namespace MageWarsHelper
             }
         }
         /// <summary>
-        /// The maximum range to cast this spell. Can only go as low as 0, which refers 
+        /// The maximum range of this attack. Can only go as low as 0, which refers 
         /// to the zone that the attacking card is in. MinRange will always be less
         /// than or equal to this. Only ranged attacks can have a MaxRange above 0.
         /// </summary>
