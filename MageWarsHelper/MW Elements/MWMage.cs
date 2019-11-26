@@ -307,6 +307,10 @@ namespace MageWarsHelper
                 }
                 type = value;
                 FieldChanged();
+                FieldChanged("Channeling");
+                FieldChanged("Mana");
+                FieldChanged("Life");
+                FieldChanged("Armor");
             }
         }
     }
