@@ -95,7 +95,7 @@
                      Height="40"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
-                     FontSize="15"
+                     FontSize="14"
                      Grid.Column="0"/>
             
             <ComboBox x:Name="typeSearch"
@@ -105,7 +105,7 @@
                       PlaceholderText="All"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"
-                      FontSize="15"
+                      FontSize="14"
                       Grid.Column="1">
 
                 <x:String>Conjuration</x:String>
@@ -123,7 +123,7 @@
                      Height="40"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
-                     FontSize="15"
+                     FontSize="14"
                      Grid.Column="2"/>
 
             <ComboBox x:Name="schoolSearch"
@@ -133,7 +133,7 @@
                       PlaceholderText="All"
                       HorizontalAlignment="Center"
                       VerticalAlignment="Center"
-                      FontSize="15"
+                      FontSize="14"
                       Grid.Column="3">
 
                 <x:String>Air</x:String>
@@ -155,17 +155,17 @@
                      Height="40"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
-                     FontSize="15"
+                     FontSize="14"
                      Grid.Column="4"/>
 
             <TextBox x:Name="costSearch"
                      TextChanged="TextChanged"
-                     PlaceholderText="Search cast"
+                     PlaceholderText="Search cost"
                      Width="100"
                      Height="40"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
-                     FontSize="15"
+                     FontSize="14"
                      Grid.Column="5"/>
 
             <TextBox x:Name="revealSearch"
@@ -175,7 +175,7 @@
                      Height="40"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
-                     FontSize="15"
+                     FontSize="14"
                      Grid.Column="6"/>
         </Grid>
     </Grid>

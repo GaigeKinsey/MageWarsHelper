@@ -59,11 +59,46 @@ namespace MageWarsHelper.Views
 
             if (name != "")
             {
-                displayedCards = (displayedCards.Where(c => c.Name.ToUpper().Contains(name.ToUpper())).ToList());
+                displayedCards = displayedCards.Where(c => c.Name.ToUpper().Contains(name.ToUpper())).ToList();
             }
             if (type != "")
             {
-                displayedCards = (displayedCards.Where(c => c.CardType.ToUpper().Contains(type.ToUpper())).ToList());
+                displayedCards = displayedCards.Where(c => c.CardType.ToUpper().Contains(type.ToUpper())).ToList();
+            }
+            if (subtype != "")
+            {
+                displayedCards = displayedCards.Where(c => c.Subtypes.Where(s => s.ToString().ToUpper().Contains(subtype.ToUpper())).ToList().Count() > 0).ToList();
+            }
+            if (school != "")
+            {
+                displayedCards = displayedCards.Where(c => c.Schools.ToUpper().Contains(school.ToUpper())).ToList();
+            }
+            if (level != "")
+            {
+                displayedCards = displayedCards.Where(c => c.Levels.ToUpper().Contains(level.ToUpper())).ToList();
+            }
+            if (cost != "")
+            {
+                displayedCards = displayedCards.Where(c => c.ManaCostString.ToUpper().Contains(cost.ToUpper())).ToList();
+            }
+            if (reveal != "")
+            {
+                List<MWEnchantment> enchantments = new List<MWEnchantment>();
+                foreach (MWCard card in displayedCards)
+                {
+                    if (card.GetType() == typeof(MWEnchantment))
+                    {
+                        enchantments.Add((MWEnchantment)card);
+                    }
+                }
+
+                enchantments = enchantments.Where(c => c.RevealCostString.ToUpper().Contains(reveal.ToUpper())).ToList();
+
+                displayedCards.Clear();
+                foreach (MWCard card in enchantments)
+                {
+                    displayedCards.Add(card);
+                }
             }
 
             cardListView.ItemsSource = displayedCards;
