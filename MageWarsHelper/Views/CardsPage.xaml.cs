@@ -81,6 +81,7 @@ namespace MageWarsHelper.Views
             {
                 displayedCards = displayedCards.Where(c => c.ManaCostString.ToUpper().Contains(cost.ToUpper())).ToList();
             }
+
             if (reveal != "")
             {
                 List<MWEnchantment> enchantments = new List<MWEnchantment>();
@@ -94,14 +95,12 @@ namespace MageWarsHelper.Views
 
                 enchantments = enchantments.Where(c => c.RevealCostString.ToUpper().Contains(reveal.ToUpper())).ToList();
 
-                displayedCards.Clear();
-                foreach (MWCard card in enchantments)
-                {
-                    displayedCards.Add(card);
-                }
+                cardListView.ItemsSource = enchantments;
             }
-
-            cardListView.ItemsSource = displayedCards;
+            else
+            {
+                cardListView.ItemsSource = displayedCards;
+            }
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -113,9 +112,12 @@ namespace MageWarsHelper.Views
 
         private void cardListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            MWCard card = displayedCards.ElementAt(cardListView.SelectedIndex);
-
-            DisplayImage(card);
+            MWCard card = null;
+            if (cardListView.SelectedIndex >= 0)
+            {
+                card = displayedCards.ElementAt(cardListView.SelectedIndex);
+                DisplayImage(card);
+            }
         }
 
         private void DisplayImage(MWCard card)
