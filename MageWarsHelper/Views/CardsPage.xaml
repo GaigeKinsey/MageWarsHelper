@@ -29,37 +29,37 @@
             </Grid.ColumnDefinitions>
 
             <TextBlock Text="Card Name"
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="30"
                        Grid.Column="0"/>
             <TextBlock Text="Type"
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="30"
                        Grid.Column="1"/>
             <TextBlock Text="Subtype(s)"
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="30" 
                        Grid.Column="2"/>
             <TextBlock Text="School(s)"
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="30"
                        Grid.Column="3"/>
             <TextBlock Text="Level(s)"
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="30"
                        Grid.Column="4"/>
             <TextBlock Text="Cost"
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="30"
                        Grid.Column="5"/>
             <TextBlock Text="Reveal"
-                       HorizontalAlignment="Center"
+                       HorizontalAlignment="Left"
                        VerticalAlignment="Center"
                        FontSize="30"
                        Grid.Column="6"/>
@@ -93,9 +93,9 @@
                      PlaceholderText="Search name"
                      Width="150"
                      Height="40"
-                     HorizontalAlignment="Center"
+                     HorizontalAlignment="Left"
                      VerticalAlignment="Center"
-                     FontSize="14"
+                     FontSize="13"
                      Grid.Column="0"/>
             
             <ComboBox x:Name="typeSearch"
@@ -103,9 +103,9 @@
                       Width="150"
                       Height="40"
                       PlaceholderText="All"
-                      HorizontalAlignment="Center"
+                      HorizontalAlignment="Left"
                       VerticalAlignment="Center"
-                      FontSize="14"
+                      FontSize="13"
                       Grid.Column="1">
 
                 <x:String>Conjuration</x:String>
@@ -114,6 +114,7 @@
                 <x:String>Attack</x:String>
                 <x:String>Enchantment</x:String>
                 <x:String>Creature</x:String>
+                <x:String>All</x:String>
             </ComboBox>
 
             <TextBox x:Name="subtypeSearch"
@@ -121,9 +122,9 @@
                      PlaceholderText="Search subtype(s)"
                      Width="150"
                      Height="40"
-                     HorizontalAlignment="Center"
+                     HorizontalAlignment="Left"
                      VerticalAlignment="Center"
-                     FontSize="14"
+                     FontSize="13"
                      Grid.Column="2"/>
 
             <ComboBox x:Name="schoolSearch"
@@ -131,9 +132,9 @@
                       Width="150"
                       Height="40"
                       PlaceholderText="All"
-                      HorizontalAlignment="Center"
+                      HorizontalAlignment="Left"
                       VerticalAlignment="Center"
-                      FontSize="14"
+                      FontSize="13"
                       Grid.Column="3">
 
                 <x:String>Air</x:String>
@@ -146,6 +147,7 @@
                 <x:String>Arcane</x:String>
                 <x:String>War</x:String>
                 <x:String>Mind</x:String>
+                <x:String>All</x:String>
             </ComboBox>
 
             <TextBox x:Name="levelSearch"
@@ -153,9 +155,9 @@
                      PlaceholderText="Search level(s)"
                      Width="150"
                      Height="40"
-                     HorizontalAlignment="Center"
+                     HorizontalAlignment="Left"
                      VerticalAlignment="Center"
-                     FontSize="14"
+                     FontSize="13"
                      Grid.Column="4"/>
 
             <TextBox x:Name="costSearch"
@@ -163,9 +165,9 @@
                      PlaceholderText="Search cost"
                      Width="100"
                      Height="40"
-                     HorizontalAlignment="Center"
+                     HorizontalAlignment="Left"
                      VerticalAlignment="Center"
-                     FontSize="14"
+                     FontSize="13"
                      Grid.Column="5"/>
 
             <TextBox x:Name="revealSearch"
@@ -173,9 +175,9 @@
                      PlaceholderText="Search reveal"
                      Width="100"
                      Height="40"
-                     HorizontalAlignment="Center"
+                     HorizontalAlignment="Left"
                      VerticalAlignment="Center"
-                     FontSize="14"
+                     FontSize="13"
                      Grid.Column="6"/>
         </Grid>
     </Grid>

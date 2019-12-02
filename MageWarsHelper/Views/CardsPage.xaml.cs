@@ -69,7 +69,7 @@ namespace MageWarsHelper.Views
             {
                 displayedCards = displayedCards.Where(c => c.Name.ToUpper().Contains(name.ToUpper())).ToList();
             }
-            if (type != "")
+            if (type != "" && type != "All")
             {
                 displayedCards = displayedCards.Where(c => c.CardType.ToUpper().Contains(type.ToUpper())).ToList();
             }
@@ -77,7 +77,7 @@ namespace MageWarsHelper.Views
             {
                 displayedCards = displayedCards.Where(c => c.Subtypes.Where(s => s.ToString().ToUpper().Contains(subtype.ToUpper())).ToList().Count() > 0).ToList();
             }
-            if (school != "")
+            if (school != "" && school != "All")
             {
                 displayedCards = displayedCards.Where(c => c.Schools.ToUpper().Contains(school.ToUpper())).ToList();
             }
