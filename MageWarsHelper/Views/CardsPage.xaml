@@ -68,11 +68,13 @@
         <ListView x:Name="cardListView"
                   SelectionMode="Single"
                   ScrollViewer.VerticalScrollBarVisibility="Auto"
-                  SelectionChanged="cardListView_SelectionChanged"
                   Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <mwuc:CardRowControl Width="{Binding ElementName=cardListView, Path=ActualWidth}"/>
+                    <mwuc:CardRowControl Width="{Binding ElementName=cardListView, Path=ActualWidth}"
+                                         Height="30"
+                                         Tapped="CardRowControl_Tapped"
+                                         RightTapped="CardRowControl_RightTapped"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

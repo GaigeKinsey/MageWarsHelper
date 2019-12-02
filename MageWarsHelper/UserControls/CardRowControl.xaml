@@ -25,24 +25,31 @@
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Text="{Binding Name}"/>
+        <TextBlock Text="{Binding Name}"
+                   VerticalAlignment="Center"/>
 
         <TextBlock Text="{Binding CardType}"
+                   VerticalAlignment="Center"
                    Grid.Column="1"/>
 
         <TextBlock Text="{Binding Subtypes, Converter={StaticResource ResourceKey=SubtypeToString}}"
+                   VerticalAlignment="Center"
                    Grid.Column="2"/>
 
         <TextBlock Text="{Binding Schools}"
+                   VerticalAlignment="Center"
                    Grid.Column="3"/>
 
         <TextBlock Text="{Binding Levels}"
+                   VerticalAlignment="Center"
                    Grid.Column="4"/>
 
         <TextBlock Text="{Binding ManaCostString}"
+                   VerticalAlignment="Center"
                    Grid.Column="5"/>
 
         <TextBlock Text="{Binding RevealCostString}"
+                   VerticalAlignment="Center"
                    Grid.Column="6"/>
     </Grid>
 </UserControl>

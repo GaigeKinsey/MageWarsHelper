@@ -118,16 +118,6 @@ namespace MageWarsHelper.Views
             player = (MWPlayer)e.Parameter;
         }
 
-        private void cardListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            MWCard card = null;
-            if (cardListView.SelectedIndex >= 0)
-            {
-                card = displayedCards.ElementAt(cardListView.SelectedIndex);
-                DisplayImage(card);
-            }
-        }
-
         private void DisplayImage(MWCard card)
         {
             CardButton button = new CardButton();
@@ -138,15 +128,9 @@ namespace MageWarsHelper.Views
 
             button.SetBinding(DataContextProperty, bind);
             button.Tapped += Button_Tapped;
-            button.RightTapped += Button_RightTapped;
 
             cardPopup.Child = button;
             cardPopup.IsOpen = true;
-        }
-
-        private void Button_RightTapped(object sender, RightTappedRoutedEventArgs e)
-        {
-            player.Spellbook.Add(CardDatabase.Instance.Cards.ElementAt(cardListView.SelectedIndex));
         }
 
         private void Button_Tapped(object sender, TappedRoutedEventArgs e)
@@ -162,6 +146,21 @@ namespace MageWarsHelper.Views
         private void SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Search();
+        }
+
+        private void CardRowControl_RightTapped(object sender, RightTappedRoutedEventArgs e)
+        {
+            var element = (FrameworkElement)sender;
+            MWCard card = (MWCard)element.DataContext;
+
+            player.Spellbook.Add(card);
+        }
+
+        private void CardRowControl_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            var element = (FrameworkElement)sender;
+            MWCard card = (MWCard)element.DataContext;
+            DisplayImage(card);
         }
     }
 }
