@@ -72,7 +72,7 @@
                   Grid.Row="1">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <mwuc:CardRowControl/>
+                    <mwuc:CardRowControl Width="{Binding ElementName=cardListView, Path=ActualWidth}"/>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>

@@ -8,8 +8,7 @@
     xmlns:mwvc="using:MageWarsHelper.Converters"
     mc:Ignorable="d"
     d:DesignHeight="300"
-    d:DesignWidth="400"
-    Width="1500">
+    d:DesignWidth="400">
 
     <UserControl.Resources>
         <mwvc:SubtypesToStringConverter x:Key="SubtypeToString"/>
