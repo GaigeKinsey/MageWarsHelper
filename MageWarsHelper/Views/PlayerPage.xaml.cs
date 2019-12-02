@@ -30,6 +30,7 @@ namespace MageWarsHelper.Views
 
         private MWPlayer player = null;
         private SerialIDToImageConverter converter = SerialIDToImageConverter.Instance;
+        private List<MWCard> displayedCards;
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -186,6 +187,82 @@ namespace MageWarsHelper.Views
             MWCard card = (MWCard)((CardButton)sender).DataContext;
             player.Prepared.Add(card);
             player.Discard.Remove(card);
+        }
+
+        private void Search()
+        {
+            string name = nameSearch.Text;
+            string type = "";
+            if (typeSearch.SelectedItem != null)
+            {
+                type = typeSearch.SelectedItem.ToString();
+            }
+            string subtype = subtypeSearch.Text;
+            string school = "";
+            if (schoolSearch.SelectedItem != null)
+            {
+                school = schoolSearch.SelectedItem.ToString();
+            }
+            string level = levelSearch.Text;
+            string cost = costSearch.Text;
+            string reveal = revealSearch.Text;
+
+            displayedCards = player.Spellbook.ToList();
+
+            if (name != "")
+            {
+                displayedCards = displayedCards.Where(c => c.Name.ToUpper().Contains(name.ToUpper())).ToList();
+            }
+            if (type != "")
+            {
+                displayedCards = displayedCards.Where(c => c.CardType.ToUpper().Contains(type.ToUpper())).ToList();
+            }
+            if (subtype != "")
+            {
+                displayedCards = displayedCards.Where(c => c.Subtypes.Where(s => s.ToString().ToUpper().Contains(subtype.ToUpper())).ToList().Count() > 0).ToList();
+            }
+            if (school != "")
+            {
+                displayedCards = displayedCards.Where(c => c.Schools.ToUpper().Contains(school.ToUpper())).ToList();
+            }
+            if (level != "")
+            {
+                displayedCards = displayedCards.Where(c => c.Levels.ToUpper().Contains(level.ToUpper())).ToList();
+            }
+            if (cost != "")
+            {
+                displayedCards = displayedCards.Where(c => c.ManaCostString.ToUpper().Contains(cost.ToUpper())).ToList();
+            }
+
+            if (reveal != "")
+            {
+                List<MWEnchantment> enchantments = new List<MWEnchantment>();
+                foreach (MWCard card in displayedCards)
+                {
+                    if (card.GetType() == typeof(MWEnchantment))
+                    {
+                        enchantments.Add((MWEnchantment)card);
+                    }
+                }
+
+                enchantments = enchantments.Where(c => c.RevealCostString.ToUpper().Contains(reveal.ToUpper())).ToList();
+
+                SpellBookGrid.ItemsSource = enchantments;
+            }
+            else
+            {
+                SpellBookGrid.ItemsSource = displayedCards;
+            }
+        }
+
+        private void TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Search();
+        }
+
+        private void SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Search();
         }
     }
 }

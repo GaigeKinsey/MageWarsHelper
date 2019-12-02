@@ -228,6 +228,109 @@
                 </GridView.ItemsPanel>
 
             </GridView>
+            
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBox x:Name="nameSearch"
+                     TextChanged="TextChanged"
+                     PlaceholderText="Search name"
+                     Width="150"
+                     Height="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="14"
+                     Grid.Column="0"/>
+
+                <ComboBox x:Name="typeSearch"
+                      SelectionChanged="SelectionChanged"
+                      Width="150"
+                      Height="40"
+                      PlaceholderText="All"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      FontSize="14"
+                      Grid.Column="1">
+
+                    <x:String>Conjuration</x:String>
+                    <x:String>Incantation</x:String>
+                    <x:String>Creature</x:String>
+                    <x:String>Attack</x:String>
+                    <x:String>Enchantment</x:String>
+                    <x:String>Creature</x:String>
+                </ComboBox>
+
+                <TextBox x:Name="subtypeSearch"
+                     TextChanged="TextChanged"
+                     PlaceholderText="Search subtype(s)"
+                     Width="150"
+                     Height="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="14"
+                     Grid.Column="2"/>
+
+                <ComboBox x:Name="schoolSearch"
+                      SelectionChanged="SelectionChanged"
+                      Width="150"
+                      Height="40"
+                      PlaceholderText="All"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center"
+                      FontSize="14"
+                      Grid.Column="3">
+
+                    <x:String>Air</x:String>
+                    <x:String>Water</x:String>
+                    <x:String>Earth</x:String>
+                    <x:String>Fire</x:String>
+                    <x:String>Holy</x:String>
+                    <x:String>Dark</x:String>
+                    <x:String>Nature</x:String>
+                    <x:String>Arcane</x:String>
+                    <x:String>War</x:String>
+                    <x:String>Mind</x:String>
+                </ComboBox>
+
+                <TextBox x:Name="levelSearch"
+                     TextChanged="TextChanged"
+                     PlaceholderText="Search level(s)"
+                     Width="150"
+                     Height="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="14"
+                     Grid.Column="4"/>
+
+                <TextBox x:Name="costSearch"
+                     TextChanged="TextChanged"
+                     PlaceholderText="Search cost"
+                     Width="100"
+                     Height="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="14"
+                     Grid.Column="5"/>
+
+                <TextBox x:Name="revealSearch"
+                     TextChanged="TextChanged"
+                     PlaceholderText="Search reveal"
+                     Width="100"
+                     Height="40"
+                     HorizontalAlignment="Center"
+                     VerticalAlignment="Center"
+                     FontSize="14"
+                     Grid.Column="6"/>
+            </Grid>
+            
             <GridView x:Name="DiscardGrid"
                       Height="650"
                       Header="Discard"
