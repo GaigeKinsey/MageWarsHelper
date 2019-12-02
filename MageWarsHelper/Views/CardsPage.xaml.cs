@@ -35,6 +35,14 @@ namespace MageWarsHelper.Views
             this.InitializeComponent();
 
             Search();
+            mainGrid.SizeChanged += MainGrid_SizeChanged;
+        }
+
+        private void MainGrid_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            cardListView.ItemsSource = null;
+            //cardListView.ItemsSource = displayedCards;
+            Search();
         }
 
         private void Search()

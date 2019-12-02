@@ -10,7 +10,7 @@
     RequestedTheme="Dark"
     Background="{StaticResource smokey}">
 
-    <Grid>
+    <Grid x:Name="mainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="8*"/>
