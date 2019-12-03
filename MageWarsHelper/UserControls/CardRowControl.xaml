@@ -13,7 +13,7 @@
     <UserControl.Resources>
         <mwvc:SubtypesToStringConverter x:Key="SubtypeToString"/>
     </UserControl.Resources>
-    
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"/>
@@ -26,30 +26,37 @@
         </Grid.ColumnDefinitions>
 
         <TextBlock Text="{Binding Name}"
-                   VerticalAlignment="Center"/>
+                   FontSize="17"
+                   Height="40"/>
 
         <TextBlock Text="{Binding CardType}"
-                   VerticalAlignment="Center"
+                   FontSize="17"
+                   Height="40"
                    Grid.Column="1"/>
 
         <TextBlock Text="{Binding Subtypes, Converter={StaticResource ResourceKey=SubtypeToString}}"
-                   VerticalAlignment="Center"
+                   FontSize="17"
+                   Height="40"
                    Grid.Column="2"/>
 
         <TextBlock Text="{Binding Schools}"
-                   VerticalAlignment="Center"
+                   FontSize="17"
+                   Height="40"
                    Grid.Column="3"/>
 
         <TextBlock Text="{Binding Levels}"
-                   VerticalAlignment="Center"
+                   FontSize="17"
+                   Height="40"
                    Grid.Column="4"/>
 
         <TextBlock Text="{Binding ManaCostString}"
-                   VerticalAlignment="Center"
+                   FontSize="17"
+                   Height="40"
                    Grid.Column="5"/>
 
         <TextBlock Text="{Binding RevealCostString}"
-                   VerticalAlignment="Center"
+                   FontSize="17"
+                   Height="40"
                    Grid.Column="6"/>
     </Grid>
 </UserControl>
