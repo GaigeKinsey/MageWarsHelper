@@ -13,7 +13,7 @@
     <Grid x:Name="mainGrid">
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="8*"/>
+            <RowDefinition Height="10*"/>
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
 
@@ -72,7 +72,6 @@
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <mwuc:CardRowControl Width="{Binding ElementName=cardListView, Path=ActualWidth}"
-                                         Height="30"
                                          Tapped="CardRowControl_Tapped"
                                          RightTapped="CardRowControl_RightTapped"/>
                 </DataTemplate>
@@ -99,7 +98,7 @@
                      VerticalAlignment="Center"
                      FontSize="13"
                      Grid.Column="0"/>
-            
+
             <ComboBox x:Name="typeSearch"
                       SelectionChanged="SelectionChanged"
                       Width="150"
