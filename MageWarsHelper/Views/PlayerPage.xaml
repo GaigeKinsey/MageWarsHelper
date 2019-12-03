@@ -40,10 +40,13 @@
                     <TextBox x:Name="PlayerName"
                              Margin="10,10"
                              FontSize="24"
+                             Height="45"
+                             Width="350"
                              BorderBrush="Transparent"
                              Background="Transparent"
                              PlaceholderText="Name"
-                             TextChanged="PlayerName_TextChanged"/>
+                             TextChanged="PlayerName_TextChanged"
+                              />
 
                     <uc:CardButton x:Name="MageCard"/>
                     
