@@ -266,6 +266,8 @@
                     <x:String>Attack</x:String>
                     <x:String>Enchantment</x:String>
                     <x:String>Creature</x:String>
+                    <x:String>All</x:String>
+
                 </ComboBox>
 
                 <TextBox x:Name="subtypeSearch"
@@ -298,6 +300,8 @@
                     <x:String>Arcane</x:String>
                     <x:String>War</x:String>
                     <x:String>Mind</x:String>
+                    <x:String>All</x:String>
+
                 </ComboBox>
 
                 <TextBox x:Name="levelSearch"
