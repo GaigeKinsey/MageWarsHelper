@@ -38,6 +38,12 @@ namespace MageWarsHelper.Views
             mainGrid.SizeChanged += MainGrid_SizeChanged;
         }
 
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            base.OnNavigatingFrom(e);
+            cardPopup.IsOpen = false;
+        }
+
         private void MainGrid_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             cardListView.ItemsSource = null;
@@ -128,6 +134,10 @@ namespace MageWarsHelper.Views
 
             button.SetBinding(DataContextProperty, bind);
             button.Tapped += Button_Tapped;
+
+            //cardPopup.Margin = new Thickness(100);
+            cardPopup.VerticalOffset = (this.Frame.ActualHeight / 2) - (255);
+            cardPopup.HorizontalOffset = (this.Frame.ActualWidth / 2) - (183);
 
             cardPopup.Child = button;
             cardPopup.IsOpen = true;
